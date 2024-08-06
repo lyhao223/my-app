@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 //Components
-import FlyOutLink from "../../Animation/FlyOutLink/FlyOutLink";
+import FlyOutLink from "../../Animation/FlyOut/FlyOutLink";
 import { FaCaretDown } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaTaxi } from "react-icons/fa";
@@ -13,7 +13,11 @@ import { MdFlightTakeoff } from "react-icons/md";
 
 //Assets
 import logoBooking from "@/assets/logo/logo-light.svg";
-import FlyContent from "../../Animation/FlyOutLink/ContentFlyOutLink/FlyContent";
+import FlyContent from "../../Animation/FlyOut/ContentFlyOutLink/FlyContent";
+import RingOut from "../../Animation/RingOut/RingOut";
+import ContentInRingOut from "../../Animation/RingOut/ContentInRingOut";
+
+//list component
 const listBooking = [
   {
     id: 1,
@@ -37,17 +41,19 @@ const listBooking = [
     ),
   },
 ];
+
+//css style
+
 const Header = () => {
   return (
-    <header className="flex flex-row items-center justify-between w-full">
+    <header className="flex flex-row items-center justify-start min-w-full 2xl:space-x-36 xl:space-x-14 min-h-full">
+      {/* Logo and nav */}
       <nav className="flex flex-row items-center justify-center space-x-10">
         <Link href="/">
           <Image
             src={logoBooking}
             alt="logo"
-            width={170}
-            height={170}
-            priority={true}
+            className="max-h-full max-w-full"
           />
         </Link>
         <FlyOutLink
@@ -66,6 +72,7 @@ const Header = () => {
           <span className="text-lg subpixel-antialiased">Blog</span>
         </Link>
       </nav>
+      {/* Nav booking */}
       <nav className="flex flex-row items-center justify-center space-x-4">
         {listBooking.map((item) => (
           <Link
@@ -78,6 +85,14 @@ const Header = () => {
             </span>
           </Link>
         ))}
+      </nav>     
+      {/* Nav user */}
+      <nav className="flex flex-row items-center justify-center space-x-8">
+        <RingOut Content={ContentInRingOut}/>
+        <div className="flex flex-row items-center justify-center space-x-4">
+          <button className="text-nowrap bg-slate-500 rounded-lg p-3 hover:bg-purple-500 hover:duration-200 hover:transition-all hover:ease-in-out"><span className="text-white">Sign in</span></button>
+          <button className="text-nowrap bg-slate-500 rounded-lg p-3 hover:bg-purple-500 hover:duration-200 hover:transition-all hover:ease-in-out"><span className="text-white">Sign up</span></button>
+        </div>
       </nav>
     </header>
   );
