@@ -93,7 +93,7 @@ const Header = () => {
       <nav className="flex flex-row items-center justify-center 2xl:space-x-8 xl:space-x-8 space-x-3">
         <RingOut Content={ContentInRingOut} />
         <div className="flex flex-row items-center justify-center 2xl:space-x-4 xl:space-x-4 space-x-2">
-          <button className="text-nowrap bg-slate-500 rounded-lg 2xl:p-3 xl:p-3 lg:p-3 md:p-2  hover:bg-purple-500 hover:duration-200 hover:transition-all hover:ease-in-out">
+          <button className="text-nowrap bg-slate-500 rounded-lg 2xl:p-3 xl:p-3 lg:p-3 md:p-2 ms:p-1 ls:p-1 xs:p-[0.125rem]  hover:bg-purple-500 hover:duration-200 hover:transition-all hover:ease-in-out">
             <span className="text-white 2xl:text-base xl:text-base lg:text-base text-sm">
               Sign in
             </span>
