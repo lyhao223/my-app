@@ -15,8 +15,9 @@ const FlyOutLinkAnotherViewPort = () => {
   return (
     <button
       className="2xl:hidden xl:hidden relative flex flex-row items-center justify-center space-x-3 2xl:text-xl xl:text-xl lg:text-xl md:text-xl text-xs text-black w-full"
-      onMouseEnter={handleChangeToggleIconMenu}
-      onMouseLeave={handleCloseToggleIconMenu}>
+      onClick={() => {
+        setToggleIconMenu(!toggleIconMenu);
+      }}>
       {!toggleIconMenu ? (
         <CiMenuBurger />
       ) : (
