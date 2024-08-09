@@ -7,9 +7,8 @@ import xsimage from "@/assets/article/xsimage.jpg";
 import lgimage from "@/assets/article/lgimage.jpg";
 //icons
 import { MdHeadsetMic } from "react-icons/md";
-import { CiLocationOn } from "react-icons/ci";
-import { TextField } from "@mui/material";
-import { CiCalendar } from "react-icons/ci";
+import FormSearchHotel from "./FormSearchHotel";
+
 const ArticleHeader = () => {
   return (
     <article className="relative flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-col ls:flex-col ms:flex-col xs:flex-col flex-col items-start justify-between 2xl:space-x-36 xl:space-x-36 lg:space-x-5 md:space-y-2 md:space-x-0 ls:space-y-3 ls:space-x-0 ms:space-y-2 ms:space-x-0">
@@ -60,44 +59,12 @@ const ArticleHeader = () => {
           Guide Supports
         </span>
       </div>
-      <div className="absolute z-30 bottom-4 -left-40 flex flex-col items-start justify-start space-y-7">
-        <span className="text-xl antialiased tracking-wide font-medium">
+      <div className="absolute z-30 2xl:bottom-10 2xl:-left-40 xl:bottom-10 xl:-left-40 lg:-bottom-8 lg:-left-10 md:-bottom-20 md:left-1 flex flex-col items-start justify-start space-y-7">
+        <span className="2xl:inline-block xl:inline-block lg:inline-block hidden text-xl antialiased tracking-wide font-medium">
           Check Availability
         </span>
-        <div className="inset-1 bg-slate-100 w-[60rem] h-40 rounded-lg shadow-lg px-8 py-3">
-          <form className="flex flex-row items-center justify-center space-x-14">
-            <div className="flex flex-row items-start justify-start space-x-1">
-              <CiLocationOn className="w-14 h-14" />
-              <TextField
-                id="location"
-                name="location"
-                label="Location"
-                variant="outlined"
-              />
-            </div>
-            <div className="flex flex-row items-start justify-start space-x-1">
-              <CiCalendar className="w-14 h-14" />
-              <TextField
-                id="pickdatestart"
-                name="pickdatestart"
-                label="Pick date start"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                type="date"
-              />
-              <TextField
-                id="pickdateend"
-                name="pickdateend"
-                label="Pick date end"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                type="date"
-              />
-            </div>
-            <div></div>
-          </form>
+        <div className=" bg-slate-100 2xl:w-[70rem] 2xl:h-28 xl:w-[63rem] xl:h-28 lg:w-[58rem] lg:h-32 md:w-[42rem] md:h-80 rounded-lg shadow-lg px-6 py-8">
+          <FormSearchHotel />
         </div>
       </div>
     </article>
