@@ -63,7 +63,7 @@ const ArticleHeader = () => {
         <span className="2xl:inline-block xl:inline-block lg:inline-block hidden text-xl antialiased tracking-wide font-medium">
           Check Availability
         </span>
-        <div className=" bg-slate-100 2xl:w-[70rem] 2xl:h-28 xl:w-[63rem] xl:h-28 lg:w-[58rem] lg:h-32 md:w-[42rem] md:h-80 rounded-lg shadow-lg px-6 py-8">
+        <div className=" bg-slate-100 2xl:w-[75rem] 2xl:h-28 xl:w-[68rem] xl:h-28 lg:w-[58rem] lg:h-32 md:w-[42rem] md:h-80 rounded-lg shadow-lg p-8">
           <FormSearchHotel />
         </div>
       </div>

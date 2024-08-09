@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import { CiLocationOn, CiCalendar } from "react-icons/ci";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
-import { SlPeople } from "react-icons/sl";
+import { IoMdPeople } from "react-icons/io";
 const FormSearchHotel = () => {
   const [adult, setIAdult] = useState(1);
   const [children, setIChildren] = useState(1);
@@ -72,9 +72,11 @@ const FormSearchHotel = () => {
     }`;
   };
   return (
-    <form className="flex 2xl:flex-row 2xl:items-center 2xl:justify-center 2xl:space-x-8 2xl:space-y-0 xl:flex-row xl:items-center xl:justify-center xl:space-x-8 xl:space-y-0 lg:flex-row lg:items-center lg:justify-center lg:space-x-8 lg:space-y-0 md:flex-col md:items-start md:justify-start md:space-y-8">
+    <form className="flex 2xl:flex-row 2xl:items-start 2xl:justify-start 2xl:space-x-8 2xl:space-y-0 xl:flex-row xl:items-start xl:justify-start xl:space-x-8 xl:space-y-0 lg:flex-row lg:items-start lg:justify-start lg:space-x-8 lg:space-y-0 md:flex-col md:items-start md:justify-start md:space-y-8">
       <div className="flex flex-row items-start justify-start space-x-1">
-        <CiLocationOn className="w-14 h-14" />
+        <span>
+          <CiLocationOn className="w-14 h-14" />
+        </span>
         <TextField
           id="location"
           name="location"
@@ -84,7 +86,9 @@ const FormSearchHotel = () => {
         />
       </div>
       <div className="flex flex-row items-start justify-start space-x-1">
-        <CiCalendar className="w-14 h-14" />
+        <span>
+          <CiCalendar className="w-14 h-14" />
+        </span>
         <TextField
           id="pickdatestart"
           name="pickdatestart"
@@ -102,11 +106,17 @@ const FormSearchHotel = () => {
           InputLabelProps={{
             shrink: true,
           }}
+          inputProps={{ width: "100px" }}
           type="date"
           className="2xl:w-full xl:w-full lg:w-full md:w-72"
         />
       </div>
 
+      <div className="flex flex-row items-start justify-start space-x-1">
+        <span>
+          <IoMdPeople className="w-14 h-14" />
+        </span>
+      </div>
       <FormControl>
         <InputLabel id="guestsandroom">Guests & room</InputLabel>
         <Select
