@@ -7,6 +7,9 @@ import xsimage from "@/assets/article/xsimage.jpg";
 import lgimage from "@/assets/article/lgimage.jpg";
 //icons
 import { MdHeadsetMic } from "react-icons/md";
+import { CiLocationOn } from "react-icons/ci";
+import { TextField } from "@mui/material";
+import { CiCalendar } from "react-icons/ci";
 const ArticleHeader = () => {
   return (
     <article className="relative flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-col ls:flex-col ms:flex-col xs:flex-col flex-col items-start justify-between 2xl:space-x-36 xl:space-x-36 lg:space-x-5 md:space-y-2 md:space-x-0 ls:space-y-3 ls:space-x-0 ms:space-y-2 ms:space-x-0">
@@ -33,7 +36,7 @@ const ArticleHeader = () => {
       <Image
         src={imageArticle}
         alt="article header"
-        className="relative z-10 2xl:w-[47rem] 2xl:h-[43rem] xl:w-[47rem] xl:h-[43rem] lg:w-[33rem] lg:h-[35rem] md:w-auto md:h-auto ls:w-auto ls:h-auto ms:w-80 ms:h-80 rounded-lg"
+        className="relative z-10 2xl:w-[47rem] 2xl:h-[43rem] xl:w-[47rem] xl:h-[43rem] lg:w-[33rem] lg:h-[35rem] w-auto h-auto rounded-lg"
       />
       <Image
         src={xsimage}
@@ -56,6 +59,46 @@ const ArticleHeader = () => {
         <span className="relative 2xl:text-xl xl:text-xl lg:text-sm text-xs font-extrabold tracking-widest">
           Guide Supports
         </span>
+      </div>
+      <div className="absolute z-30 bottom-4 -left-40 flex flex-col items-start justify-start space-y-7">
+        <span className="text-xl antialiased tracking-wide font-medium">
+          Check Availability
+        </span>
+        <div className="inset-1 bg-slate-100 w-[60rem] h-40 rounded-lg shadow-lg px-8 py-3">
+          <form className="flex flex-row items-center justify-center space-x-14">
+            <div className="flex flex-row items-start justify-start space-x-1">
+              <CiLocationOn className="w-14 h-14" />
+              <TextField
+                id="location"
+                name="location"
+                label="Location"
+                variant="outlined"
+              />
+            </div>
+            <div className="flex flex-row items-start justify-start space-x-1">
+              <CiCalendar className="w-14 h-14" />
+              <TextField
+                id="pickdatestart"
+                name="pickdatestart"
+                label="Pick date start"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                type="date"
+              />
+              <TextField
+                id="pickdateend"
+                name="pickdateend"
+                label="Pick date end"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                type="date"
+              />
+            </div>
+            <div></div>
+          </form>
+        </div>
       </div>
     </article>
   );
