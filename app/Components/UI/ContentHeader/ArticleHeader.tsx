@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
@@ -8,6 +9,8 @@ import lgimage from "@/assets/article/lgimage.jpg";
 //icons
 import { MdHeadsetMic } from "react-icons/md";
 import FormSearchHotel from "./FormSearchHotel";
+import { store } from "@/app/utils/redux/store";
+import { Provider } from "react-redux";
 
 const ArticleHeader = () => {
   return (
@@ -64,7 +67,9 @@ const ArticleHeader = () => {
           Check Availability
         </span>
         <div className=" bg-slate-100 2xl:w-[75rem] 2xl:h-28 xl:w-[68rem] xl:h-28 lg:w-[58rem] lg:h-32 md:w-[42rem] md:h-80 rounded-lg shadow-lg p-8">
-          <FormSearchHotel />
+          <Provider store={store}>
+            <FormSearchHotel />
+          </Provider>
         </div>
       </div>
     </article>
