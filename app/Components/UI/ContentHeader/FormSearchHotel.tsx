@@ -131,7 +131,7 @@ const FormSearchHotel = () => {
             onChange={(e: any) => {
               setLocation(e.target.value);
             }}
-            className="2xl:w-full xl:w-full lg:w-full md:w-[34.222rem] ls:w-full"
+            className="2xl:w-full xl:w-full lg:w-32 md:w-[34.222rem] ls:w-full"
           />
         </div>
         <div className="flex flex-row items-start justify-start space-x-1">
@@ -151,7 +151,7 @@ const FormSearchHotel = () => {
               onChange={(e: any) => {
                 setCheckinDate(e.target.value);
               }}
-              className="2xl:w-full xl:w-full lg:w-full md:w-64 ls:w-full"
+              className="2xl:w-full xl:w-full lg:w-36 md:w-64 ls:w-full"
             />
             <TextField
               id="checkoutDate"
@@ -166,7 +166,7 @@ const FormSearchHotel = () => {
               onChange={(e: any) => {
                 setCheckoutDate(e.target.value);
               }}
-              className="2xl:w-full xl:w-full lg:w-full md:w-72 ls:w-full"
+              className="2xl:w-full xl:w-full lg:w-36 md:w-72 ls:w-full"
             />
           </div>
         </div>
@@ -183,7 +183,7 @@ const FormSearchHotel = () => {
               label="Guests & room"
               value={getValueGuestsAndRoooms.toString()}
               renderValue={() => getValueGuestsAndRoooms().toString()}
-              className="2xl:w-full xl:w-full lg:w-full md:w-[34.222rem] ls:w-full ms:w-full xs:w-48">
+              className="2xl:w-full xl:w-full lg:w-52 md:w-[34.222rem] ls:w-full ms:w-full xs:w-48">
               <MenuItem className="flex flex-row items-start justify-between">
                 <span>Adults</span>
                 <div className="flex flex-row items-center justify-center space-x-2">
@@ -231,13 +231,13 @@ const FormSearchHotel = () => {
         </div>
         <button
           type="submit"
-          className="absolute 2xl:bottom-6 2xl:right-32 xl:bottom-6 xl:right-32 lg:bottom-10 lg:-right-3 md:-top-5 md:-right-5 ls:-right-5 ms:top-0 ms:right-0 xs:top-0 xs:-right-3">
+          className="absolute 2xl:right-16 2xl:top-20 xl:right-10 xl:top-20 lg:-right-4 lg:top-20 md:-right-8 md:-top-5 ls:-right-5 ls:top-0 ms:-right-3 ms:top-0 xs:-right-4 xs:-top-3">
           <div className="relative rounded-full border-2 border-slate-100 group bg-purple-400 p-2 hover:bg-purple-800 hover:duration-200 hover:transition-all hover:ease-in-out">
             <IoIosSearch className="w-8 h-8 group-hover:text-slate-100" />
           </div>
         </button>
       </form>
-      {hotels.map((hotel) => {
+      {/* {hotels.map((hotel) => {
         const updatedPhotoUrl = hotel.photoUrls[0].replace(
           "square60",
           "square500"
@@ -258,7 +258,7 @@ const FormSearchHotel = () => {
             </p>
           </div>
         );
-      })}
+      })} */}
     </>
   );
 };

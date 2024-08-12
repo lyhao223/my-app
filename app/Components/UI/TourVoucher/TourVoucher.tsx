@@ -6,19 +6,23 @@ import "react-multi-carousel/lib/styles.css";
 import CardVoucher from "./CardVoucher/CardVoucher";
 import { DATA_VOUCHER } from "@/app/utils/carousel/DataVoucher";
 import Image from "next/image";
-const TourVoucher = () => {
+import { duration } from "@mui/material";
+const TourVoucher = (props: { deviceType?: string }) => {
+  const { deviceType } = props;
   return (
     <Carousel
       responsive={responsive}
       ssr={true}
       showDots={true}
       infinite={true}
-      className="p-2"
+      className="p-1"
       autoPlay
-      containerClass="py-10">
+      containerClass="py-9"
+      deviceType={deviceType}
+      removeArrowOnDeviceType={["tablet", "mobile"]}>
       {DATA_VOUCHER.map((voucher) => (
         <CardVoucher key={voucher.id}>
-          <div className="absolute grid grid-cols-4 gap-x-2">
+          <div className="absolute grid grid-cols-4 gap-x-2 grid-flow-row">
             <div className="col-span-2">
               <Image
                 src={voucher.image}
