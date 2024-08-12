@@ -30,6 +30,7 @@ const FormSearchHotel = () => {
   const dispatch = useAppDispatch();
   const hotels = useAppSelector((state) => state.searchHotel.hotels);
 
+  //increase and decrease number of adult, children, room
   const handleIncreaseAdult = (event: any) => {
     event.stopPropagation();
     if (adult >= 30) {
@@ -116,10 +117,10 @@ const FormSearchHotel = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="flex 2xl:flex-row 2xl:items-start 2xl:justify-start 2xl:space-x-8 2xl:space-y-0 xl:flex-row xl:items-start xl:justify-start xl:space-x-8 xl:space-y-0 lg:flex-row lg:items-start lg:justify-start lg:space-x-8 lg:space-y-0 md:flex-col md:items-start md:justify-start md:space-y-8">
+        className="flex 2xl:flex-row 2xl:items-start 2xl:justify-start 2xl:space-x-8 2xl:space-y-0 xl:flex-row xl:items-start xl:justify-start xl:space-x-8 xl:space-y-0 lg:flex-row lg:items-start lg:justify-start lg:space-x-8 lg:space-y-0 md:flex-col md:items-start md:justify-start md:space-y-8 ls:flex-col ls:items-start ls:justify-start ls:space-x-0 ls:space-y-4 ms:flex-col ms:items-start ms:justify-start ms:space-x-0 ms:space-y-4 xs:flex-col xs:items-start xs:justify-start xs:space-x-0 xs:space-y-4">
         <div className="flex flex-row items-start justify-start space-x-1">
           <span>
-            <CiLocationOn className="w-14 h-14" />
+            <CiLocationOn className="2xl:w-14 2xl:h-14 xl:w-14 xl:h-14 lg:w-14 lg:h-14 md:w-14 md:h-14 ls:w-14 ls:h-14 ms:w-14 ms:h-14 xs:h-10 xs:w-10" />
           </span>
           <TextField
             id="location"
@@ -130,104 +131,107 @@ const FormSearchHotel = () => {
             onChange={(e: any) => {
               setLocation(e.target.value);
             }}
-            className="2xl:w-full xl:w-full lg:w-full md:w-[36rem]"
+            className="2xl:w-full xl:w-full lg:w-full md:w-[34.222rem] ls:w-full"
           />
         </div>
         <div className="flex flex-row items-start justify-start space-x-1">
           <span>
-            <CiCalendar className="w-14 h-14" />
+            <CiCalendar className="2xl:w-14 2xl:h-14 xl:w-14 xl:h-14 lg:w-14 lg:h-14 md:w-14 md:h-14 ls:w-14 ls:h-14 ms:w-14 ms:h-14 xs:h-10 xs:w-10" />
           </span>
-          <TextField
-            id="checkinDate"
-            name="checkinDate"
-            label="Check in date"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            type="date"
-            value={checkinDate}
-            onChange={(e: any) => {
-              setCheckinDate(e.target.value);
-            }}
-            className="2xl:w-full xl:w-full lg:w-full md:w-72"
-          />
-          <TextField
-            id="checkoutDate"
-            name="checkoutDate"
-            label="Check out date"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            inputProps={{ width: "100px" }}
-            type="date"
-            value={checkoutDate}
-            onChange={(e: any) => {
-              setCheckoutDate(e.target.value);
-            }}
-            className="2xl:w-full xl:w-full lg:w-full md:w-72"
-          />
+          <div className="flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row ls:flex-col ms:flex-col xs:flex-col items-start justify-start 2xl:space-x-1 2xl:space-y-0 xl:space-x-1 xl:space-y-0 lg:space-x-1 lg:space-y-0 md:space-x-1 md:space-y-0 ls:space-x-0 ls:space-y-2 ms:space-x-0 ms:space-y-2 xs:space-x-0 xs:space-y-2">
+            <TextField
+              id="checkinDate"
+              name="checkinDate"
+              label="Check in date"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              type="date"
+              value={checkinDate}
+              onChange={(e: any) => {
+                setCheckinDate(e.target.value);
+              }}
+              className="2xl:w-full xl:w-full lg:w-full md:w-64 ls:w-full"
+            />
+            <TextField
+              id="checkoutDate"
+              name="checkoutDate"
+              label="Check out date"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              inputProps={{ width: "100px" }}
+              type="date"
+              value={checkoutDate}
+              onChange={(e: any) => {
+                setCheckoutDate(e.target.value);
+              }}
+              className="2xl:w-full xl:w-full lg:w-full md:w-72 ls:w-full"
+            />
+          </div>
         </div>
 
         <div className="flex flex-row items-start justify-start space-x-1">
           <span>
-            <IoMdPeople className="w-14 h-14" />
+            <IoMdPeople className="2xl:w-14 2xl:h-14 xl:w-14 xl:h-14 lg:w-14 lg:h-14 md:w-14 md:h-14 ls:w-14 ls:h-14 ms:w-14 ms:h-14 xs:h-10 xs:w-10" />
           </span>
+          <FormControl>
+            <InputLabel id="guestsandroom">Guests & room</InputLabel>
+            <Select
+              labelId="select-guests-room"
+              id="select-guests-room"
+              label="Guests & room"
+              value={getValueGuestsAndRoooms.toString()}
+              renderValue={() => getValueGuestsAndRoooms().toString()}
+              className="2xl:w-full xl:w-full lg:w-full md:w-[34.222rem] ls:w-full ms:w-full xs:w-48">
+              <MenuItem className="flex flex-row items-start justify-between">
+                <span>Adults</span>
+                <div className="flex flex-row items-center justify-center space-x-2">
+                  <FaPlusCircle
+                    className="w-5 h-5"
+                    onClick={handleIncreaseAdult}
+                  />
+                  <span>{adult}</span>
+                  <FaMinusCircle
+                    className="w-5 h-5"
+                    onClick={handleDecreaseAdult}
+                  />
+                </div>
+              </MenuItem>
+              <MenuItem className="flex flex-row items-start justify-between">
+                <span>Children</span>
+                <div className="flex flex-row items-center justify-center space-x-2">
+                  <FaPlusCircle
+                    className="w-5 h-5"
+                    onClick={handleIncreaseChildren}
+                  />
+                  <span>{children}</span>
+                  <FaMinusCircle
+                    className="w-5 h-5"
+                    onClick={handleDecreaseChildren}
+                  />
+                </div>
+              </MenuItem>
+              <MenuItem className="flex flex-row items-start justify-between">
+                <span>Room</span>
+                <div className="flex flex-row items-center justify-center space-x-2">
+                  <FaPlusCircle
+                    className="w-5 h-5"
+                    onClick={handleIncreaseRoom}
+                  />
+                  <span>{room}</span>
+                  <FaMinusCircle
+                    className="w-5 h-5"
+                    onClick={handleDecreaseRoom}
+                  />
+                </div>
+              </MenuItem>
+            </Select>
+          </FormControl>
         </div>
-        <FormControl>
-          <InputLabel id="guestsandroom">Guests & room</InputLabel>
-          <Select
-            labelId="select-guests-room"
-            id="select-guests-room"
-            label="Guests & room"
-            value={getValueGuestsAndRoooms.toString()}
-            renderValue={() => getValueGuestsAndRoooms().toString()}>
-            <MenuItem className="flex flex-row items-start justify-between">
-              <span>Adults</span>
-              <div className="flex flex-row items-center justify-center space-x-2">
-                <FaPlusCircle
-                  className="w-5 h-5"
-                  onClick={handleIncreaseAdult}
-                />
-                <span>{adult}</span>
-                <FaMinusCircle
-                  className="w-5 h-5"
-                  onClick={handleDecreaseAdult}
-                />
-              </div>
-            </MenuItem>
-            <MenuItem className="flex flex-row items-start justify-between">
-              <span>Children</span>
-              <div className="flex flex-row items-center justify-center space-x-2">
-                <FaPlusCircle
-                  className="w-5 h-5"
-                  onClick={handleIncreaseChildren}
-                />
-                <span>{children}</span>
-                <FaMinusCircle
-                  className="w-5 h-5"
-                  onClick={handleDecreaseChildren}
-                />
-              </div>
-            </MenuItem>
-            <MenuItem className="flex flex-row items-start justify-between">
-              <span>Room</span>
-              <div className="flex flex-row items-center justify-center space-x-2">
-                <FaPlusCircle
-                  className="w-5 h-5"
-                  onClick={handleIncreaseRoom}
-                />
-                <span>{room}</span>
-                <FaMinusCircle
-                  className="w-5 h-5"
-                  onClick={handleDecreaseRoom}
-                />
-              </div>
-            </MenuItem>
-          </Select>
-        </FormControl>
         <button
           type="submit"
-          className="absolute 2xl:bottom-10 2xl:-right-10 xl:bottom-10 xl:-right-10 lg:bottom-10 lg:-right-10 md:bottom-28 md:-right-5">
+          className="absolute 2xl:bottom-6 2xl:right-32 xl:bottom-6 xl:right-32 lg:bottom-10 lg:-right-3 md:-top-5 md:-right-5 ls:-right-5 ms:top-0 ms:right-0 xs:top-0 xs:-right-3">
           <div className="relative rounded-full border-2 border-slate-100 group bg-purple-400 p-2 hover:bg-purple-800 hover:duration-200 hover:transition-all hover:ease-in-out">
             <IoIosSearch className="w-8 h-8 group-hover:text-slate-100" />
           </div>

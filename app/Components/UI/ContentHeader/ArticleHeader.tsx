@@ -62,11 +62,11 @@ const ArticleHeader = () => {
           Guide Supports
         </span>
       </div>
-      <div className="absolute z-30 2xl:bottom-10 2xl:-left-40 xl:bottom-10 xl:-left-40 lg:-bottom-8 lg:-left-10 md:-bottom-20 md:left-1 flex flex-col items-start justify-start space-y-7">
-        <span className="2xl:inline-block xl:inline-block lg:inline-block hidden text-xl antialiased tracking-wide font-medium">
+      <div className="absolute z-30 2xl:bottom-10 2xl:-left-40 xl:bottom-10 xl:-left-40 lg:-bottom-8 lg:-left-10 md:-bottom-28 md:left-1 ls:-bottom-40 ls:right-2 ms:right-1 ms:-bottom-20 xs:right-3 xs:-bottom-32 flex flex-col items-start justify-start space-y-7">
+        <span className="2xl:inline-block xl:inline-block lg:inline-block hidden text-xl antialiased tracking-wide font-bold">
           Check Availability
         </span>
-        <div className=" bg-slate-100 2xl:w-[75rem] 2xl:h-28 xl:w-[68rem] xl:h-28 lg:w-[58rem] lg:h-32 md:w-[42rem] md:h-80 rounded-lg shadow-lg p-8">
+        <div className=" bg-slate-100 2xl:w-[75rem] 2xl:h-28 xl:w-[68rem] xl:h-28 lg:w-[58rem] lg:h-32 md:w-[42rem] ls:w-96 ms:w-[22rem] xs:w-72 md:h-80 rounded-lg shadow-lg p-8">
           <Provider store={store}>
             <FormSearchHotel />
           </Provider>
