@@ -98,7 +98,7 @@ const FormSearchHotel = () => {
       const locationID = response.payload;
 
       if (locationID) {
-        const searchResult = await dispatch(
+        await dispatch(
           fetchHotelSearch({
             locationID: locationID,
             checkInDate: checkinDate,
@@ -108,8 +108,7 @@ const FormSearchHotel = () => {
             children: children,
           })
         );
-
-        console.log(searchResult); // This will log the resolved search result
+        // This will log the resolved search result
       }
     } catch (error) {
       console.error(error);
