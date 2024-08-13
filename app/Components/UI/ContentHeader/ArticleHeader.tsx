@@ -9,7 +9,7 @@ import lgimage from "@/assets/article/lgimage.jpg";
 //icons
 import { MdHeadsetMic } from "react-icons/md";
 import FormSearchHotel from "./FormSearchHotel";
-import { store } from "@/app/utils/redux/store";
+import { store } from "@/app/services/redux/store";
 import { Provider } from "react-redux";
 
 const ArticleHeader = () => {

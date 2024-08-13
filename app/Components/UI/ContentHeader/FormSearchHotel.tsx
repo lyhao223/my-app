@@ -12,14 +12,17 @@ import React, { useEffect, useState } from "react";
 import {
   fetchAutoCompleteLocation,
   fetchHotelSearch,
-} from "@/app/utils/redux/slice/searchHotelSlice";
+} from "@/app/services/redux/slice/searchHotelSlice";
 
 //icons
 import { CiLocationOn, CiCalendar } from "react-icons/ci";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import { IoMdPeople } from "react-icons/io";
-import { useAppDispatch, useAppSelector } from "@/app/utils/redux/hooks/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "@/app/services/redux/hooks/hooks";
 const FormSearchHotel = () => {
   const [adult, setIAdult] = useState(1);
   const [children, setIChildren] = useState(1);
