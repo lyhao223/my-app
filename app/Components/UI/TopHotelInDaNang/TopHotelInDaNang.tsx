@@ -38,7 +38,7 @@ const TopHotelInDaNang = (props: { deviceType?: string }) => {
             "square500"
           );
           return (
-            <div className="flex items-center justify-center">
+            <div key={hotel.id} className="flex items-center justify-center">
               <Link
                 key={hotel.id}
                 href={"/"}

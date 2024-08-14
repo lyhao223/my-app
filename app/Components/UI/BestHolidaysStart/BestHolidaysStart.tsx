@@ -70,7 +70,7 @@ const BestHolidaysStart = () => {
             The Best Holidays Start Here!
           </span>
           <span className="text-lg font-light tracking-tight antialiased text-gray-300 text-wrap">
-            Book your hotel with us and don't forget to grab an awesome hotel
+            Book your hotel with us and dont forget to grab an awesome hotel
             deal to save massive on your stay.
           </span>
           <div className="flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row ls:flex-row ms:flex-col xs:flex-col items-start justify-start 2xl:space-x-6 2xl:space-y-0 xl:space-x-6 xl:space-y-0 lg:space-x-6 lg:space-y-0 md:space-x-6 md:space-y-0 ls:space-x-6 ls:space-y-0 space-x-0 ms:space-y-2 xs:space-y-4 ">
