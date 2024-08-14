@@ -13,10 +13,10 @@ import { MdFlightTakeoff } from "react-icons/md";
 
 //Assets
 import logoBooking from "@/assets/logo/logo-light.svg";
-import FlyContent from "@/app/components/Animation/FlyOut/ContentFlyOutLink/FlyContent";
-import RingOut from "@/app/components/Animation/RingOut/RingOut";
-import ContentInRingOut from "@/app/components/Animation/RingOut/ContentInRingOut";
-import FlyOutLinkAnotherViewPort from "@/app/components/Animation/FlyOut/FlyOutLinkAnotherViewPort";
+import FlyContent from "../../../components/Animation/FlyOut/ContentFlyOutLink/FlyContent";
+import RingOut from "../../../components/Animation/RingOut/RingOut";
+import ContentInRingOut from "../../../components/Animation/RingOut/ContentInRingOut";
+import FlyOutLinkAnotherViewPort from "../../../components/Animation/FlyOut/FlyOutLinkAnotherViewPort";
 
 //list component
 const listBooking = [

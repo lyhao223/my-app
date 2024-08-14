@@ -29,7 +29,7 @@ const TopHotelInDaNang = (props: { deviceType?: string }) => {
         ssr={true}
         showDots
         infinite
-        containerClass="py-9"
+        containerClass="py-9 "
         deviceType={deviceType}
         removeArrowOnDeviceType={["table", "mobiles"]}>
         {hotelInDaNang.map((hotel) => {
