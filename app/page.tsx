@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Header from "./Components/UI/Header/Header";
-import ArticleHeader from "./components/UI/ContentHeader/ArticleHeader";
-import TourVoucher from "./components/UI/TourVoucher/TourVoucher";
-import BestHolidaysStart from "./components/UI/BestHolidaysStart/BestHolidaysStart";
-import ProviderStoreTopHotelInDaNang from "./components/UI/TopHotelInDaNang/ProviderStoreTopHotelInDaNang";
+import ArticleHeader from "./Components/UI/ContentHeader/ArticleHeader";
+import TourVoucher from "./Components/UI/TourVoucher/TourVoucher";
+import BestHolidaysStart from "./Components/UI/BestHolidaysStart/BestHolidaysStart";
+import ProviderStoreTopHotelInDaNang from "./Components/UI/TopHotelInDaNang/ProviderStoreTopHotelInDaNang";
 
 export default function Home() {
   return (

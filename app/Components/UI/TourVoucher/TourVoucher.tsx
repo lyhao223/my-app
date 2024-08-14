@@ -3,7 +3,7 @@ import React from "react";
 import { responsive } from "@/app/utils/carousel/ResponsiveCarousel";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import CardVoucher from "./CardVoucher/CardVoucher";
+import CardVoucher from "@/app/Components/UI/TourVoucher/CardVoucher/CardVoucher";
 import { DATA_VOUCHER } from "@/app/utils/carousel/DataVoucher";
 import Image from "next/image";
 const TourVoucher = (props: { deviceType?: string }) => {

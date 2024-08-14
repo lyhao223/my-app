@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 //Components
-import FlyOutLink from "@/app/components/Animation/FlyOut/FlyOutLink";
+import FlyOutLink from "@/app/Components/Animation/FlyOut/FlyOutLink";
 import { FaCaretDown } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaTaxi } from "react-icons/fa";
@@ -13,10 +13,10 @@ import { MdFlightTakeoff } from "react-icons/md";
 
 //Assets
 import logoBooking from "@/assets/logo/logo-light.svg";
-import FlyContent from "../../../components/Animation/FlyOut/ContentFlyOutLink/FlyContent";
-import RingOut from "../../../components/Animation/RingOut/RingOut";
-import ContentInRingOut from "../../../components/Animation/RingOut/ContentInRingOut";
-import FlyOutLinkAnotherViewPort from "../../../components/Animation/FlyOut/FlyOutLinkAnotherViewPort";
+import FlyContent from "../../Animation/FlyOut/ContentFlyOutLink/FlyContent";
+import RingOut from "../../Animation/RingOut/RingOut";
+import ContentInRingOut from "../../Animation/RingOut/ContentInRingOut";
+import FlyOutLinkAnotherViewPort from "../../Animation/FlyOut/FlyOutLinkAnotherViewPort";
 
 //list component
 const listBooking = [

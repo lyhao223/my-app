@@ -2,7 +2,7 @@
 import { store } from "@/app/services/redux/store";
 import React from "react";
 import { Provider } from "react-redux";
-import TopHotelInDaNang from "./TopHotelInDaNang";
+import TopHotelInDaNang from "@/app/Components/UI/TopHotelInDaNang/TopHotelInDaNang";
 
 const ProviderStoreTopHotelInDaNang = () => {
   return (

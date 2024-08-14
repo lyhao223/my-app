@@ -8,7 +8,7 @@ import xsimage from "@/assets/article/xsimage.jpg";
 import lgimage from "@/assets/article/lgimage.jpg";
 //icons
 import { MdHeadsetMic } from "react-icons/md";
-import FormSearchHotel from "./FormSearchHotel";
+import FormSearchHotel from "@/app/Components/UI/ContentHeader/FormSearchHotel";
 import { store } from "@/app/services/redux/store";
 import { Provider } from "react-redux";
 
