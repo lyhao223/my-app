@@ -1,14 +1,9 @@
 import Image from "next/image";
 import Header from "./Components/UI/Header/Header";
-import ArticleHeader from "./Components/UI/ContentHeader/ArticleHeader";
-import { Fragment } from "react";
-import TourVoucher from "./Components/UI/TourVoucher/TourVoucher";
-import CardVoucher from "./Components/UI/TourVoucher/CardVoucher/CardVoucher";
-import BestHolidaysStart from "./Components/UI/BestHolidaysStart/BestHolidaysStart";
-import TopHotelInDaNang from "./Components/UI/TopHotelInDaNang/TopHotelInDaNang";
-import { Provider } from "react-redux";
-import { store } from "./services/redux/store";
-import ProviderStoreTopHotelInDaNang from "./Components/UI/TopHotelInDaNang/ProviderStoreTopHotelInDaNang";
+import ArticleHeader from "./components/UI/ContentHeader/ArticleHeader";
+import TourVoucher from "./components/UI/TourVoucher/TourVoucher";
+import BestHolidaysStart from "./components/UI/BestHolidaysStart/BestHolidaysStart";
+import ProviderStoreTopHotelInDaNang from "./components/UI/TopHotelInDaNang/ProviderStoreTopHotelInDaNang";
 
 export default function Home() {
   return (
@@ -20,7 +15,7 @@ export default function Home() {
         <TourVoucher />
         {/* <CardVoucher /> */}
       </div>
-      <div className="relative 2xl:px-36 xl:px-28 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 my-12 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-24 ls:mt-44 ms:mt-36 xs:mt-40 h-[45rem]">
+      <div className="relative 2xl:px-36 xl:px-28 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 my-12 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-24 ls:mt-44 ms:mt-36 xs:mt-40">
         <BestHolidaysStart />
         {/* <CardVoucher /> */}
       </div>

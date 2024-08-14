@@ -1,7 +1,4 @@
 import React from "react";
-
-import v1 from "@/assets/voucher/v1.jpg";
-import Image from "next/image";
 interface CardVoucherProps {
   children: React.ReactNode;
 }

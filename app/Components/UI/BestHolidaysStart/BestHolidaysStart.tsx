@@ -16,9 +16,9 @@ import { IoMdFlash } from "react-icons/io";
 import ServicesHoliday from "@/app/utils/Reuseable/ServicesHoliday";
 const BestHolidaysStart = () => {
   return (
-    <div className="relative z-10 grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 md:grid-rows-2 ls:grid-rows-2 ms:grid-rows-2 grid-flow-row gap-4 md:gap-y-16 ls:gap-y-10 ms:gap-y-8 gap-y-0">
+    <div className="relative z-10 grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 md:grid-rows-2 ls:grid-rows-2 ms:grid-rows-2 grid-flow-row gap-4 md:gap-y-16 ls:gap-y-10 ms:gap-y-8 gap-y-0 2xl:h-[45rem] xl:h-[45rem] lg:h-[45rem] md:h-[80rem] ls:h-[75rem] ms:h-[100rem] xs:h-[100rem]">
       {/* Image */}
-      <div className="relative 2xl:col-span-2 xl:col-span-2 lg:col-span-2 col-row-1">
+      <div className="relative  2xl:col-span-2 xl:col-span-2 lg:col-span-2 col-row-1">
         <Image
           src={holiday}
           alt="holiday"

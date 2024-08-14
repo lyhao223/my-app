@@ -6,7 +6,6 @@ import "react-multi-carousel/lib/styles.css";
 import CardVoucher from "./CardVoucher/CardVoucher";
 import { DATA_VOUCHER } from "@/app/utils/carousel/DataVoucher";
 import Image from "next/image";
-import { duration } from "@mui/material";
 const TourVoucher = (props: { deviceType?: string }) => {
   const { deviceType } = props;
   return (
