@@ -57,8 +57,7 @@ export const fetchHotelSearch = createAsyncThunk('stays/search',
             }
         } catch (error) {
             console.log(error);
-        }
-})
+        }})
 
 const hotelSearchSlice = createSlice({
     name: 'hotelSearch',
