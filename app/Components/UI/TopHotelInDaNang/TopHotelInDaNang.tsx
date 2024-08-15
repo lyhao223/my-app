@@ -13,10 +13,10 @@ const TopHotelInDaNang = (props: { deviceType?: string }) => {
   const dispatch = useAppDispatch();
   const hotelInDaNang = useAppSelector((state) => state.danangHotel.hotels);
   const { deviceType } = props;
-  useEffect(() => {
-    const test = dispatch(fetchHotelInDaNangWithHighScore());
-    console.log(test);
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const test = dispatch(fetchHotelInDaNangWithHighScore());
+  //   console.log(test);
+  // }, [dispatch]);
   return (
     <>
       <div className="flex flex-row items-center justify-center">
@@ -33,11 +33,11 @@ const TopHotelInDaNang = (props: { deviceType?: string }) => {
         containerClass="py-9 "
         deviceType={deviceType}
         removeArrowOnDeviceType={["tablet", "mobile"]}>
-        {hotelInDaNang.map((hotel) => {
-          const updatedPhotoUrl = hotel.photoUrls[0].replace(
-            "square60",
-            "square500"
-          );
+        {DaNangHotel_DUMMY_DATA.map((hotel) => {
+          // const updatedPhotoUrl = hotel.photoUrls[0].replace(
+          //   "square60",
+          //   "square500"
+          // );
           return (
             <div
               key={hotel.id}
@@ -48,7 +48,7 @@ const TopHotelInDaNang = (props: { deviceType?: string }) => {
                 className="mt-4 grid grid-rows-3 2xl:w-80 xl:w-80 lg:w-80 md:w-[21rem] ls:w-full ms:w-full xs:w-64 gap-x-5">
                 <div className="row-span-3 mb-8">
                   <img
-                    src={updatedPhotoUrl}
+                    src={hotel.image.src}
                     alt={hotel.name}
                     className="h-full w-full rounded-xl shadow-xl"
                   />
@@ -64,10 +64,12 @@ const TopHotelInDaNang = (props: { deviceType?: string }) => {
                 </div>
                 <div className="flex flex-col items-start justify-start space-y-2">
                   <span className="line-through text-xs text-gray-400">
-                    {hotel.priceBreakdown.strikethroughPrice?.amountRounded}
+                    {/* {hotel.priceBreakdown.strikethroughPrice?.amountRounded} */}
+                    {hotel.priceBreakdown.strikethroughPrice}
                   </span>
                   <span className="text-lg font-medium">
-                    {hotel.priceBreakdown.grossPrice?.amountRounded}
+                    {/* {hotel.priceBreakdown.grossPrice?.amountRounded} */}
+                    {hotel.priceBreakdown.strikethroughPrice}
                   </span>
                 </div>
                 <div className="flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row ls:flex-row ms:flex-row xs:flex-col items-start 2xl:justify-between xl:justify-between lg:justify-between md:justify-between ls:justify-between ms:justify-between xs:justify-start">

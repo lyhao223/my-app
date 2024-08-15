@@ -93,26 +93,26 @@ const FormSearchHotel = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    try {
-      const response = await dispatch(fetchAutoCompleteLocation(location));
-      const locationID = response.payload;
+    // try {
+    //   const response = await dispatch(fetchAutoCompleteLocation(location));
+    //   const locationID = response.payload;
 
-      if (locationID) {
-        await dispatch(
-          fetchHotelSearch({
-            locationID: locationID,
-            checkInDate: checkinDate,
-            checkOutDate: checkoutDate,
-            room: room,
-            adult: adult,
-            children: children,
-          })
-        );
-        // This will log the resolved search result
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    //   if (locationID) {
+    //     await dispatch(
+    //       fetchHotelSearch({
+    //         locationID: locationID,
+    //         checkInDate: checkinDate,
+    //         checkOutDate: checkoutDate,
+    //         room: room,
+    //         adult: adult,
+    //         children: children,
+    //       })
+    //     );
+    //     // This will log the resolved search result
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   return (
