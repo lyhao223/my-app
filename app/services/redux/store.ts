@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import searchHotelSlice from './slice/searchHotelSlice'
 import danangHotel from './slice/danangHotel'
+import getFiveFlight from './slice/getFiveFlight'
 
 export const store = configureStore({
     reducer: {
         searchHotel: searchHotelSlice,
-        danangHotel: danangHotel
+        danangHotel: danangHotel,
+        getFiveFlight: getFiveFlight
     },
 })
 

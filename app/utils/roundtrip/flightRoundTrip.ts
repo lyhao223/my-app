@@ -12,25 +12,25 @@ export const DataFlightRoundTrip = [
         image: DaNang
     },
     {
-        id:1,
+        id:2,
         from: 'Hue',
         totalFlight: 10,
         image: Hue
     },
     {
-        id:1,
+        id:3,
         from: 'Ha Noi',
         totalFlight: 10,
         image: HaNoi
     },
     {
-        id:1,
+        id:4,
         from: 'Quang Ngai',
         totalFlight: 10,
         image: QuangNgai
     },
     {
-        id:1,
+        id:5,
         from: 'Da Lat',
         totalFlight: 10,
         image: DaLat

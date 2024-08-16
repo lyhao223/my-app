@@ -5,13 +5,13 @@ interface Props {
   image: string;
   title: string;
   flights: number;
-  key: any;
+  keyID: any;
 }
-const RoundTripFlights = ({ image, title, flights, key }: Props) => {
+const RoundTripFlights = ({ image, title, flights, keyID }: Props) => {
   return (
     <Link
       href={"/"}
-      key={key}
+      key={keyID}
       className="flex flex-col items-center justify-center space-y-2">
       <Image
         src={image}
