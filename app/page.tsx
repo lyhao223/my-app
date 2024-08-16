@@ -6,6 +6,7 @@ import BestHolidaysStart from "./Components/UI/BestHolidaysStart/BestHolidaysSta
 import ProviderStoreTopHotelInDaNang from "./Components/UI/TopHotelInDaNang/ProviderStoreTopHotelInDaNang";
 import PartnerLogo from "./Components/UI/PartnerLogo/PartnerLogo";
 import Reviews from "./Components/UI/Reviews/Reviews";
+import RoundTrip from "./Components/UI/RoundTrip/RoundTrip";
 
 export default function Home() {
   return (
@@ -29,6 +30,9 @@ export default function Home() {
       </div>
       <div className="2xl:px-[36rem] xl:px-32 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 2xl:mt-24 xl:mt-0 lg:mt-0 md:mt-10 my-5">
         <Reviews />
+      </div>
+      <div className="2xl:px-36 xl:px-24 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 2xl:mt-36 xl:mt-36 lg:mt-0 md:mt-10 my-10">
+        <RoundTrip />
       </div>
     </>
   );
