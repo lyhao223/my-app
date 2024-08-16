@@ -1,8 +1,5 @@
 "use client";
-import React, { use, useEffect } from "react";
-import DaNang from "@/assets/flightroundtrip/da-nang.jpg";
-import Image from "next/image";
-import Link from "next/link";
+import React, { useEffect } from "react";
 import { DataFlightRoundTrip } from "@/app/utils/roundtrip/flightRoundTrip";
 import RoundTripFlights from "@/app/utils/Reuseable/RoundTripFlights";
 import {
@@ -10,27 +7,18 @@ import {
   useAppSelector,
 } from "@/app/services/redux/hooks/hooks";
 import { fetchFiveFlight } from "@/app/services/redux/slice/getFiveFlight";
-import { formatDate } from "@/app/utils/formatDate";
 const RoundTrip = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   // const getFiveFlight = useAppSelector((state) => state.getFiveFlight.flights);
   // useEffect(() => {
-  //   // dispatch(fetchFiveFlight({ origin: "SGN", destination: "HUI" }));
-  //   // const today = new Date();
-  //   // const formatToday = formatDate(today);
-  //   // const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
-  //   // const formatTomorrow = formatDate(tomorrow);
-  //   // const getFiveDays = formatDate(
-  //   //   new Date(tomorrow.getTime() + 5 * 24 * 60 * 60 * 1000)
-  //   // );
-  //   // console.log(formatToday, formatTomorrow, getFiveDays);
+  //   dispatch(fetchFiveFlight({ origin: "SGN", destination: "HUI" }));
   // });
   return (
     <div className="flex flex-col items-center justify-center space-y-24">
-      <span className="text-5xl font-semibold">
+      <span className="2xl:text-5xl xl:text-5xl lg:text-4xl md:text-4xl text-xl 2xl:text-start xl:text-start lg:text-start md:text-center ls:text-center ms:text-center xs:text-center font-semibold">
         Roundtrip Flights With 5 Days From Today
       </span>
-      <div className="flex flex-row items-center justify-center space-x-16">
+      <div className="flex 2xl:flex-row 2xl:items-center 2xl:justify-center 2xl:space-x-16 xl:flex-row xl:items-center xl:justify-center xl:space-x-16 lg:flex-row lg:items-center lg:justify-center lg:space-x-1 md:flex-col md:items-center md:justify-center md:space-x-0 md:space-y-4 ls:flex-col ls:items-center ls:justify-center ls:space-x-0 ls:space-y-4 ms:flex-col ms:items-center ms:justify-center ms:space-x-0 ms:space-y-4 xs:flex-col xs:items-center xs:justify-center xs:space-x-0 xs:space-y-4">
         {DataFlightRoundTrip.map((item, index) => (
           <RoundTripFlights
             keyID={index}

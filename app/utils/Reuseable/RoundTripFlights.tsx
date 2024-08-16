@@ -2,10 +2,10 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 interface Props {
-  image: string;
-  title: string;
-  flights: number;
-  keyID: any;
+  image?: string | any;
+  title?: string | any;
+  flights?: number;
+  keyID?: any;
 }
 const RoundTripFlights = ({ image, title, flights, keyID }: Props) => {
   return (
