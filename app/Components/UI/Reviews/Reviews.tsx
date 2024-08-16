@@ -8,12 +8,15 @@ import Carousel from "react-multi-carousel";
 import { responsiveComment } from "@/app/utils/carousel/ResponsiveCommet";
 import r2 from "@/assets/reviews/r2.jpg";
 import i2 from "@/assets/icons/i2.svg";
-const Reviews = () => {
+const Reviews = (props: { deviceType?: string }) => {
+  const { deviceType } = props;
   return (
     <Carousel
       responsive={responsiveComment}
       showDots={false}
       itemClass="px-9"
+      deviceType={deviceType}
+      removeArrowOnDeviceType={["tablet", "mobile"]}
       infinite>
       <Comment
         image={r1.src}

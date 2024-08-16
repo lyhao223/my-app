@@ -12,17 +12,17 @@ interface Props {
 }
 const Comment = ({ image, comment, name, position, iconImage }: Props) => {
   return (
-    <div className="relative flex flex-row items-start justify-start space-x-32">
+    <div className="relative flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-col ls:flex-col ms:flex-col xs:flex-col 2xl:items-start 2xl:justify-start xl:justify-start xl:items-start lg:justify-start lg:items-start md:items-center md:justify-center ls:items-center ls:justify-center ms:items-center ms:justify-center xs:items-center xs:justify-center 2xl:space-x-32 2xl:space-y-0 xl:space-x-32 xl:space-y-0 lg:space-x-32 lg:space-y-0 md:space-y-2 md:space-x-0 ls:space-y-2 ls:space-x-0 ms:space-y-2 ms:space-x-0 xs:space-x-0 xs:space-y-2">
       <div className="relative">
         <Image
           src={image}
           alt="review"
-          className="w-96 h-96 rounded-xl shadow-xl"
+          className="2xl:w-96 2xl:h-96 xl:w-96 xl:h-96 lg:w-80 lg:h-80 md:w-80 md:h-80 ls:w-72 ls:h-72 rounded-xl shadow-xl"
           width={384}
           height={384}
         />
       </div>
-      <div className="absolute top-7 -left-40">
+      <div className="absolute 2xl:top-7 2xl:-left-40 xl:top-7 xl:-left-40 lg:top-7 lg:-left-40 md:top-7 md:left-20 ls:top-5 ls:-left-6 ms:top-4 ms:-left-9 xs:top-0 xs:-left-9">
         <Image
           src={iconImage}
           alt="icon"
@@ -31,10 +31,13 @@ const Comment = ({ image, comment, name, position, iconImage }: Props) => {
           height={80}
         />
       </div>
-      <div className="flex flex-col items-start justify-start space-y-5 my-5">
-        <FaComment className="w-28 h-28" color="purple" />
+      <div className="flex flex-col 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start md:items-center md:justify-center ls:items-center ls:justify-center ms:items-center ms:justify-center xs:items-center xs:justify-center space-y-5 my-5 lg:my-0">
+        <FaComment
+          className="w-28 h-28 hidden 2xl:inline-block xl:inline-block lg:inline-block"
+          color="purple"
+        />
 
-        <span className="text-wrap w-[30rem] text-xl antialiased">
+        <span className="text-wrap 2xl:w-[30rem] xl:w-[30rem] lg:w-[30rem] md:w-[30rem] ls:w[30rem] ms:w-fit  ls:w-fit text-xl 2xl:text-start xl:text-start lg:text-start md:text-center ls:text-center ms:text-center xs:text-center antialiased">
           {comment}
         </span>
         <div className="flex flex-row items-start justify-start space-x-3">
@@ -44,7 +47,7 @@ const Comment = ({ image, comment, name, position, iconImage }: Props) => {
           <IoIosStar className="w-5 h-5 text-yellow-600" />
           <IoIosStar className="w-5 h-5 text-yellow-600" />
         </div>
-        <div className="flex flex-col items-start justify-start">
+        <div className="flex flex-col 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start md:items-center md:justify-center ls:items-center ls:justify-center ms:items-center ms:justify-center xs:items-center xs:justify-center">
           <span className="font-bold">{name}</span>
           <span className="text-gray-400">{position}</span>
         </div>
