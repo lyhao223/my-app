@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/UI/Header/Header";
+import Footer from "./Components/UI/Footer/Footer";
 
 const inter = Roboto({
   weight: "400",
@@ -25,6 +26,9 @@ export default function RootLayout({
           <Header />
         </main>
         {children}
+        <footer className="w-full h-full bg-slate-400 text-black 2xl:px-36 xl:px-24 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 2xl:mt-36 xl:mt-36 lg:mt-36 md:mt-10">
+          <Footer />
+        </footer>
       </body>
     </html>
   );
