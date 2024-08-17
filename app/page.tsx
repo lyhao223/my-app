@@ -9,6 +9,7 @@ import Reviews from "./Components/UI/Reviews/Reviews";
 import RoundTrip from "./Components/UI/RoundTrip/RoundTrip";
 import { Provider } from "react-redux";
 import ProviderStoreRoundTrip from "./Components/UI/RoundTrip/ProviderStoreRoundTrip";
+import Support from "./Components/UI/Support/Support";
 
 export default function Home() {
   return (
@@ -36,7 +37,9 @@ export default function Home() {
       <div className="2xl:px-36 xl:px-24 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 2xl:mt-36 xl:mt-36 lg:mt-36 md:mt-10 my-10">
         <ProviderStoreRoundTrip />
       </div>
-      <div className="2xl:px-36 xl:px-24 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 2xl:mt-36 xl:mt-36 lg:mt-36 md:mt-10 my-10"></div>
+      <div className="2xl:px-36 xl:px-24 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 2xl:mt-36 xl:mt-36 lg:mt-36 md:mt-10 my-10">
+        <Support />
+      </div>
     </>
   );
 }
