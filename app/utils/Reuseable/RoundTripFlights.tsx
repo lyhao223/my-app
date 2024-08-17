@@ -2,9 +2,9 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 interface Props {
-  image?: string | any;
+  image: string | any;
   title?: string | any;
-  flights?: number;
+  flights?: number | any;
   keyID?: any;
 }
 const RoundTripFlights = ({ image, title, flights, keyID }: Props) => {
@@ -17,8 +17,8 @@ const RoundTripFlights = ({ image, title, flights, keyID }: Props) => {
         src={image}
         alt={title}
         className="w-52 h-52 rounded-full shadow-lg"
-        width={500}
-        height={500}
+        width={208}
+        height={208}
       />
       <span className="text-2xl font-semibold">{title}</span>
       <span className="text-gray-400 text-lg font-semibold">

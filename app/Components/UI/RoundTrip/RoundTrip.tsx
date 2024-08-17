@@ -1,18 +1,39 @@
 "use client";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { DataFlightRoundTrip } from "@/app/utils/roundtrip/flightRoundTrip";
 import RoundTripFlights from "@/app/utils/Reuseable/RoundTripFlights";
 import {
   useAppDispatch,
   useAppSelector,
 } from "@/app/services/redux/hooks/hooks";
-import { fetchFiveFlight } from "@/app/services/redux/slice/getFiveFlight";
+import { fetchHaNoiFlights } from "@/app/services/redux/slice/HaNoiFlights";
+import { fetchDaLatFlights } from "@/app/services/redux/slice/DaLatFlights";
+import { fetchDaNangFlights } from "@/app/services/redux/slice/DaNangFlights";
+import { fetchHueFlights } from "@/app/services/redux/slice/HueFlights";
+import { fetchQuangNgaiFlights } from "@/app/services/redux/slice/QuangNgaiFlights";
+
+import Hue from "@/assets/flightroundtrip/hue.jpg";
+import HaNoi from "@/assets/flightroundtrip/ha-noi.jpg";
+import DaLat from "@/assets/flightroundtrip/da-lat.jpg";
+import DaNang from "@/assets/flightroundtrip/da-nang.jpg";
+import QuangNgai from "@/assets/flightroundtrip/quang-ngai.jpg";
+
 const RoundTrip = () => {
   // const dispatch = useAppDispatch();
-  // const getFiveFlight = useAppSelector((state) => state.getFiveFlight.flights);
+  // const HaNoiFlights = useAppSelector((state) => state.HaNoiFlights.flights);
+  // const DaLatFlights = useAppSelector((state) => state.DaLatFlights.flights);
+  // const HueFlights = useAppSelector((state) => state.HueFlights.flights);
+  // const DaNangFlights = useAppSelector((state) => state.DaNangFlights.flights);
+  // const QuangNgaiFlights = useAppSelector(
+  //   (state) => state.QuangNgaiFlights.flights
+  // );
   // useEffect(() => {
-  //   dispatch(fetchFiveFlight({ origin: "SGN", destination: "HUI" }));
-  // });
+  //   dispatch(fetchHaNoiFlights());
+  //   dispatch(fetchDaLatFlights());
+  //   dispatch(fetchHueFlights());
+  //   dispatch(fetchDaNangFlights());
+  //   dispatch(fetchQuangNgaiFlights());
+  // }, [dispatch]);
   return (
     <div className="flex flex-col items-center justify-center space-y-24">
       <span className="2xl:text-5xl xl:text-5xl lg:text-4xl md:text-4xl text-xl 2xl:text-start xl:text-start lg:text-start md:text-center ls:text-center ms:text-center xs:text-center font-semibold">
@@ -27,6 +48,27 @@ const RoundTrip = () => {
             flights={item.totalFlight}
           />
         ))}
+        {/* <RoundTripFlights
+          image={HaNoi.src}
+          title="Ha Noi"
+          flights={HaNoiFlights}
+        />
+        <RoundTripFlights
+          image={DaLat.src}
+          title="Da Lat"
+          flights={DaLatFlights}
+        />
+        <RoundTripFlights image={Hue.src} title="Hue" flights={HueFlights} />
+        <RoundTripFlights
+          image={QuangNgai.src}
+          title="Quang Ngai"
+          flights={QuangNgaiFlights}
+        />
+        <RoundTripFlights
+          image={DaNang.src}
+          title="Da Nang"
+          flights={DaNangFlights}
+        /> */}
       </div>
     </div>
   );
