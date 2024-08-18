@@ -14,7 +14,6 @@ const Reviews = (props: { deviceType?: string }) => {
     <Carousel
       responsive={responsiveComment}
       showDots={false}
-      itemClass="px-9"
       deviceType={deviceType}
       removeArrowOnDeviceType={["tablet", "mobile"]}
       infinite>

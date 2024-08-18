@@ -12,15 +12,14 @@ interface Props {
 }
 const Comment = ({ image, comment, name, position, iconImage }: Props) => {
   return (
-    <div className="relative flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-col ls:flex-col ms:flex-col xs:flex-col 2xl:items-start 2xl:justify-start xl:justify-start xl:items-start lg:justify-start lg:items-start md:items-center md:justify-center ls:items-center ls:justify-center ms:items-center ms:justify-center xs:items-center xs:justify-center 2xl:space-x-32 2xl:space-y-0 xl:space-x-32 xl:space-y-0 lg:space-x-32 lg:space-y-0 md:space-y-2 md:space-x-0 ls:space-y-2 ls:space-x-0 ms:space-y-2 ms:space-x-0 xs:space-x-0 xs:space-y-2">
-      <div className="relative">
-        <img
-          src={image}
-          alt="review"
-          className="2xl:w-96 2xl:h-96 xl:w-96 xl:h-96 lg:w-80 lg:h-80 md:w-80 md:h-80 ls:w-72 ls:h-72 ms:h-72 ms:w-72 xs:w-72 xs:h-72 rounded-xl shadow-xl"
-        />
-      </div>
-      <div className="absolute 2xl:top-7 2xl:-left-40 xl:top-7 xl:-left-40 lg:top-7 lg:-left-40 md:top-7 md:left-28 ls:top-5 ls:-left-6 ms:top-4 ms:-left-9 xs:top-0 xs:-left-9">
+    <div className="relative flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-col ls:flex-col ms:flex-col xs:flex-col 2xl:items-center 2xl:justify-center xl:justify-center xl:items-center lg:justify-center lg:items-center md:items-center md:justify-center ls:items-center ls:justify-center ms:items-center ms:justify-center xs:items-center xs:justify-center 2xl:space-x-32 2xl:space-y-0 xl:space-x-32 xl:space-y-0 lg:space-x-32 lg:space-y-0 md:space-y-2 md:space-x-0 ls:space-y-2 ls:space-x-0 ms:space-y-2 ms:space-x-0 xs:space-x-0 xs:space-y-2">
+      <img
+        src={image}
+        alt="review"
+        className="2xl:w-96 2xl:h-96 xl:w-96 xl:h-96 lg:w-80 lg:h-80 md:w-80 md:h-80 ls:w-72 ls:h-72 ms:h-72 ms:w-72 xs:w-72 xs:h-72 rounded-xl shadow-xl"
+      />
+
+      <div className="absolute 2xl:top-7 2xl:left-72 xl:top-7 xl:left-16 lg:top-7 lg:-left-[6.5rem] md:top-7 md:left-48 ls:top-5 ls:left-10 ms:top-4 ms:left-3 xs:top-0 xs:left-0">
         <img src={iconImage} alt="icon" className="w-20 h-20" />
       </div>
       <div className="flex flex-col 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start md:items-center md:justify-center ls:items-center ls:justify-center ms:items-center ms:justify-center xs:items-center xs:justify-center space-y-5 my-5 lg:my-0">
