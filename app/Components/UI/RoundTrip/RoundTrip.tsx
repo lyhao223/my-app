@@ -40,9 +40,9 @@ const RoundTrip = () => {
         Roundtrip Flights With 5 Days From Today
       </span>
       <div className="flex 2xl:flex-row 2xl:items-center 2xl:justify-center 2xl:space-x-16 xl:flex-row xl:items-center xl:justify-center xl:space-x-16 lg:flex-row lg:items-center lg:justify-center lg:space-x-1 md:flex-col md:items-center md:justify-center md:space-x-0 md:space-y-4 ls:flex-col ls:items-center ls:justify-center ls:space-x-0 ls:space-y-4 ms:flex-col ms:items-center ms:justify-center ms:space-x-0 ms:space-y-4 xs:flex-col xs:items-center xs:justify-center xs:space-x-0 xs:space-y-4">
-        {DataFlightRoundTrip.map((item, index) => (
+        {DataFlightRoundTrip.map((item) => (
           <RoundTripFlights
-            keyID={index}
+            keyID={item.id}
             image={item.image.src}
             title={item.from}
             flights={item.totalFlight}
