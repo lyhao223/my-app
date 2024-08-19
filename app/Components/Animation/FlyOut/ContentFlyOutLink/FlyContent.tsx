@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 
 const FlyContent = () => {
@@ -6,7 +7,9 @@ const FlyContent = () => {
     <div className="w-44 h-full p-5">
       <ul className="flex flex-col items-start justify-start space-y-4 text-lg subpixel-antialiased">
         <div className="w-36 rounded-lg hover:bg-purple-500 hover:duration-300 hover:transition-all hover:ease-linear p-2">
-          <li>Hotel</li>
+          <li>
+            <Link href="/search/booking">Hotel</Link>
+          </li>
         </div>
         <div className="w-36 rounded-lg hover:bg-purple-500 hover:duration-300 hover:transition-all hover:ease-linear p-2">
           <li>Car Rental</li>
