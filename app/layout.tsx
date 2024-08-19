@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="flex flex-col items-start justify-start 2xl:min-h-full xl:min-h-full lg:min-h-full md:min-h-full min-h-8 2xl:min-w-full xl:min-w-full lg:min-w-full md:min-w-full min-w-52 2xl:px-36 xl:px-28 lg:px-11 md:px-10 2xl:py-11 xl:py-11 lg:py-8 md:py-2  border-b-2 ms:px-3 ls:px-10 py-2  xs:px-1 rounded-b-3xl">
+        <main className="flex flex-col items-start justify-start 2xl:min-h-full xl:min-h-full lg:min-h-full md:min-h-full min-h-8 2xl:min-w-full xl:min-w-full lg:min-w-full md:min-w-full min-w-52 2xl:px-[37rem] xl:px-28 lg:px-11 md:px-10 2xl:py-11 xl:py-11 lg:py-8 md:py-2  border-b-2 ms:px-3 ls:px-10 py-2  xs:px-1 rounded-b-3xl">
           <Header />
         </main>
         {children}
-        <footer className="w-full h-full bg-slate-400 text-black 2xl:px-36 xl:px-24 lg:px-4 md:px-11 ls:px-3 ms:px-2 xs:px-1 2xl:mt-36 xl:mt-36 lg:mt-36 md:mt-10">
+        <footer className="w-full h-full bg-slate-400 text-black 2xl:px-[37rem] 2xl:py-5 xl:px-36 lg:px-11 md:px-3 py-10">
           <Footer />
         </footer>
       </body>

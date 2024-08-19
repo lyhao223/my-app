@@ -19,7 +19,7 @@ const Comment = ({ image, comment, name, position, iconImage }: Props) => {
         className="2xl:w-96 2xl:h-96 xl:w-96 xl:h-96 lg:w-80 lg:h-80 md:w-80 md:h-80 ls:w-72 ls:h-72 ms:h-72 ms:w-72 xs:w-72 xs:h-72 rounded-xl shadow-xl"
       />
 
-      <div className="absolute 2xl:top-7 2xl:left-72 xl:top-7 xl:left-16 lg:top-7 lg:-left-[6.5rem] md:top-7 md:left-48 ls:top-5 ls:left-10 ms:top-4 ms:left-3 xs:top-0 xs:left-0">
+      <div className="absolute 2xl:top-7 2xl:left-72 xl:top-7 xl:left-24 lg:top-7 lg:-left-[6.5rem] md:top-7 md:left-48 ls:top-5 ls:left-10 ms:top-4 ms:left-3 xs:top-0 xs:left-0">
         <img src={iconImage} alt="icon" className="w-20 h-20" />
       </div>
       <div className="flex flex-col 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start md:items-center md:justify-center ls:items-center ls:justify-center ms:items-center ms:justify-center xs:items-center xs:justify-center space-y-5 my-5 lg:my-0">
