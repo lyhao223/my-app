@@ -232,7 +232,7 @@ const FormSearchHotel = () => {
           </FormControl>
         </div>
         <button type="submit" className="relative">
-          <div className="absolute 2xl:top-0 2xl:left-16 xl:top-0 xl:left-0 lg:top-0 lg:-left-8 md:-top-80 md:left-[35rem] ls:-top-[21rem] ls:left-72 ms:-top-[21rem] ms:left-64 xs:left-52 xs:-top-[21rem] rounded-full border-2 border-slate-100 group bg-purple-400 p-2 hover:bg-purple-800 hover:duration-200 hover:transition-all hover:ease-in-out">
+          <div className="absolute 2xl:top-0 2xl:left-5 xl:top-0 xl:left-0 lg:top-0 lg:-left-8 md:-top-80 md:left-[35rem] ls:-top-[21rem] ls:left-72 ms:-top-[21rem] ms:left-64 xs:left-52 xs:-top-[21rem] rounded-full border-2 border-slate-100 group bg-purple-400 p-2 hover:bg-purple-800 hover:duration-200 hover:transition-all hover:ease-in-out">
             <IoIosSearch className="w-8 h-8 group-hover:text-slate-100" />
           </div>
         </button>
