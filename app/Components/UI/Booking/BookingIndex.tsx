@@ -26,7 +26,7 @@ const BookingIndex = () => {
           </span>
         </div>
       </div>
-      <div className="absolute z-10 2xl:-bottom-10 2xl:left-80 xl:-bottom-10 xl:left-44 lg:-bottom-12 lg:left-12 md:-bottom-52 md:left-16 ls:left-9 left-3 -bottom-56">
+      <div className="absolute z-10 2xl:-bottom-10 2xl:left-96 xl:-bottom-10 xl:left-44 lg:-bottom-12 lg:left-12 md:-bottom-52 md:left-16 ls:left-9 left-3 -bottom-56">
         <div className="w-full h-full border-2 p-5 border-slate-300 bg-slate-200 rounded-xl shadow-lg">
           <FormSearchHotel />
         </div>

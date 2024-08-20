@@ -36,7 +36,7 @@ const CardHotel = ({
   return (
     <div
       key={id}
-      className="w-full h-auto bg-slate-100 rounded-lg shadow-xl px-14 py-9">
+      className="2xl:w-[70rem] xl:w-full lg:w-fit md:w-full ls:w-full ms:w-80 xs:w-72 h-auto bg-slate-100 rounded-lg shadow-xl px-14 py-9">
       <div className="flex flex-col items-center justify-center 2xl:grid xl:grid lg:grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 grid-flow-row 2xl:gap-x-16 xl:gap-x-5 lg:space-x-6 ">
         {/*img*/}
         <div className="row-span-2 2xl:col-span-1 xl:col-span-1 lg:col-span-1">
@@ -49,8 +49,8 @@ const CardHotel = ({
         {/*content*/}
         <div className="row-span-2 2xl:col-span-2 xl:col-span-2 lg:col-span-2 w-fit">
           <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start space-y-6">
-            <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start space-y-5">
-              <span className="text-nowrap w-full text-lg font-semibold antialiased">
+            <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start space-y-3">
+              <span className="2xl:text-nowrap xl:text-nowrap lg:text-nowrap md:text-nowrap text-wrap text-center 2xl:text-start xl:text-start lg:text-start w-full text-lg font-semibold antialiased">
                 {loading === "loading" ? <Skeleton width={200} /> : hotelName}
               </span>
               <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start">

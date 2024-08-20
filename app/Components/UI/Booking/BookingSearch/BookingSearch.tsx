@@ -3,14 +3,17 @@ import React from "react";
 import BookingSearchList from "./BookingSearchList";
 
 const BookingSearch = () => {
+  const hotels = useAppSelector((state) => state.searchHotel.hotels);
   return (
     <div className="mt-24 px-36">
-      {/* {hotels.length <= 0 ? (
+      {hotels.length <= 0 ? (
         <div className="text-center text-2xl text-red-600">No hotels found</div>
       ) : (
-        <BookingSearchList />
-      )} */}
-      <BookingSearchList />
+        <div className="flex flex-col items-center justify-center 2xl:mt-0 xl:mt-0 lg:mt-0 mt-60">
+          <BookingSearchList />
+        </div>
+      )}
+      {/* <BookingSearchList /> */}
     </div>
   );
 };

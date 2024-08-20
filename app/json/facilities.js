@@ -1,1 +1,663 @@
-{"data":{"accommodationHighlights":[],"facilities":[{"id":138,"icon":"checkmark","groupId":4,"instances":[{"title":"Clothes rack","attributes":null,"subFacilities":[]}]},{"id":79,"icon":"soundproof","groupId":4,"instances":[{"title":"Soundproof","attributes":null,"subFacilities":[]}]},{"id":141,"icon":"checkmark","groupId":5,"instances":[{"title":"Toilet paper","attributes":null,"subFacilities":[]}]},{"id":124,"icon":"towel","groupId":5,"instances":[{"title":"Towels","attributes":null,"subFacilities":[]}]},{"id":43,"icon":"slippers","groupId":5,"instances":[{"title":"Slippers","attributes":null,"subFacilities":[]}]},{"id":31,"icon":"toilets","groupId":5,"instances":[{"title":"Toilet","attributes":null,"subFacilities":[]}]},{"id":27,"icon":"toiletries","groupId":5,"instances":[{"title":"Free toiletries","attributes":null,"subFacilities":[]}]},{"id":12,"icon":"hair_dryer","groupId":5,"instances":[{"title":"Hairdryer","attributes":null,"subFacilities":[]}]},{"id":4,"icon":"shower","groupId":5,"instances":[{"title":"Shower","attributes":null,"subFacilities":[]}]},{"id":75,"icon":"screen","groupId":6,"instances":[{"title":"Flat-screen TV","attributes":null,"subFacilities":[]}]},{"id":219,"icon":"checkmark","groupId":7,"instances":[{"title":"Coffee house on site","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":5,"icon":"room_service","groupId":7,"instances":[{"title":"Room service","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":47,"icon":"internet","groupId":11,"instances":[{"title":"Internet","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"FREE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":{"__typename":"InternetAttributes"}},"subFacilities":[]}]},{"id":22,"icon":"fridge","groupId":12,"instances":[{"title":"Refrigerator","attributes":null,"subFacilities":[]}]},{"id":17,"icon":"transport_shuttle","groupId":22,"instances":[{"title":"Airport shuttle","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"PAID"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":8,"icon":"front_desk","groupId":23,"instances":[{"title":"24-hour front desk","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":110,"icon":"smoking","groupId":29,"instances":[{"title":"Designated smoking area","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":109,"icon":"weather_snowflake","groupId":29,"instances":[{"title":"Air conditioning","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"FREE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":108,"icon":"no_smoking","groupId":29,"instances":[{"title":"Smoke-free property","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":64,"icon":"soundproof","groupId":29,"instances":[{"title":"Soundproof rooms","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":16,"icon":"no_smoking","groupId":29,"instances":[{"title":"Non-smoking rooms","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":425,"icon":"checkmark","groupId":34,"instances":[{"title":"Fire extinguishers","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":424,"icon":"checkmark","groupId":34,"instances":[{"title":"CCTV outside property","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":423,"icon":"checkmark","groupId":34,"instances":[{"title":"CCTV in common areas","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":422,"icon":"checkmark","groupId":34,"instances":[{"title":"Smoke alarms","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":421,"icon":"checkmark","groupId":34,"instances":[{"title":"Security alarm","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":420,"icon":"checkmark","groupId":34,"instances":[{"title":"Key card access","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]},{"id":418,"icon":"checkmark","groupId":34,"instances":[{"title":"24-hour security","attributes":{"name":null,"isOffsite":false,"paymentInfo":{"chargeMode":"UNKNOWN_CHARGE_MODE"},"closureScheduleDuringStay":[],"scheduleEntry":[],"extendedAttributes":null},"subFacilities":[]}]}],"facilityGroups":[{"id":16,"title":"Parking","icon":"parking_sign","summary":"No parking available."},{"id":11,"title":"Internet","icon":"wifi","summary":"Wifi is available in all areas and is free of charge."},{"id":12,"title":"Kitchen","icon":"oven","summary":null},{"id":17,"title":"Bedroom","icon":"bed","summary":null},{"id":5,"title":"Bathroom","icon":"bath","summary":null},{"id":15,"title":"Living Area","icon":"couch","summary":null},{"id":6,"title":"Media & Technology","icon":"tv_flat_screen","summary":null},{"id":4,"title":"Room Amenities","icon":"bed_single","summary":null},{"id":-2,"title":"Pets","icon":"pawprint","summary":null},{"id":19,"title":"Accessibility","icon":"disabled","summary":null},{"id":13,"title":"Outdoors","icon":"garden","summary":null},{"id":24,"title":"Common Areas","icon":"group","summary":null},{"id":21,"title":"Spa","icon":"spa","summary":null},{"id":1,"title":"General","icon":"info_sign","summary":null},{"id":7,"title":"Food & Drink","icon":"food","summary":null},{"id":-5,"title":"Breakfast","icon":"food_breakfast","summary":null},{"id":2,"title":"Activities","icon":"sports_golf","summary":null},{"id":-6,"title":"Checking In & Out","icon":"check_in","summary":null},{"id":3,"title":"Services","icon":"concierge","summary":null},{"id":8,"title":"Services & Extras","icon":"concierge","summary":null},{"id":18,"title":"Layout","icon":"room_size","summary":null},{"id":14,"title":"View","icon":"landscape_view","summary":null},{"id":10,"title":"Ski","icon":"sports_skiing","summary":null},{"id":9,"title":"Outdoor & View","icon":"outdoors","summary":null},{"id":-4,"title":"Some Rooms","icon":"checkmark","summary":null},{"id":-3,"title":"General","icon":"checkmark","summary":null},{"id":20,"title":"Building Characteristics","icon":"door_open","summary":null},{"id":22,"title":"Transportation","icon":"transport_bus_front","summary":null},{"id":23,"title":"Front Desk Services","icon":"concierge","summary":null},{"id":25,"title":"Entertainment & Family Services","icon":"family","summary":null},{"id":26,"title":"Cleaning Services","icon":"washer","summary":null},{"id":27,"title":"Business Facilities","icon":"briefcase","summary":null},{"id":28,"title":"Shops","icon":"shopping_bag","summary":null},{"id":29,"title":"Miscellaneous","icon":"info_sign","summary":null},{"id":30,"title":"Hot Spring","icon":"bath_tub","summary":null},{"id":33,"title":"Hostel Facilities","icon":"bunk_bed","summary":null},{"id":34,"title":"Safety & security","icon":"lock_closed","summary":null},{"id":35,"title":"Sustainability practices","icon":"earth_heart","summary":null},{"id":37,"title":"Safety features","icon":"health_insurance","summary":null},{"id":38,"title":"Hygiene","icon":"health_insurance","summary":null},{"id":39,"title":"Physical distancing","icon":"health_insurance","summary":null},{"id":40,"title":"Cleanliness & disinfection","icon":"cleaning_spray","summary":null},{"id":41,"title":"Food & drink safety","icon":"lunch_packed","summary":null},{"id":42,"title":"Self check-in","icon":"check_in_early","summary":null},{"id":43,"title":null,"icon":"food_gourmet","summary":null}],"highlights":{"entities":[{"__typename":"BaseFacility","icon":"no_smoking","instances":[{"title":"Non-smoking rooms"}]},{"__typename":"BaseFacility","icon":"transport_shuttle","instances":[{"title":"Airport shuttle"}]},{"__typename":"BaseFacility","icon":"internet","instances":[{"title":"Internet"}]},{"__typename":"BaseFacility","icon":"room_service","instances":[{"title":"Room service"}]},{"__typename":"BaseFacility","icon":"front_desk","instances":[{"title":"24-hour front desk"}]}]}},"status":true,"message":"Successful"}
+{
+  "data": {
+    "pagination": {
+      "nbResultsTotal": 84
+    },
+    "filtersTrackOnView": [],
+    "filters": [
+      {
+        "field": "previous",
+        "title": {
+          "__typename": "TextWithTranslationTag",
+          "translationTag": {
+            "translation": null
+          },
+          "text": "Your Previous Filters"
+        },
+        "sliderOptions": {
+          "selectedRange": null,
+          "maxSelected": "0",
+          "minSelected": "0",
+          "currency": "",
+          "histogram": [],
+          "min": "0",
+          "minPriceStep": "0",
+          "max": "0"
+        },
+        "stepperOptions": [],
+        "trackOnClick": [],
+        "name": "",
+        "count": 168,
+        "subtitle": "",
+        "filterStyle": "CHECKBOX",
+        "options": [
+          {
+            "trackOnView": [],
+            "additionalLabel": {
+              "text": "",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "genericId": "facility::107",
+            "countNotAutoextended": 84,
+            "trackOnSelectPopular": [],
+            "value": {
+              "translationTag": {
+                "translation": null
+              },
+              "text": "Free WiFi",
+              "__typename": "TextWithTranslationTag"
+            },
+            "selected": true,
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": []
+          },
+          {
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": [],
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnSelectPopular": [],
+            "value": {
+              "text": "3 stars",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "selected": true,
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "text": "",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "trackOnView": [],
+            "genericId": "class::3",
+            "countNotAutoextended": 84
+          }
+        ],
+        "trackOnView": [],
+        "filterLayout": {
+          "isCollapsable": false,
+          "isCollapsed": false,
+          "layoutType": "UNKNOWN",
+          "collapsedCount": 5
+        }
+      },
+      {
+        "name": "price_buckets",
+        "count": 171,
+        "subtitle": "",
+        "filterStyle": "CHECKBOX",
+        "filterLayout": {
+          "isCollapsable": false,
+          "isCollapsed": false,
+          "collapsedCount": 5,
+          "layoutType": "UNKNOWN"
+        },
+        "trackOnView": [],
+        "options": [
+          {
+            "countNotAutoextended": 1,
+            "genericId": "price_category::50",
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "translationTag": {
+                "translation": null
+              },
+              "text": ""
+            },
+            "trackOnView": [],
+            "trackOnClick": [],
+            "trackOnClickPopular": [],
+            "selected": false,
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "translationTag": {
+                "translation": null
+              },
+              "text": "$0 – $50"
+            },
+            "trackOnSelectPopular": [],
+            "trackOnViewPopular": [],
+            "trackOnSelect": [],
+            "trackOnDeSelect": [],
+            "trackOnDeSelectPopular": []
+          },
+          {
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnDeSelect": [],
+            "trackOnDeSelectPopular": [],
+            "genericId": "price_category::100",
+            "countNotAutoextended": 9,
+            "additionalLabel": {
+              "text": "",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnView": [],
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "trackOnSelectPopular": [],
+            "value": {
+              "text": "$50 – $100",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "selected": false
+          },
+          {
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": [],
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnSelectPopular": [],
+            "selected": false,
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "translationTag": {
+                "translation": null
+              },
+              "text": "$100 – $150"
+            },
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "additionalLabel": {
+              "translationTag": {
+                "translation": null
+              },
+              "text": "",
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnView": [],
+            "countNotAutoextended": 48,
+            "genericId": "price_category::150"
+          },
+          {
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "text": "$150 – $200",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "selected": false,
+            "trackOnSelectPopular": [],
+            "genericId": "price_category::200",
+            "countNotAutoextended": 61,
+            "additionalLabel": {
+              "translationTag": {
+                "translation": null
+              },
+              "text": "",
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnView": [],
+            "trackOnDeSelect": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnViewPopular": [],
+            "trackOnSelect": []
+          },
+          {
+            "trackOnViewPopular": [],
+            "trackOnSelect": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": [],
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "text": "",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "trackOnView": [],
+            "countNotAutoextended": 52,
+            "genericId": "price_category::250",
+            "selected": false,
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "text": "$200 +",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "trackOnSelectPopular": [],
+            "trackOnClickPopular": [],
+            "trackOnClick": []
+          }
+        ],
+        "title": {
+          "text": "Your budget (for 1 night)",
+          "translationTag": {
+            "translation": null
+          },
+          "__typename": "TextWithTranslationTag"
+        },
+        "field": "pri",
+        "sliderOptions": {
+          "selectedRange": null,
+          "maxSelected": "0",
+          "minSelected": "0",
+          "currency": "",
+          "histogram": [],
+          "min": "0",
+          "minPriceStep": "0",
+          "max": "0"
+        },
+        "stepperOptions": [],
+        "trackOnClick": []
+      },
+      {
+        "sliderOptions": {
+          "minSelected": "0",
+          "currency": "",
+          "maxSelected": "0",
+          "selectedRange": null,
+          "max": "0",
+          "min": "0",
+          "minPriceStep": "0",
+          "histogram": []
+        },
+        "stepperOptions": [],
+        "trackOnClick": [],
+        "title": {
+          "__typename": "TextWithTranslationTag",
+          "text": "Popular Filters",
+          "translationTag": {
+            "translation": null
+          }
+        },
+        "field": "popular",
+        "count": 344,
+        "filterStyle": "CHECKBOX",
+        "subtitle": "",
+        "trackOnView": [],
+        "filterLayout": {
+          "collapsedCount": 5,
+          "layoutType": "UNKNOWN",
+          "isCollapsable": false,
+          "isCollapsed": false
+        },
+        "options": [
+          {
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": [],
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnSelectPopular": [],
+            "selected": false,
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "text": "Hotels",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "trackOnView": [],
+            "additionalLabel": {
+              "text": "",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "countNotAutoextended": 74,
+            "genericId": "property_type::204"
+          },
+          {
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": [],
+            "trackOnView": [],
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "translationTag": {
+                "translation": null
+              },
+              "text": ""
+            },
+            "countNotAutoextended": 84,
+            "genericId": "district::929",
+            "trackOnSelectPopular": [],
+            "value": {
+              "text": "Manhattan",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "selected": false,
+            "trackOnClickPopular": [],
+            "trackOnClick": []
+          },
+          {
+            "trackOnDeSelect": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnClick": [],
+            "trackOnClickPopular": [],
+            "trackOnSelectPopular": [],
+            "value": {
+              "translationTag": {
+                "translation": "Very Good: 8+"
+              },
+              "text": "",
+              "__typename": "TextWithTranslationTag"
+            },
+            "selected": false,
+            "genericId": "reviewscorebuckets::80",
+            "countNotAutoextended": 35,
+            "trackOnView": [],
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "translationTag": {
+                "translation": null
+              },
+              "text": ""
+            }
+          },
+          {
+            "selected": false,
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "translationTag": {
+                "translation": "Breakfast Included"
+              },
+              "text": ""
+            },
+            "trackOnSelectPopular": [],
+            "trackOnClick": [],
+            "trackOnClickPopular": [],
+            "trackOnView": [],
+            "additionalLabel": {
+              "translationTag": {
+                "translation": null
+              },
+              "text": "",
+              "__typename": "TextWithTranslationTag"
+            },
+            "genericId": "mealplan::breakfast_included",
+            "countNotAutoextended": 36,
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnSelect": []
+          },
+          {
+            "additionalLabel": {
+              "translationTag": {
+                "translation": null
+              },
+              "text": "",
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnView": [],
+            "countNotAutoextended": 55,
+            "genericId": "district::970",
+            "trackOnSelectPopular": [],
+            "selected": false,
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "text": "Midtown",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "trackOnClick": [],
+            "trackOnClickPopular": [],
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": []
+          },
+          {
+            "trackOnView": [],
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "text": "",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "genericId": "property_type::203",
+            "countNotAutoextended": 2,
+            "trackOnSelectPopular": [],
+            "selected": false,
+            "value": {
+              "text": "Hostels",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": []
+          },
+          {
+            "genericId": "district::1174",
+            "countNotAutoextended": 13,
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "translationTag": {
+                "translation": null
+              },
+              "text": ""
+            },
+            "trackOnView": [],
+            "trackOnClick": [],
+            "trackOnClickPopular": [],
+            "trackOnSelectPopular": [],
+            "selected": false,
+            "value": {
+              "translationTag": {
+                "translation": null
+              },
+              "text": "Times Square",
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnDeSelect": [],
+            "trackOnDeSelectPopular": []
+          },
+          {
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": [],
+            "trackOnView": [],
+            "additionalLabel": {
+              "text": "",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "genericId": "facility::2",
+            "countNotAutoextended": 45,
+            "trackOnSelectPopular": [],
+            "selected": false,
+            "value": {
+              "text": "Parking",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnClickPopular": [],
+            "trackOnClick": []
+          }
+        ],
+        "name": "popular"
+      },
+      {
+        "stepperOptions": [],
+        "trackOnClick": [],
+        "sliderOptions": {
+          "selectedRange": null,
+          "maxSelected": "0",
+          "currency": "",
+          "minSelected": "0",
+          "histogram": [],
+          "minPriceStep": "0",
+          "min": "0",
+          "max": "0"
+        },
+        "field": "ht_id",
+        "title": {
+          "__typename": "TextWithTranslationTag",
+          "text": "Property Type",
+          "translationTag": {
+            "translation": null
+          }
+        },
+        "options": [
+          {
+            "trackOnViewPopular": [],
+            "trackOnSelect": [],
+            "trackOnDeSelect": [],
+            "trackOnDeSelectPopular": [],
+            "genericId": "property_type::204",
+            "countNotAutoextended": 74,
+            "trackOnView": [],
+            "additionalLabel": {
+              "translationTag": {
+                "translation": null
+              },
+              "text": "",
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "selected": false,
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "text": "Hotels",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "trackOnSelectPopular": []
+          },
+          {
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "text": "",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "trackOnView": [],
+            "genericId": "property_type::201",
+            "countNotAutoextended": 7,
+            "value": {
+              "text": "Apartments",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "selected": false,
+            "trackOnSelectPopular": [],
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "trackOnViewPopular": [],
+            "trackOnSelect": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnDeSelect": []
+          },
+          {
+            "trackOnClickPopular": [],
+            "trackOnClick": [],
+            "selected": false,
+            "value": {
+              "text": "Hostels",
+              "translationTag": {
+                "translation": null
+              },
+              "__typename": "TextWithTranslationTag"
+            },
+            "trackOnSelectPopular": [],
+            "genericId": "property_type::203",
+            "countNotAutoextended": 2,
+            "additionalLabel": {
+              "__typename": "TextWithTranslationTag",
+              "text": "",
+              "translationTag": {
+                "translation": null
+              }
+            },
+            "trackOnView": [],
+            "trackOnDeSelect": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnViewPopular": [],
+            "trackOnSelect": []
+          },
+          {
+            "trackOnDeSelect": [],
+            "trackOnDeSelectPopular": [],
+            "trackOnSelect": [],
+            "trackOnViewPopular": [],
+            "trackOnClick": [],
+            "trackOnClickPopular": [],
+            "trackOnSelectPopular": [],
+            "selected": false,
+            "value": {
+              "__typename": "TextWithTranslationTag",
+              "translationTag": {
+                "translation": null
+              },
+              "text": "Guesthouses"
+            },
+            "countNotAutoextended": 2,
+            "genericId": "property_type::216",
+            "trackOnView": [],
+            "additionalLabel": {
+              "translationTag": {
+                "translation": null
+              },
+              "text": "",
+              "__typename": "TextWithTranslationTag"
+            }
+          }
+        ],
+        "filterLayout": {
+          "layoutType": "UNKNOWN",
+          "collapsedCount": 5,
+          "isCollapsed": false,
+          "isCollapsable": false
+        },
+        "trackOnView": [],
+        "subtitle": "",
+        "filterStyle": "CHECKBOX",
+        "count": 85,
+        "name": "similar_accommodationtype_id"
+      },
+
+    ],
+}
