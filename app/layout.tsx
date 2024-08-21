@@ -3,6 +3,8 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/UI/Header/Header";
 import Footer from "./Components/UI/Footer/Footer";
+import { Provider } from "react-redux";
+import { store } from "./services/redux/store";
 
 const inter = Roboto({
   weight: "400",

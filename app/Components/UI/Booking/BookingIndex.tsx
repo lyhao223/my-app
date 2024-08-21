@@ -2,11 +2,8 @@
 import React from "react";
 import b1 from "@/assets/booking/b1.jpeg";
 import FormSearchHotel from "../ContentHeader/FormSearchHotel";
-import { Provider } from "react-redux";
-import { store } from "@/app/services/redux/store";
-import { useAppSelector } from "@/app/services/redux/hooks/hooks";
+
 const BookingIndex = () => {
-  const hotels = useAppSelector((state) => state.searchHotel.hotels);
   return (
     <div className="relative z-10">
       <img

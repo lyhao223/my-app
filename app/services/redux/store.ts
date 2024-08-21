@@ -6,6 +6,7 @@ import DaLatFlights from './slice/DaLatFlights'
 import HueFlights from './slice/HueFlights'
 import DaNangFlights from './slice/DaNangFlights'
 import QuangNgaiFlights from './slice/QuangNgaiFlights'
+import detailHotelSlice from './slice/detailHotelSlice'
 
 export const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
         HueFlights: HueFlights,
         DaNangFlights: DaNangFlights,
         QuangNgaiFlights: QuangNgaiFlights,
+        detailHotelSlice: detailHotelSlice
     },
 })
 

@@ -2,6 +2,9 @@ import Image from "next/image";
 import React from "react";
 import h1 from "@/assets/hotels/h1.webp";
 import { Skeleton } from "@mui/material";
+import clsx from "clsx";
+import Link from "next/link";
+
 interface ICardHotelProps {
   image: string | any;
   hotelName: string;
@@ -39,13 +42,13 @@ const CardHotel = ({
       className="2xl:w-[70rem] xl:w-full lg:w-fit md:w-full ls:w-full ms:w-80 xs:w-72 h-auto bg-slate-100 rounded-lg shadow-xl px-14 py-9">
       <div className="flex flex-col items-center justify-center 2xl:grid xl:grid lg:grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-4 grid-flow-row 2xl:gap-x-16 xl:gap-x-5 lg:space-x-6 ">
         {/*img*/}
-        <div className="row-span-2 2xl:col-span-1 xl:col-span-1 lg:col-span-1">
-          {loading === "loading" ? (
-            <Skeleton variant="rectangular" width="100%" height={150} />
-          ) : (
+        {loading === "loading" ? (
+          <Skeleton width="100%" height={150} />
+        ) : (
+          <div className="row-span-2 2xl:col-span-1 xl:col-span-1 lg:col-span-1">
             <img src={image} alt="hotel" className="w-fit h-full rounded-lg" />
-          )}
-        </div>
+          </div>
+        )}
         {/*content*/}
         <div className="row-span-2 2xl:col-span-2 xl:col-span-2 lg:col-span-2 w-fit">
           <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start space-y-6">
@@ -57,7 +60,7 @@ const CardHotel = ({
                 <span className="text-sm">
                   Check in:{" "}
                   <span className="text-start">
-                    {loading === "loading" ? (
+                    {loading ? (
                       <Skeleton width={150} />
                     ) : (
                       `${checkInUntilTime} - ${checkInFromTime}`
@@ -67,7 +70,7 @@ const CardHotel = ({
                 <span className="text-sm">
                   Check out:{" "}
                   <span className="text-start">
-                    {loading === "loading" ? (
+                    {loading ? (
                       <Skeleton width={150} />
                     ) : (
                       `${checkOutUntilTime} - ${checkOutFromTime}`
@@ -76,7 +79,7 @@ const CardHotel = ({
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start">
-                {loading === "loading" ? (
+                {loading ? (
                   <Skeleton width={100} />
                 ) : (
                   price && (
@@ -85,7 +88,7 @@ const CardHotel = ({
                     </span>
                   )
                 )}
-                {loading === "loading" ? (
+                {loading ? (
                   <Skeleton width={100} height={30} />
                 ) : (
                   discountPrice && (
@@ -123,11 +126,9 @@ const CardHotel = ({
                 Score word: {scoreWord}
               </span>
             )}
-            <button
-              className={`rounded-lg bg-blue-500 px-5 py-4 text-nowrap ${
-                loading && "opacity-50 cursor-not-allowed"
-              }`}
-              disabled={loading}>
+            <Link
+              href={`/search/booking/hotel/${id}`}
+              className="rounded-lg bg-blue-500 px-5 py-4 text-nowrap">
               {loading ? (
                 <Skeleton width={100} />
               ) : (
@@ -135,7 +136,7 @@ const CardHotel = ({
                   Look for detail
                 </span>
               )}
-            </button>
+            </Link>
           </div>
         </div>
       </div>

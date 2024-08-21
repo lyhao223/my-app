@@ -2,17 +2,20 @@
 import BookingIndex from "@/app/Components/UI/Booking/BookingIndex";
 import BookingSearch from "@/app/Components/UI/Booking/BookingSearch/BookingSearch";
 import { store } from "@/app/services/redux/store";
-import React from "react";
+import React, { Suspense } from "react";
 import { Provider } from "react-redux";
+import Loading from "./loading";
 
 const Page = () => {
   return (
-    <div className="mb-14">
-      <Provider store={store}>
+    <Provider store={store}>
+      <div className="mb-14">
         <BookingIndex />
-        <BookingSearch />
-      </Provider>
-    </div>
+        <Suspense fallback={<Loading />}>
+          <BookingSearch />
+        </Suspense>
+      </div>
+    </Provider>
   );
 };
 

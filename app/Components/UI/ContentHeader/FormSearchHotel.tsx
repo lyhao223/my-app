@@ -6,12 +6,14 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 //redux
 import {
   fetchAutoCompleteLocation,
   fetchHotelSearch,
+  getCheckinDate,
+  getCheckoutDate,
 } from "@/app/services/redux/slice/searchHotelSlice";
 
 //icons
@@ -93,26 +95,28 @@ const FormSearchHotel = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    // try {
-    //   const response = await dispatch(fetchAutoCompleteLocation(location));
-    //   const locationID = response.payload;
+    dispatch(getCheckinDate(checkinDate));
+    dispatch(getCheckoutDate(checkoutDate));
+    try {
+      const response = await dispatch(fetchAutoCompleteLocation(location));
+      const locationID = response.payload;
 
-    //   if (locationID) {
-    //     await dispatch(
-    //       fetchHotelSearch({
-    //         locationID: locationID,
-    //         checkInDate: checkinDate,
-    //         checkOutDate: checkoutDate,
-    //         room: room,
-    //         adult: adult,
-    //         children: children,
-    //       })
-    //     );
-    //     // This will log the resolved search result
-    //   }
-    // } catch (error) {
-    //   console.error(error);
-    // }
+      if (locationID) {
+        await dispatch(
+          fetchHotelSearch({
+            locationID: locationID,
+            checkInDate: checkinDate,
+            checkOutDate: checkoutDate,
+            room: room,
+            adult: adult,
+            children: children,
+          })
+        );
+        // This will log the resolved search result
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -153,7 +157,7 @@ const FormSearchHotel = () => {
               onChange={(e: any) => {
                 setCheckinDate(e.target.value);
               }}
-              className="2xl:w-full xl:w-full lg:w-36 md:w-64 ls:w-full"
+              className="2xl:w-full xl:w-full lg:w-36 md:w-64 ls:w-full ms:w-56 xs:w-full"
             />
             <TextField
               id="checkoutDate"
@@ -168,7 +172,7 @@ const FormSearchHotel = () => {
               onChange={(e: any) => {
                 setCheckoutDate(e.target.value);
               }}
-              className="2xl:w-full xl:w-full lg:w-36 md:w-72 ls:w-full"
+              className="2xl:w-full xl:w-full lg:w-36 md:w-72 ls:w-full ms:w-56 xs:w-full"
             />
           </div>
         </div>
@@ -185,7 +189,7 @@ const FormSearchHotel = () => {
               label="Guests & room"
               value={getValueGuestsAndRoooms.toString()}
               renderValue={() => getValueGuestsAndRoooms().toString()}
-              className="2xl:w-full xl:w-full lg:w-52 md:w-[34.222rem] ls:w-full ms:w-full xs:w-48">
+              className="2xl:w-full xl:w-full lg:w-52 md:w-[34.222rem] ls:w-full ms:w-64 xs:w-48">
               <MenuItem className="flex flex-row items-start justify-between">
                 <span>Adults</span>
                 <div className="flex flex-row items-center justify-center space-x-2">
