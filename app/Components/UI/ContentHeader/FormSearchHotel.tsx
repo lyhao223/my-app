@@ -95,8 +95,9 @@ const FormSearchHotel = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    dispatch(getCheckinDate(checkinDate));
-    dispatch(getCheckoutDate(checkoutDate));
+    const test1 = dispatch(getCheckinDate(checkinDate));
+    const test2 = dispatch(getCheckoutDate(checkoutDate));
+    console.log(test1, test2);
     try {
       const response = await dispatch(fetchAutoCompleteLocation(location));
       const locationID = response.payload;
