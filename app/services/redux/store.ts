@@ -8,7 +8,8 @@ import DaNangFlights from './slice/DaNangFlights'
 import QuangNgaiFlights from './slice/QuangNgaiFlights'
 import detailHotelSlice from './slice/detailHotelSlice'
 import fetchPhotoHotel from './slice/fetchPhotoHotel'
-
+import reviewScoresSlice from './slice/reviewScoresSlice'
+import descriptionHotelSlice from './slice/descriptionHotelSlice'
 export const store = configureStore({
     reducer: {
         searchHotel: searchHotelSlice,
@@ -20,6 +21,8 @@ export const store = configureStore({
         QuangNgaiFlights: QuangNgaiFlights,
         detailHotelSlice: detailHotelSlice,
         photoHotelSlice: fetchPhotoHotel,
+        reviewScoresSlice: reviewScoresSlice,
+        descriptionHotelSlice: descriptionHotelSlice,
     },
 })
 

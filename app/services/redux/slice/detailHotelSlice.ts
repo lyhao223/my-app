@@ -13,8 +13,8 @@ const initialState: DetailHotelState = {
 };
 
 export const fetchDetailHotel = createAsyncThunk('detailHotel/fetchDetailHotel', 
-    async ({hotelID, checkinDate, checkoutDate}:{hotelID: string, checkinDate:any, checkoutDate:any}) => {
-        const url = `https://booking-com18.p.rapidapi.com/stays/detail?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&units=metric`
+    async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: string, checkinDate:any, checkoutDate:any, adult?:any, children?:any, room?:any}) => {
+        const url = `https://booking-com18.p.rapidapi.com/stays/detail?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
         const options = {
                 method: 'GET',
                 headers: {
@@ -27,7 +27,7 @@ export const fetchDetailHotel = createAsyncThunk('detailHotel/fetchDetailHotel',
             const res = await fetch(url, options);
             if(res.ok){
                 const data = await res.json();
-                console.log(data?.data);
+                
                 return data?.data;
             }
         } catch (error) {

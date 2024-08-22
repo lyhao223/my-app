@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
+import { get } from 'http';
 
 interface HotelState {
     autoComplete: any[];
@@ -9,6 +10,9 @@ interface HotelState {
     hotelID: string | null;
     checkinDate: string | null;
     checkoutDate: string | null;
+    adult: number | null;
+    children: number | null;
+    room: number | null;
 }
 
 const initialState: HotelState = {
@@ -19,6 +23,9 @@ const initialState: HotelState = {
     hotelID: null,
     checkinDate: null,
     checkoutDate: null,
+    adult: null,
+    children: null,
+    room: null,
 };
 
 // Fetch location ID based on user query
@@ -78,6 +85,15 @@ const hotelSearchSlice = createSlice({
         getCheckoutDate: (state, action: PayloadAction<string>) => {
             state.checkoutDate = action.payload;
         },
+        getAdult: (state, action: PayloadAction<number>) => {
+            state.adult = action.payload;
+        },
+        getChildren: (state, action: PayloadAction<number>) => {
+            state.children = action.payload;
+        },
+        getRoom: (state, action: PayloadAction<number>) => {
+            state.room = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -106,5 +122,5 @@ const hotelSearchSlice = createSlice({
     },
 });
 
-export const { getCheckinDate, getCheckoutDate } = hotelSearchSlice.actions;
+export const { getCheckinDate, getCheckoutDate, getAdult, getChildren, getRoom } = hotelSearchSlice.actions;
 export default hotelSearchSlice.reducer;

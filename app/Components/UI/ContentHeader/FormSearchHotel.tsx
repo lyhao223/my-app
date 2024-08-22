@@ -12,8 +12,11 @@ import React, { useEffect, useRef, useState } from "react";
 import {
   fetchAutoCompleteLocation,
   fetchHotelSearch,
+  getAdult,
   getCheckinDate,
   getCheckoutDate,
+  getChildren,
+  getRoom,
 } from "@/app/services/redux/slice/searchHotelSlice";
 
 //icons
@@ -95,9 +98,11 @@ const FormSearchHotel = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const test1 = dispatch(getCheckinDate(checkinDate));
-    const test2 = dispatch(getCheckoutDate(checkoutDate));
-    console.log(test1, test2);
+    dispatch(getCheckinDate(checkinDate));
+    dispatch(getCheckoutDate(checkoutDate));
+    dispatch(getAdult(adult));
+    dispatch(getChildren(children));
+    dispatch(getRoom(room));
     try {
       const response = await dispatch(fetchAutoCompleteLocation(location));
       const locationID = response.payload;
