@@ -25,11 +25,17 @@ export const getPhotoHotel = createAsyncThunk('/photoHotel', async (hotelID: any
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
+            const getUrlPhoto = data?.data?.url_prefix
             const photos = data?.data?.data?.[hotelID]?.slice(0,10);
             const lastArrayPhoto = photos?.map((subArray:any) => subArray[subArray.length - 1])
-            const getSqurePhoto = lastArrayPhoto?.map((item:any) => item.find((subItem:any)=> subItem.includes('square60')));
-
-            return getSqurePhoto;
+            const getSqurePhoto = lastArrayPhoto?.map((item:any) => item.find((subItem:any)=> subItem.includes('max2600')));
+            const fullUrls: any = [];
+            for (const key in getSqurePhoto) {
+                if (getSqurePhoto.hasOwnProperty(key)) {
+                    fullUrls[key] = `${getUrlPhoto}${getSqurePhoto[key]}`;
+                }
+            }
+            return fullUrls;
         }
     } catch (error) {
         console.error('Failed to fetch data', error);
