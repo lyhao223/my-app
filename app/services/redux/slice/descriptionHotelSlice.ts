@@ -27,7 +27,6 @@ export const fetchDescriptionHotel = createAsyncThunk('reviewScores/fetchdescrip
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            console.log(data?.data);
             return data?.data;
         }
     } catch (error) {

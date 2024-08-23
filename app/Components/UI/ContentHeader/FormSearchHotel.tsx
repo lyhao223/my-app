@@ -37,7 +37,7 @@ const FormSearchHotel = () => {
   const [location, setLocation] = useState("");
   const dispatch = useAppDispatch();
   const hotels = useAppSelector((state) => state.searchHotel.hotels);
-
+  // const hotels = useAppSelector((state) => state.test.hotels);
   //increase and decrease number of adult, children, room
   const handleIncreaseAdult = (event: any) => {
     event.stopPropagation();

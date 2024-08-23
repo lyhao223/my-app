@@ -34,8 +34,7 @@ export const fetchAutoCompleteLocation = createAsyncThunk('stays/auto-complete',
     const authenticAPI = {
         method: 'GET',
         headers: {
-            // 'x-rapidapi-key': 'f29029bc0bmshb775293de0f8d2cp1a3632jsnd5d94cab716e', lyhao0710
-                'x-rapidapi-key': 'bd5fa9a9f3msh54e4b7a9a67aef8p1e078cjsna62580ff7d54', //lyhao2203
+            'x-rapidapi-key': 'f29029bc0bmshb775293de0f8d2cp1a3632jsnd5d94cab716e',
             'x-rapidapi-host': 'booking-com18.p.rapidapi.com',
         },
     };
@@ -77,7 +76,7 @@ export const fetchHotelSearch = createAsyncThunk(
     }
 );
 
-const hotelSearchSlice = createSlice({
+const test = createSlice({
     name: 'hotelSearch',
     initialState,
     reducers: {
@@ -124,5 +123,5 @@ const hotelSearchSlice = createSlice({
     },
 });
 
-export const { getCheckinDate, getCheckoutDate, getAdult, getChildren, getRoom } = hotelSearchSlice.actions;
-export default hotelSearchSlice.reducer;
+export const { getCheckinDate, getCheckoutDate, getAdult, getChildren, getRoom } = test.actions;
+export default test.reducer;

@@ -22,12 +22,12 @@ interface IDetailBookingHotelProps {
 }
 const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const dispatch = useAppDispatch();
-  const checkinDate = useAppSelector((state) => state.searchHotel.checkinDate);
-  const checkoutDate = useAppSelector(
-    (state) => state.searchHotel.checkoutDate
-  );
-  // const checkinDate = "2024-08-24";
-  // const checkoutDate = "2024-08-29";
+  // const checkinDate = useAppSelector((state) => state.searchHotel.checkinDate);
+  // const checkoutDate = useAppSelector(
+  //   (state) => state.searchHotel.checkoutDate
+  // );
+  const checkinDate = "2024-08-24";
+  const checkoutDate = "2024-08-29";
   const adult = useAppSelector((state) => state.searchHotel.adult);
   const children = useAppSelector((state) => state.searchHotel.children);
   const room = useAppSelector((state) => state.searchHotel.room);
@@ -109,21 +109,35 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
 
       <div className="ml-10 flex flex-row items-start justify-between">
         <div className="flex flex-col items-start justify-start space-y-4">
-          <span className="text-2xl font-semibold">Description</span>
-          <span className="text-lg font-medium w-[50rem] text-start">
-            {descriptionHotel[1]?.description}
-          </span>
+          <div className="flex flex-col items-start justify-start">
+            <span className="text-2xl font-semibold">Description</span>
+            <span className="text-lg font-medium w-[65rem] text-start">
+              {descriptionHotel[1]?.description}
+            </span>
+          </div>
+          {descriptionHotel[0]?.description && (
+            <div className="flex flex-col items-start justify-start">
+              <span className="text-2xl font-semibold">Important</span>
+              <span className="text-lg font-medium w-[65rem] text-start">
+                {descriptionHotel[0]?.description}
+              </span>
+            </div>
+          )}
         </div>
-        <div className="rounded-lg w-80 h-80 bg-slate-300">
-          <div className="flex flex-col items-start justify-start px-4 py-5">
+        <div className="rounded-lg w-auto h-auto bg-slate-300">
+          <div className="flex flex-col items-start justify-start space-y-5 px-4 py-5">
             <div className="flex flex-row items-center justify-start space-x-4">
               <BsHighlights className="text-blue-500 text-xl" />
               <span className="text-xl font-medium">Highlights:</span>
             </div>
-            {/* {hotel?.top_ufi_benefits.map((item: any) => (
-              <span key={item.icon}>{item?.translated_name}</span>
-            ))} */}
-            {/* <span>{hotel?.top_ufi_benefits?.translated_name}</span> */}
+            <ul className="px-8">
+              {hotel?.top_ufi_benefits.map((item: any) => (
+                <li className="list-disc" key={item.icon}>
+                  {item?.translated_name}
+                </li>
+              ))}
+            </ul>
+            {/* <span>{hotel?.data?.top_ufi_benefits?.translated_name}</span> */}
           </div>
         </div>
       </div>
