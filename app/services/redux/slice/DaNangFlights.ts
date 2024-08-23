@@ -24,7 +24,8 @@ export const fetchDaNangFlights = createAsyncThunk('/DaNangflights', async()=>{
     const options = {
 	method: 'GET',
 	headers: {
-		'x-rapidapi-key': 'f29029bc0bmshb775293de0f8d2cp1a3632jsnd5d94cab716e',
+		// 'x-rapidapi-key': 'f29029bc0bmshb775293de0f8d2cp1a3632jsnd5d94cab716e', lyhao0710
+        'x-rapidapi-key': 'bd5fa9a9f3msh54e4b7a9a67aef8p1e078cjsna62580ff7d54', //lyhao2203
 		'x-rapidapi-host': 'skyscanner80.p.rapidapi.com'
 	}
 };
