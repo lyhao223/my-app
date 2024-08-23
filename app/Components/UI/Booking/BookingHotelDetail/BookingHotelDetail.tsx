@@ -47,9 +47,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           hotelID: id,
           checkinDate: checkinDate,
           checkoutDate: checkoutDate,
-          adult: adult,
-          children: children,
-          room: room,
+          adult: 4,
+          children: 2,
+          room: 2,
         })
       );
     }
@@ -58,12 +58,13 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       dispatch(fetchReviewScores(id));
       dispatch(fetchDescriptionHotel(id));
     }
+    console.log("hotel", hotel);
   }, [id, checkinDate, checkoutDate]);
 
   return (
     <>
       <div className="ml-10 flex flex-row items-start justify-between">
-        <div className="flex flex-col items-start justify-start">
+        <div className="flex flex-col items-start justify-start space-y-5">
           <span className="text-2xl font-semibold">{hotel?.hotel_name}</span>
           <div className="flex flex-row items-start justify-start space-x-2">
             <FaLocationDot className="text-red-500" />
@@ -73,6 +74,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           </div>
           <span className="text-lg font-medium">
             Accommodation: {hotel?.accommodation_type_name}.
+          </span>
+          <span className="text-sm italic">
+            {hotel?.host_profile?.host_since}
           </span>
         </div>
         <div className="rounded-lg shadow-lg w-44 h-16">
@@ -108,17 +112,17 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       </Carousel>
 
       <div className="ml-10 flex flex-row items-start justify-between">
-        <div className="flex flex-col items-start justify-start space-y-4">
-          <div className="flex flex-col items-start justify-start">
+        <div className="flex flex-col items-start justify-start space-y-7">
+          <div className="flex flex-col items-start justify-start space-y-5">
             <span className="text-2xl font-semibold">Description</span>
-            <span className="text-lg font-medium w-[65rem] text-start">
+            <span className="text-sm font-extralight w-[65rem] text-start">
               {descriptionHotel[1]?.description}
             </span>
           </div>
           {descriptionHotel[0]?.description && (
-            <div className="flex flex-col items-start justify-start">
+            <div className="flex flex-col items-start justify-start space-y-5">
               <span className="text-2xl font-semibold">Important</span>
-              <span className="text-lg font-medium w-[65rem] text-start">
+              <span className="text-sm font-medium w-[65rem] text-start">
                 {descriptionHotel[0]?.description}
               </span>
             </div>
