@@ -15,6 +15,11 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsHighlights } from "react-icons/bs";
 import { fetchReviewScores } from "@/app/services/redux/slice/reviewScoresSlice";
 import { fetchDescriptionHotel } from "@/app/services/redux/slice/descriptionHotelSlice";
+import { Skeleton } from "@mui/material";
+import InfoHotel from "../InfoHotel/InfoHotel";
+import CarouselBooking from "../CarouselBooking/CarouselBooking";
+import BookingDescription from "../BookingDescription/BookingDescription";
+import { fetchRoomList } from "@/app/services/redux/slice/roomListSlice";
 interface IDetailBookingHotelProps {
   id: any;
   checkinDate?: string | any;
@@ -33,6 +38,8 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const room = useAppSelector((state) => state.searchHotel.room);
   const photo = useAppSelector((state) => state.photoHotelSlice.photo);
   const hotel: any = useAppSelector((state) => state.detailHotelSlice.hotel);
+  const status = useAppSelector((state) => state.detailHotelSlice.status);
+  const roomList: any = useAppSelector((state) => state.roomListSlice.roomList);
   const reviewScores: any = useAppSelector(
     (state) => state.reviewScoresSlice.reviewScores
   );
@@ -40,8 +47,11 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
     (state) => state.descriptionHotelSlice.desHotel
   );
   useEffect(() => {
-    if (id && checkinDate && checkoutDate) {
-      console.log("child", children);
+    if (
+      (id && checkinDate && checkoutDate) ||
+      (id && checkinDate && checkoutDate && adult && children && room) ||
+      (id && checkinDate && checkoutDate && adult && room)
+    ) {
       dispatch(
         fetchDetailHotel({
           hotelID: id,
@@ -58,90 +68,74 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       dispatch(fetchReviewScores(id));
       dispatch(fetchDescriptionHotel(id));
     }
-    console.log("hotel", hotel);
+    if (id && checkinDate && checkoutDate && adult && children && room) {
+      const test = dispatch(
+        fetchRoomList({
+          hotelID: id,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          adult: 4,
+          children: 2,
+          room: 2,
+        })
+      );
+      console.log("roomList", test);
+    }
   }, [id, checkinDate, checkoutDate]);
 
   return (
     <>
-      <div className="ml-10 flex flex-row items-start justify-between">
-        <div className="flex flex-col items-start justify-start space-y-5">
-          <span className="text-2xl font-semibold">{hotel?.hotel_name}</span>
-          <div className="flex flex-row items-start justify-start space-x-2">
-            <FaLocationDot className="text-red-500" />
-            <span className="text-lg font-medium">
-              {hotel?.hotel_address_line}.
-            </span>
-          </div>
-          <span className="text-lg font-medium">
-            Accommodation: {hotel?.accommodation_type_name}.
-          </span>
-          <span className="text-sm italic">
-            {hotel?.host_profile?.host_since}
-          </span>
-        </div>
-        <div className="rounded-lg shadow-lg w-44 h-16">
-          <div className="mx-2 my-2 flex flex-row items-start justify-end space-x-5">
-            <div className="flex flex-col items-start justify-start text-sm font-bold">
-              <span>{reviewScores?.score_word}</span>
-              <span>{reviewScores?.count} reviews</span>
-            </div>
-            <div className="py-3 rounded-lg w-12 h-12 bg-blue-500 ">
-              <span className="text-white mx-2 font-bold">
-                {reviewScores?.score_end}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* title hotel */}
+      <InfoHotel
+        status={status}
+        hotelName={hotel?.hotel_name}
+        hotelAddressLine={hotel?.hotel_address_line}
+        hotelAccommodationTypeName={hotel?.accommodation_type_name}
+        hotelHostSince={hotel?.host_profile?.host_since}
+        hotelHostName={hotel?.host_name}
+        hotelHostScores={hotel?.host_score}
+        hotelHostScoreCount={hotel?.host_score_count}
+        reviewScoresWord={reviewScores?.score_word}
+        reviewScoresCount={reviewScores?.count}
+        reviewScoresEnd={reviewScores?.score_end}
+      />
 
-      <Carousel
-        responsive={responsive}
-        containerClass="carousel-container"
-        showDots={true}
-        arrows={true}
-        autoPlay
-        infinite
-        itemClass="carousel-container py-12">
-        {photo.map((item, index: number) => (
-          <img
-            key={index}
-            src={item}
-            className="w-80 mx-28 h-80 object-cover"
-          />
-        ))}
-      </Carousel>
+      {/* img hotel */}
+      <CarouselBooking status={status} photo={photo} />
 
-      <div className="ml-10 flex flex-row items-start justify-between">
-        <div className="flex flex-col items-start justify-start space-y-7">
-          <div className="flex flex-col items-start justify-start space-y-5">
-            <span className="text-2xl font-semibold">Description</span>
-            <span className="text-sm font-extralight w-[65rem] text-start">
-              {descriptionHotel[1]?.description}
+      {/* description */}
+      <BookingDescription
+        descriptionHotel={descriptionHotel[1]?.description}
+        hotelTopBenefits={hotel?.top_ufi_benefits}
+        status={status}
+        descriptionImportantHotel={descriptionHotel[0]?.description}
+      />
+
+      {/* recommendation */}
+      <div className="ml-10 my-12 mx-4">
+        <div className="rounded-xl shadow-lg bg-slate-300 px-10 py-5 w-full ">
+          <div className="flex flex-col items-start justify-start space-y-3">
+            <span className="text-2xl font-bold ">
+              {hotel?.recommended_block_title}
             </span>
-          </div>
-          {descriptionHotel[0]?.description && (
-            <div className="flex flex-col items-start justify-start space-y-5">
-              <span className="text-2xl font-semibold">Important</span>
-              <span className="text-sm font-medium w-[65rem] text-start">
-                {descriptionHotel[0]?.description}
+            <span className="text-lg">
+              Type: {hotel?.accommodation_type_name}
+            </span>
+            <div className="flex flex-col items-start justify-start space-y-2">
+              <span>
+                With {roomList?.room_list && roomList?.room_list[0]?.room_name}
               </span>
+              <div className="flex flex-row items-start justify-start">
+                {roomList?.room_list &&
+                  roomList?.room_list[0]?.bed_configurations?.bed_types.map(
+                    (item: any, index: number) => (
+                      <span key={index} className="text-lg">
+                        Room {index}: {item.name_with_count}
+                      </span>
+                    )
+                  )}
+              </div>
             </div>
-          )}
-        </div>
-        <div className="rounded-lg w-auto h-auto bg-slate-300">
-          <div className="flex flex-col items-start justify-start space-y-5 px-4 py-5">
-            <div className="flex flex-row items-center justify-start space-x-4">
-              <BsHighlights className="text-blue-500 text-xl" />
-              <span className="text-xl font-medium">Highlights:</span>
-            </div>
-            <ul className="px-8">
-              {hotel?.top_ufi_benefits.map((item: any) => (
-                <li className="list-disc" key={item.icon}>
-                  {item?.translated_name}
-                </li>
-              ))}
-            </ul>
-            {/* <span>{hotel?.data?.top_ufi_benefits?.translated_name}</span> */}
           </div>
         </div>
       </div>
