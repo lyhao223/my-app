@@ -15,7 +15,8 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
    const options = {
 	method: 'GET',
 	headers: {
-		'x-rapidapi-key': 'bd5fa9a9f3msh54e4b7a9a67aef8p1e078cjsna62580ff7d54',
+		 // 'x-rapidapi-key': 'bd5fa9a9f3msh54e4b7a9a67aef8p1e078cjsna62580ff7d54', //lyhao2203
+        'x-rapidapi-key': 'f370ac7d34msha690a041cc0a627p1c4d3djsn19bb08555352', //haoly2203
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -23,8 +24,8 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            console.log(data?.data);
-            return data?.data;
+            console.log(data?.data.room_list);
+            return data?.data.room_list;
         }else {
             throw new Error('Failed to fetch data');
         }

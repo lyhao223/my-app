@@ -31,8 +31,8 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   // const checkoutDate = useAppSelector(
   //   (state) => state.searchHotel.checkoutDate
   // );
-  const checkinDate = "2024-08-24";
-  const checkoutDate = "2024-08-29";
+  const checkinDate = "2024-08-30";
+  const checkoutDate = "2024-09-10";
   const adult = useAppSelector((state) => state.searchHotel.adult);
   const children = useAppSelector((state) => state.searchHotel.children);
   const room = useAppSelector((state) => state.searchHotel.room);
@@ -40,18 +40,27 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const hotel: any = useAppSelector((state) => state.detailHotelSlice.hotel);
   const status = useAppSelector((state) => state.detailHotelSlice.status);
   const roomList: any = useAppSelector((state) => state.roomListSlice.roomList);
+  const roomsRecommendation: any = useAppSelector(
+    (state) => state.detailHotelSlice.roomsRecommendation
+  );
   const reviewScores: any = useAppSelector(
     (state) => state.reviewScoresSlice.reviewScores
   );
   const descriptionHotel: any = useAppSelector(
     (state) => state.descriptionHotelSlice.desHotel
   );
+
+  // const getIDRoom = roomList.map((item: any) => {
+  //   return item.room_id;
+  // });
   useEffect(() => {
-    if (
-      (id && checkinDate && checkoutDate) ||
-      (id && checkinDate && checkoutDate && adult && children && room) ||
-      (id && checkinDate && checkoutDate && adult && room)
-    ) {
+    // if (
+    //   (id && checkinDate && checkoutDate) ||
+    //   (id && checkinDate && checkoutDate && adult && children && room) ||
+    //   (id && checkinDate && checkoutDate && adult && room)
+    // )
+
+    if (id) {
       dispatch(
         fetchDetailHotel({
           hotelID: id,
@@ -67,20 +76,19 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       dispatch(getPhotoHotel(id));
       dispatch(fetchReviewScores(id));
       dispatch(fetchDescriptionHotel(id));
-    }
-    if (id && checkinDate && checkoutDate && adult && children && room) {
-      const test = dispatch(
+      dispatch(
         fetchRoomList({
           hotelID: id,
-          checkinDate: checkinDate,
-          checkoutDate: checkoutDate,
+          checkinDate,
+          checkoutDate,
           adult: 4,
           children: 2,
           room: 2,
         })
       );
-      console.log("roomList", test);
     }
+    // console.log(getIDRoom);
+    // if (id && checkinDate && checkoutDate && adult && children && room)
   }, [id, checkinDate, checkoutDate]);
 
   return (
@@ -105,10 +113,10 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
 
       {/* description */}
       <BookingDescription
-        descriptionHotel={descriptionHotel[1]?.description}
+        descriptionHotel={descriptionHotel[0]?.description}
         hotelTopBenefits={hotel?.top_ufi_benefits}
         status={status}
-        descriptionImportantHotel={descriptionHotel[0]?.description}
+        descriptionImportantHotel={descriptionHotel[1]?.description}
       />
 
       {/* recommendation */}
@@ -122,19 +130,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
               Type: {hotel?.accommodation_type_name}
             </span>
             <div className="flex flex-col items-start justify-start space-y-2">
-              <span>
-                With {roomList?.room_list && roomList?.room_list[0]?.room_name}
-              </span>
-              <div className="flex flex-row items-start justify-start">
-                {roomList?.room_list &&
-                  roomList?.room_list[0]?.bed_configurations?.bed_types.map(
-                    (item: any, index: number) => (
-                      <span key={index} className="text-lg">
-                        Room {index}: {item.name_with_count}
-                      </span>
-                    )
-                  )}
-              </div>
+              <div className="flex flex-row items-start justify-start"></div>
             </div>
           </div>
         </div>
