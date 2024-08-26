@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 interface RoomListState {
-    roomList: any ;
+    roomList: any[] ;
     recommendation: any;
     status: 'idle' | 'loading' | 'failed' | 'success';
 }
@@ -28,7 +28,8 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            return data?.data;
+            console.log(data?.data?.room_list);
+            return data?.data?.room_list;
         }else {
             throw new Error('Failed to fetch data');
         }
@@ -44,7 +45,8 @@ export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommend
 	headers: {
 		 // 'x-rapidapi-key': 'bd5fa9a9f3msh54e4b7a9a67aef8p1e078cjsna62580ff7d54', //lyhao2203
                 // 'x-rapidapi-key': 'f370ac7d34msha690a041cc0a627p1c4d3djsn19bb08555352', //haoly2203
-        'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
+        // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
+        'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -52,7 +54,8 @@ export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommend
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            return data?.data?.room_recommendation[0];
+            console.log(data?.data?.room_recommendation[0]?.block_id);
+            return data?.data?.room_recommendation[0]?.block_id.split('_')[0];
         }else {
             throw new Error('Failed to fetch data');
         }

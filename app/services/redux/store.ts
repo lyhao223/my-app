@@ -10,7 +10,7 @@ import detailHotelSlice from './slice/detailHotelSlice'
 import fetchPhotoHotel from './slice/fetchPhotoHotel'
 import reviewScoresSlice from './slice/reviewScoresSlice'
 import descriptionHotelSlice from './slice/descriptionHotelSlice'
-import test from './slice/testslice'
+
 import roomListSlice from './slice/roomListSlice'
 export const store = configureStore({
     reducer: {
@@ -26,7 +26,7 @@ export const store = configureStore({
         reviewScoresSlice: reviewScoresSlice,
         descriptionHotelSlice: descriptionHotelSlice,
         roomListSlice: roomListSlice,
-        test: test,
+
     },
 })
 
