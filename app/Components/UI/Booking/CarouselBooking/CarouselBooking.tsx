@@ -21,7 +21,7 @@ const CarouselBooking = ({ photo, status }: ICarouselBookingProps) => {
           autoPlay
           infinite
           itemClass="carousel-container py-12">
-          {photo.map((item: any, index: number) => (
+          {photo?.map((item: any, index: number) => (
             <img
               key={index}
               src={item}

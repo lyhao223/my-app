@@ -1,22 +1,26 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 interface RoomListState {
-    roomList: any[];
+    roomList: any ;
+    recommendation: any;
     status: 'idle' | 'loading' | 'failed' | 'success';
 }
 
 const initialState: RoomListState = {
     roomList: [],
+    recommendation: null,
     status: 'idle'
 }
 
-export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: string, checkoutDate: string, adult: number, children?:number, room:number}) => {
+
+export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult: number | null , children?:number | null, room:number | null}) => {
    const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
    const options = {
 	method: 'GET',
 	headers: {
 		 // 'x-rapidapi-key': 'bd5fa9a9f3msh54e4b7a9a67aef8p1e078cjsna62580ff7d54', //lyhao2203
-        'x-rapidapi-key': 'f370ac7d34msha690a041cc0a627p1c4d3djsn19bb08555352', //haoly2203
+                // 'x-rapidapi-key': 'f370ac7d34msha690a041cc0a627p1c4d3djsn19bb08555352', //haoly2203
+        'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -24,8 +28,31 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            console.log(data?.data.room_list);
-            return data?.data.room_list;
+            return data?.data;
+        }else {
+            throw new Error('Failed to fetch data');
+        }
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommendation/fetchRoomListRecommendation', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult: number | null , children?:number | null, room:number | null}) => {
+   const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
+   const options = {
+	method: 'GET',
+	headers: {
+		 // 'x-rapidapi-key': 'bd5fa9a9f3msh54e4b7a9a67aef8p1e078cjsna62580ff7d54', //lyhao2203
+                // 'x-rapidapi-key': 'f370ac7d34msha690a041cc0a627p1c4d3djsn19bb08555352', //haoly2203
+        'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
+		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
+	}
+};
+    try {
+        const res = await fetch(url, options);
+        if(res.ok){
+            const data = await res.json();
+            return data?.data?.room_recommendation[0];
         }else {
             throw new Error('Failed to fetch data');
         }
@@ -41,12 +68,17 @@ const roomListSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchRoomList.pending, (state) => {
             state.status = 'loading';
-        })
-        builder.addCase(fetchRoomList.fulfilled, (state, action: PayloadAction<any>) => {
+        }).addCase(fetchRoomList.fulfilled, (state, action: PayloadAction<any>) => {
             state.status = 'success';
             state.roomList = action.payload;
-        })
-        builder.addCase(fetchRoomList.rejected, (state) => {
+        }).addCase(fetchRoomList.rejected, (state) => {
+            state.status = 'failed';
+        }).addCase(getBlockIDRoomRecommendation.pending, (state) => {
+            state.status = 'loading';
+        }).addCase(getBlockIDRoomRecommendation.fulfilled, (state, action: PayloadAction<any>) => {
+            state.status = 'success';
+            state.recommendation = action.payload;
+        }).addCase(getBlockIDRoomRecommendation.rejected, (state) => {
             state.status = 'failed';
         })
     }

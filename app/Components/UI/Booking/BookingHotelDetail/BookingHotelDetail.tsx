@@ -3,7 +3,10 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "@/app/services/redux/hooks/hooks";
-import { fetchDetailHotel } from "@/app/services/redux/slice/detailHotelSlice";
+import {
+  fetchDetailHotel,
+  fetchRoomsRecommendation,
+} from "@/app/services/redux/slice/detailHotelSlice";
 import { getPhotoHotel } from "@/app/services/redux/slice/fetchPhotoHotel";
 import { responsive } from "@/app/utils/carousel/ResponsiveCarousel";
 import { responsiveComment } from "@/app/utils/carousel/ResponsiveCommet";
@@ -19,7 +22,10 @@ import { Skeleton } from "@mui/material";
 import InfoHotel from "../InfoHotel/InfoHotel";
 import CarouselBooking from "../CarouselBooking/CarouselBooking";
 import BookingDescription from "../BookingDescription/BookingDescription";
-import { fetchRoomList } from "@/app/services/redux/slice/roomListSlice";
+import {
+  fetchRoomList,
+  getBlockIDRoomRecommendation,
+} from "@/app/services/redux/slice/roomListSlice";
 interface IDetailBookingHotelProps {
   id: any;
   checkinDate?: string | any;
@@ -41,7 +47,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const status = useAppSelector((state) => state.detailHotelSlice.status);
   const roomList: any = useAppSelector((state) => state.roomListSlice.roomList);
   const roomsRecommendation: any = useAppSelector(
-    (state) => state.detailHotelSlice.roomsRecommendation
+    (state) => state.roomListSlice.recommendation
   );
   const reviewScores: any = useAppSelector(
     (state) => state.reviewScoresSlice.reviewScores
@@ -49,17 +55,8 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const descriptionHotel: any = useAppSelector(
     (state) => state.descriptionHotelSlice.desHotel
   );
-
-  // const getIDRoom = roomList.map((item: any) => {
-  //   return item.room_id;
-  // });
+  const test = roomsRecommendation?.block_id;
   useEffect(() => {
-    // if (
-    //   (id && checkinDate && checkoutDate) ||
-    //   (id && checkinDate && checkoutDate && adult && children && room) ||
-    //   (id && checkinDate && checkoutDate && adult && room)
-    // )
-
     if (id) {
       dispatch(
         fetchDetailHotel({
@@ -79,16 +76,26 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       dispatch(
         fetchRoomList({
           hotelID: id,
-          checkinDate,
-          checkoutDate,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
           adult: 4,
           children: 2,
           room: 2,
         })
       );
     }
-    // console.log(getIDRoom);
-    // if (id && checkinDate && checkoutDate && adult && children && room)
+
+    dispatch(
+      getBlockIDRoomRecommendation({
+        hotelID: id,
+        checkinDate: checkinDate,
+        checkoutDate: checkoutDate,
+        adult: 4,
+        children: 2,
+        room: 2,
+      })
+    );
+    console.log("block_id", test);
   }, [id, checkinDate, checkoutDate]);
 
   return (
@@ -113,10 +120,12 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
 
       {/* description */}
       <BookingDescription
-        descriptionHotel={descriptionHotel[0]?.description}
+        descriptionHotel={descriptionHotel && descriptionHotel[0]?.description}
         hotelTopBenefits={hotel?.top_ufi_benefits}
         status={status}
-        descriptionImportantHotel={descriptionHotel[1]?.description}
+        descriptionImportantHotel={
+          descriptionHotel && descriptionHotel[1]?.description
+        }
       />
 
       {/* recommendation */}
