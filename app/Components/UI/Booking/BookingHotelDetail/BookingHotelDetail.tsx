@@ -130,7 +130,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         room: 2,
       })
     );
-  }, [id, checkinDate, checkoutDate]);
+  }, [id, checkinDate, checkoutDate, dispatch]);
 
   return (
     <>
@@ -200,7 +200,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
                     hotelFacilitiesArray.includes(facility?.id)
                   )
                   .map((facility: any, index: number) => (
-                    <span className="flex flex-row items-start justify-start">
+                    <span
+                      className="flex flex-row items-start justify-start"
+                      key={index}>
                       <TiTickOutline />
                       {facility.instances[0]?.title}
                     </span>
