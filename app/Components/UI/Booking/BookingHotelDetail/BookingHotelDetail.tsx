@@ -194,10 +194,15 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
               Hotel Facilities:
             </span>
             <div className="grid grid-cols-4 gap-x-12 px-14">
-              {allFaclities &&
+              {hotelFacilitiesArray &&
+                allFaclities &&
                 allFaclities
-                  .filter((facility: any) =>
-                    hotelFacilitiesArray.includes(facility?.id)
+                  .filter(
+                    (facility: any) =>
+                      hotelFacilitiesArray &&
+                      hotelFacilitiesArray.includes(
+                        facility?.id && facility?.id
+                      )
                   )
                   .map((facility: any, index: number) => (
                     <span
