@@ -46,7 +46,11 @@ const CardHotel = ({
           <Skeleton width="100%" height={150} />
         ) : (
           <div className="row-span-2 2xl:col-span-1 xl:col-span-1 lg:col-span-1">
-            <img src={image} alt="hotel" className="w-fit h-full rounded-lg" />
+            <Image
+              src={image}
+              alt="hotel"
+              className="w-fit h-full rounded-lg"
+            />
           </div>
         )}
         {/*content*/}
