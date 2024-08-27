@@ -3,9 +3,12 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "@/app/services/redux/hooks/hooks";
+import { TiTickOutline } from "react-icons/ti";
 import {
   fetchDetailHotel,
   fetchRoomsRecommendation,
+  getAllFacilities,
+  getHotelFacilities,
 } from "@/app/services/redux/slice/detailHotelSlice";
 import { getPhotoHotel } from "@/app/services/redux/slice/fetchPhotoHotel";
 import { responsive } from "@/app/utils/carousel/ResponsiveCarousel";
@@ -26,6 +29,7 @@ import {
   fetchRoomList,
   getBlockIDRoomRecommendation,
 } from "@/app/services/redux/slice/roomListSlice";
+import RecommendationRoom from "../RecommendationRoom/RecommendationRoom";
 interface IDetailBookingHotelProps {
   id: any;
   checkinDate?: string | any;
@@ -46,6 +50,12 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const hotel: any = useAppSelector((state) => state.detailHotelSlice.hotel);
   const status = useAppSelector((state) => state.detailHotelSlice.status);
   const roomList: any = useAppSelector((state) => state.roomListSlice.roomList);
+  const hotelFacilities: any = useAppSelector(
+    (state) => state.detailHotelSlice.hotelFacilities
+  );
+  const allFaclities: any = useAppSelector(
+    (state) => state.detailHotelSlice.allFacilities
+  );
   const roomsRecommendation: any = useAppSelector(
     (state) => state.roomListSlice.recommendation
   );
@@ -56,12 +66,8 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
     (state) => state.descriptionHotelSlice.desHotel
   );
 
-  // const roomIDRecommendation = roomList?.room_list.map((room: any) =>
-  //   room?.block_ids?.all_match.find(
-  //     (id: any) => id === roomsRecommendation?.block_id
-  //   )
-  // );
-  let ids: any = roomsRecommendation;
+  let hotelFacilitiesArray =
+    hotelFacilities && hotelFacilities.split(",").map(Number);
   useEffect(() => {
     if (id) {
       dispatch(
@@ -101,7 +107,29 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         room: 2,
       })
     );
-    console.log(ids);
+    if (id) {
+      dispatch(
+        getAllFacilities({
+          hotelID: id,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          adult: 4,
+          children: 2,
+          room: 2,
+        })
+      );
+    }
+
+    dispatch(
+      getHotelFacilities({
+        hotelID: id,
+        checkinDate: checkinDate,
+        checkoutDate: checkoutDate,
+        adult: 4,
+        children: 2,
+        room: 2,
+      })
+    );
   }, [id, checkinDate, checkoutDate]);
 
   return (
@@ -135,65 +163,48 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       />
 
       {/* recommendation */}
-      <div className="ml-10 my-12 mx-4">
-        <div className="rounded-xl shadow-lg bg-slate-300 px-10 py-5 w-full ">
-          <div className="flex flex-row items-start justify-between">
-            <div className="flex flex-col items-start justify-start space-y-3">
-              <span className="text-2xl font-bold ">
-                {hotel?.recommended_block_title}
-              </span>
-              <span className="text-lg">
-                Type: {hotel?.accommodation_type_name}
-              </span>
-              <div className="flex flex-col items-start justify-start space-y-2">
-                <span>Check in date: {hotel?.arrival_date}</span>
-                <span>Check out date: {hotel?.departure_date}</span>
-              </div>
-              <div className="flex flex-col items-start justify-start space-y-5">
-                {roomsRecommendation &&
-                  hotel?.rooms[
-                    roomsRecommendation
-                  ]?.bed_configurations[0]?.bed_types.map(
-                    (bed: any, index: number) => (
-                      <span className="text-lg" key={index}>
-                        Room {index + 1}: {bed.count} x {bed.name} -
-                        Description:
-                        {bed.description}
-                      </span>
-                    )
-                  )}
-              </div>
-            </div>
-            <div className="my-8 rounded-lg w-96 h-auto bg-blue-300">
-              <div className="flex flex-col items-start justify-start space-y-3 p-8">
-                <span className="text-sm font-bold">
-                  {Math.round(
-                    hotel?.composite_price_breakdown
-                      ?.gross_amount_hotel_currency?.value /
-                      hotel?.composite_price_breakdown?.gross_amount_per_night
-                        ?.value
-                  )}{" "}
-                  nights - Adutls: 4 - Children: 2 - Rooms: 2
-                </span>
-                <div className="flex flex-row items-center justify-center space-x-3">
-                  <span className="text-sm text-red-600 font-medium line-through">
-                    {
-                      hotel?.composite_price_breakdown?.strikethrough_amount
-                        ?.amount_rounded
-                    }
-                  </span>
-                  <span className="text-lg font-bold">
-                    {
-                      hotel?.composite_price_breakdown
-                        ?.gross_amount_hotel_currency?.amount_rounded
-                    }
-                  </span>
-                </div>
-                <span className="text-sm italic">Taxes and fees included</span>
-                <Button variant="contained" color="primary" className="w-full">
-                  Book now{" "}
-                </Button>
-              </div>
+
+      <RecommendationRoom
+        recommendationBlockTitle={hotel?.recommended_block_title}
+        accommodationTypeName={hotel?.accommodation_type_name}
+        arrivalDate={hotel?.arrival_date}
+        departureDate={hotel?.departure_date}
+        roomRecommendation={roomsRecommendation}
+        hotelRoom={hotel?.rooms}
+        grossAmountHotel={
+          hotel?.composite_price_breakdown?.gross_amount_hotel_currency?.value
+        }
+        grossAmountPerNight={
+          hotel?.composite_price_breakdown?.gross_amount_per_night?.value
+        }
+        strikeAmouth={
+          hotel?.composite_price_breakdown?.strikethrough_amount?.amount_rounded
+        }
+        grossAmountHotelRounded={
+          hotel?.composite_price_breakdown?.gross_amount_hotel_currency
+            ?.amount_rounded
+        }
+      />
+
+      {/* facilities */}
+      <div className="ml-10 mt-32 mx-4">
+        <div className="rounded-xl bg-slate-300 px-12 py-6 h-auto shadow-xl">
+          <div className="flex flex-col items-start justify-start space-y-5">
+            <span className="text-2xl font-bold antialiased">
+              Hotel Facilities:
+            </span>
+            <div className="grid grid-cols-4 gap-x-12 px-14">
+              {allFaclities &&
+                allFaclities
+                  .filter((facility: any) =>
+                    hotelFacilitiesArray.includes(facility?.id)
+                  )
+                  .map((facility: any, index: number) => (
+                    <span className="flex flex-row items-start justify-start">
+                      <TiTickOutline />
+                      {facility.instances[0]?.title}
+                    </span>
+                  ))}
             </div>
           </div>
         </div>
