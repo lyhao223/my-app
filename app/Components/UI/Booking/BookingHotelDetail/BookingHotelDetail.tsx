@@ -37,12 +37,12 @@ interface IDetailBookingHotelProps {
 }
 const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const dispatch = useAppDispatch();
-  // const checkinDate = useAppSelector((state) => state.searchHotel.checkinDate);
-  // const checkoutDate = useAppSelector(
-  //   (state) => state.searchHotel.checkoutDate
-  // );
-  const checkinDate = "2024-08-30";
-  const checkoutDate = "2024-09-10";
+  const checkinDate = useAppSelector((state) => state.searchHotel.checkinDate);
+  const checkoutDate = useAppSelector(
+    (state) => state.searchHotel.checkoutDate
+  );
+  // const checkinDate = "2024-08-30";
+  // const checkoutDate = "2024-09-10";
   const adult = useAppSelector((state) => state.searchHotel.adult);
   const children = useAppSelector((state) => state.searchHotel.children);
   const room = useAppSelector((state) => state.searchHotel.room);
@@ -75,9 +75,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           hotelID: id,
           checkinDate: checkinDate,
           checkoutDate: checkoutDate,
-          adult: 4,
-          children: 2,
-          room: 2,
+          adult: adult,
+          children: children,
+          room: room,
         })
       );
     }
@@ -90,9 +90,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           hotelID: id,
           checkinDate: checkinDate,
           checkoutDate: checkoutDate,
-          adult: 4,
-          children: 2,
-          room: 2,
+          adult: adult,
+          children: children,
+          room: room,
         })
       );
     }
@@ -102,9 +102,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         hotelID: id,
         checkinDate: checkinDate,
         checkoutDate: checkoutDate,
-        adult: 4,
-        children: 2,
-        room: 2,
+        adult: adult,
+        children: children,
+        room: room,
       })
     );
     if (id) {
@@ -113,9 +113,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           hotelID: id,
           checkinDate: checkinDate,
           checkoutDate: checkoutDate,
-          adult: 4,
-          children: 2,
-          room: 2,
+          adult: adult,
+          children: children,
+          room: room,
         })
       );
     }
@@ -125,12 +125,12 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         hotelID: id,
         checkinDate: checkinDate,
         checkoutDate: checkoutDate,
-        adult: 4,
-        children: 2,
-        room: 2,
+        adult: adult,
+        children: children,
+        room: room,
       })
     );
-  }, [id, checkinDate, checkoutDate, dispatch]);
+  }, [id, checkinDate, checkoutDate, dispatch, adult, children, room]);
 
   return (
     <>
