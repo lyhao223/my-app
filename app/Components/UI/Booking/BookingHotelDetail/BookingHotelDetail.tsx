@@ -26,6 +26,7 @@ import InfoHotel from "../InfoHotel/InfoHotel";
 import CarouselBooking from "../CarouselBooking/CarouselBooking";
 import BookingDescription from "../BookingDescription/BookingDescription";
 import {
+  blockHotelRoom,
   fetchRoomList,
   getBlockIDRoomRecommendation,
 } from "@/app/services/redux/slice/roomListSlice";
@@ -51,6 +52,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const hotel: any = useAppSelector((state) => state.detailHotelSlice.hotel);
   const status = useAppSelector((state) => state.detailHotelSlice.status);
   const roomList: any = useAppSelector((state) => state.roomListSlice.roomList);
+  const blockHotel: any = useAppSelector(
+    (state) => state.roomListSlice.blockHotel
+  );
   const hotelFacilities: any = useAppSelector(
     (state) => state.detailHotelSlice.hotelFacilities
   );
@@ -74,11 +78,11 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       dispatch(
         fetchDetailHotel({
           hotelID: id,
-          checkinDate: checkinDate,
-          checkoutDate: checkoutDate,
-          adult: adult,
-          children: children,
-          room: room,
+          checkinDate: "2024-08-30",
+          checkoutDate: "2024-09-10",
+          adult: 4,
+          children: 2,
+          room: 2,
         })
       );
     }
@@ -89,11 +93,11 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       dispatch(
         fetchRoomList({
           hotelID: id,
-          checkinDate: checkinDate,
-          checkoutDate: checkoutDate,
-          adult: adult,
-          children: children,
-          room: room,
+          checkinDate: "2024-08-30",
+          checkoutDate: "2024-09-10",
+          adult: 4,
+          children: 2,
+          room: 2,
         })
       );
     }
@@ -101,22 +105,22 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
     dispatch(
       getBlockIDRoomRecommendation({
         hotelID: id,
-        checkinDate: checkinDate,
-        checkoutDate: checkoutDate,
-        adult: adult,
-        children: children,
-        room: room,
+        checkinDate: "2024-08-30",
+        checkoutDate: "2024-09-10",
+        adult: 4,
+        children: 2,
+        room: 2,
       })
     );
     if (id) {
       dispatch(
         getAllFacilities({
           hotelID: id,
-          checkinDate: checkinDate,
-          checkoutDate: checkoutDate,
-          adult: adult,
-          children: children,
-          room: room,
+          checkinDate: "2024-08-30",
+          checkoutDate: "2024-09-10",
+          adult: 4,
+          children: 2,
+          room: 2,
         })
       );
     }
@@ -124,11 +128,22 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
     dispatch(
       getHotelFacilities({
         hotelID: id,
-        checkinDate: checkinDate,
-        checkoutDate: checkoutDate,
-        adult: adult,
-        children: children,
-        room: room,
+        checkinDate: "2024-08-30",
+        checkoutDate: "2024-09-10",
+        adult: 4,
+        children: 2,
+        room: 2,
+      })
+    );
+
+    dispatch(
+      blockHotelRoom({
+        hotelID: id,
+        checkinDate: "2024-08-30",
+        checkoutDate: "2024-09-10",
+        adult: 4,
+        children: 2,
+        room: 2,
       })
     );
   }, [id, checkinDate, checkoutDate, dispatch, adult, children, room]);
@@ -192,6 +207,41 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         hotelFacilitiesArray={hotelFacilitiesArray}
         allFaclities={allFaclities}
       />
+
+      {/*room list */}
+      <div className="mt-12 mx-8 px-4">
+        <div className="h-auto rounded-lg shadow-xl bg-slate-200 p-10">
+          <div className="flex flex-col items-start justify-start space-y-3">
+            <span className="text-2xl font-bold"> Another room lists:</span>
+            <div className="flex flex-col items-start justify-start space-y-5">
+              {roomList?.map((room: any, index: number) => (
+                <div className="flex flex-col items-start justify-start space-y-2">
+                  <div className="flex flex-col items-start justify-start space-y-5 border-r-2 border-r-red-500">
+                    <span key={index} className="text-lg">
+                      Name: {room?.room_name}
+                    </span>
+                    <span className="w-96">
+                      Description room: {room?.description}
+                    </span>
+                    {room?.bed_configurations[0]?.bed_types?.map(
+                      (bed: any, index: number) => (
+                        <div
+                          key={index}
+                          className="flex flex-col items-start justify-start">
+                          <span>
+                            Room {index + 1}: {bed?.name_with_count}
+                          </span>
+                          <span>Description: {bed?.description}</span>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

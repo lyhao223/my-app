@@ -85,6 +85,7 @@ export const fetchHotelSearch = createAsyncThunk(
     }
 );
 
+
 const hotelSearchSlice = createSlice({
     name: 'hotelSearch',
     initialState,
