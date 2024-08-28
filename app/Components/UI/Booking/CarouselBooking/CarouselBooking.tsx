@@ -7,7 +7,11 @@ interface ICarouselBookingProps {
   photo: any;
   status: string;
 }
-const CarouselBooking = ({ photo, status }: ICarouselBookingProps) => {
+const CarouselBooking = (
+  { photo, status }: ICarouselBookingProps,
+  props: { deviceType?: string }
+) => {
+  const { deviceType } = props;
   return (
     <>
       {status === "loading" ? (
@@ -19,13 +23,15 @@ const CarouselBooking = ({ photo, status }: ICarouselBookingProps) => {
           showDots={true}
           arrows={true}
           autoPlay
+          deviceType={deviceType}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
           infinite
-          itemClass="carousel-container py-12">
+          itemClass="carousel-container py-12 px-5 2xl:px-0 xl:px-0">
           {photo?.map((item: any, index: number) => (
             <img
               key={index}
               src={item}
-              className="w-80 mx-28 h-80 object-cover"
+              className="w-80 h-80 mx-0 2xl:mx-56 xl:mx-14 lg:mx-7  object-cover"
             />
           ))}
         </Carousel>

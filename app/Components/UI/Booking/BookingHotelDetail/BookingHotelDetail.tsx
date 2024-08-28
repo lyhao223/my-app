@@ -30,6 +30,7 @@ import {
   getBlockIDRoomRecommendation,
 } from "@/app/services/redux/slice/roomListSlice";
 import RecommendationRoom from "../RecommendationRoom/RecommendationRoom";
+import HotelFacilities from "../HotelFacilities/HotelFacilities";
 interface IDetailBookingHotelProps {
   id: any;
   checkinDate?: string | any;
@@ -187,35 +188,10 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       />
 
       {/* facilities */}
-      <div className="ml-10 mt-32 mx-4">
-        <div className="rounded-xl bg-slate-300 px-12 py-6 h-auto shadow-xl">
-          <div className="flex flex-col items-start justify-start space-y-5">
-            <span className="text-2xl font-bold antialiased">
-              Hotel Facilities:
-            </span>
-            <div className="grid grid-cols-4 gap-x-12 px-14">
-              {hotelFacilitiesArray &&
-                allFaclities &&
-                allFaclities
-                  .filter(
-                    (facility: any) =>
-                      hotelFacilitiesArray &&
-                      hotelFacilitiesArray.includes(
-                        facility?.id && facility?.id
-                      )
-                  )
-                  .map((facility: any, index: number) => (
-                    <span
-                      className="flex flex-row items-start justify-start"
-                      key={index}>
-                      <TiTickOutline />
-                      {facility.instances[0]?.title}
-                    </span>
-                  ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <HotelFacilities
+        hotelFacilitiesArray={hotelFacilitiesArray}
+        allFaclities={allFaclities}
+      />
     </>
   );
 };

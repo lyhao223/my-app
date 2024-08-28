@@ -29,12 +29,14 @@ const InfoHotel = ({
   reviewScoresEnd,
 }: IInfoHotelProps) => {
   return (
-    <div className="ml-10 flex flex-row items-start justify-between">
+    <div className="mx-2 2xl:ml-10 xl:ml-10 flex flex-col space-x-0 space-y-3 items-start justify-start 2xl:flex-row xl:flex-row 2xl:items-start 2xl:justify-between xl:items-start xl:justify-between lg:items-start lg:justify-start">
       <div className="flex flex-col items-start justify-start space-y-5">
         {status === "loading" ? (
           <Skeleton width={500} height={50} />
         ) : (
-          <span className="text-2xl font-semibold">{hotelName}</span>
+          <span className="text-2xl font-semibold text-wrap 2xl:text-nowrap xl:text-nowrap lg:text-nowrap">
+            {hotelName}
+          </span>
         )}
         <div className="flex flex-row items-start justify-start space-x-2">
           {status === "loading" ? (
@@ -42,13 +44,13 @@ const InfoHotel = ({
           ) : (
             <>
               {hotelAddressLine && <FaLocationDot className="text-red-500" />}
-              <span className="text-lg font-medium">
+              <span className="text-lg font-medium text-wrap 2xl:text-nowrap xl:text-nowrap lg:text-nowrap">
                 {hotelAddressLine && `${hotelAddressLine}.`}
               </span>
             </>
           )}
         </div>
-        <span className="text-lg font-medium">
+        <span className="text-lg font-medium text-nowrap">
           {status === "loading" ? (
             <Skeleton width={200} height={50} />
           ) : (
@@ -56,7 +58,7 @@ const InfoHotel = ({
             `Accommodation: ${hotelAccommodationTypeName}.`
           )}
         </span>
-        <span className="text-sm italic">
+        <span className="text-sm italic text-wrap 2xl:text-nowrap xl:text-nowrap lg:text-nowrap">
           {status === "loading" ? (
             <Skeleton width={200} height={50} />
           ) : (
@@ -78,12 +80,12 @@ const InfoHotel = ({
           <div className="rounded-lg shadow-lg w-44 h-16">
             <div className="mx-2 my-2 flex flex-row items-start justify-end space-x-5">
               <div className="flex flex-col items-start justify-start text-sm font-bold">
-                <span>{reviewScoresWord}</span>
-                <span>{reviewScoresCount} reviews</span>
+                <span>{reviewScoresWord && reviewScoresWord}</span>
+                <span>{reviewScoresCount && reviewScoresCount} reviews</span>
               </div>
               <div className="py-3 rounded-lg w-12 h-12 bg-blue-500 ">
                 <span className="text-white mx-2 font-bold">
-                  {reviewScoresEnd}
+                  {reviewScoresEnd && reviewScoresEnd}
                 </span>
               </div>
             </div>

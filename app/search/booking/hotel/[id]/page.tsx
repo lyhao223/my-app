@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 const Page = ({ params }: { params: { id: any } }) => {
   return (
     <Provider store={store}>
-      <div className="px-36 my-12">
+      <div className="2xl:px-36 xl:px-16 lg:px-12 md:px-9 px-0 my-12">
         <BookingHotelDetail id={params.id} />
       </div>
     </Provider>

@@ -14,7 +14,7 @@ const BookingDescription = ({
   status,
 }: IBookingDescriptionProps) => {
   return (
-    <div className="ml-10 flex flex-row items-start justify-between">
+    <div className="mx-3 2xl:ml-10 xl:ml-10 flex flex-col items-start justify-start space-x-0 space-y-3 2xl:flex-row xl:flex-row  2xl:items-start 2xl:justify-between xl:items-start xl:justify-between">
       <div className="flex flex-col items-start justify-start space-y-7">
         <div className="flex flex-col items-start justify-start space-y-5">
           {status === "loading" ? (
@@ -25,7 +25,7 @@ const BookingDescription = ({
           {status === "loading" ? (
             <Skeleton width={300} height={300} />
           ) : (
-            <span className="text-sm font-extralight w-[65rem] text-start">
+            <span className="text-sm font-extralight 2xl:w-[65rem] xl:w-[65rem] lg:w-[57rem] text-start">
               {descriptionHotel && `${descriptionHotel}`}
             </span>
           )}
@@ -36,7 +36,7 @@ const BookingDescription = ({
           descriptionImportantHotel && (
             <div className="flex flex-col items-start justify-start space-y-5">
               <span className="text-2xl font-semibold">Important</span>
-              <span className="text-sm font-medium w-[65rem] text-start">
+              <span className="text-sm font-medium 2xl:w-[65rem] xl:w-[65rem] lg:w-[57rem] w-auto text-wrap text-start">
                 {descriptionImportantHotel}
               </span>
             </div>
