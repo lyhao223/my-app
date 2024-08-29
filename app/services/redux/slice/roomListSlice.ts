@@ -15,7 +15,7 @@ const initialState: RoomListState = {
 }
 
 
-export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult: number | null , children?:number | null, room:number | null}) => {
+export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: number | null , children?:number | null, room?:number | null}) => {
    const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
    const options = {
 	method: 'GET',
@@ -24,7 +24,8 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
                 // 'x-rapidapi-key': 'f370ac7d34msha690a041cc0a627p1c4d3djsn19bb08555352', //haoly2203
         // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
         // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
-        'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
+                // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
+        'x-rapidapi-key': 'a46c365bebmsh8cbcc56908ea19dp174aa4jsn761cd2901fc0',
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -32,7 +33,6 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            console.log(data?.data?.room_list);
             return data?.data?.room_list;
         }else {
             throw new Error('Failed to fetch data');
@@ -42,7 +42,7 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
     }
 })
 
-export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommendation/fetchRoomListRecommendation', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult: number | null , children?:number | null, room:number | null}) => {
+export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommendation/fetchRoomListRecommendation', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: number | null , children?:number | null, room?:number | null}) => {
    const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
    const options = {
 	method: 'GET',
@@ -51,7 +51,8 @@ export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommend
                 // 'x-rapidapi-key': 'f370ac7d34msha690a041cc0a627p1c4d3djsn19bb08555352', //haoly2203
         // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
         // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
-        'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
+                // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
+        'x-rapidapi-key': 'a46c365bebmsh8cbcc56908ea19dp174aa4jsn761cd2901fc0',
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -59,7 +60,6 @@ export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommend
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            console.log(data?.data?.room_recommendation[0]?.block_id);
             return data?.data?.room_recommendation[0]?.block_id.split('_')[0];
         }else {
             throw new Error('Failed to fetch data');
@@ -69,8 +69,8 @@ export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommend
     }
 })
 
-export const blockHotelRoom = createAsyncThunk('blocHotel/getRoomID', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult: number | null , children?:number | null, room:number | null}) => {
-    const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
+export const blockHotelRoom = createAsyncThunk('blocHotel/getRoomID', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: number | null , children?:number | null, room?:number | null}) => {
+    const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric&currencyCode=vnd`
     const options = {
         method: 'GET',
         headers: {
@@ -78,7 +78,8 @@ export const blockHotelRoom = createAsyncThunk('blocHotel/getRoomID', async ({ho
                     // 'x-rapidapi-key': 'f370ac7d34msha690a041cc0a627p1c4d3djsn19bb08555352', //haoly2203
             // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
             // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
-            'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
+                    // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
+        'x-rapidapi-key': 'a46c365bebmsh8cbcc56908ea19dp174aa4jsn761cd2901fc0',
             'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
     };
@@ -87,7 +88,8 @@ export const blockHotelRoom = createAsyncThunk('blocHotel/getRoomID', async ({ho
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            return data?.data?.block[0];
+            console.log(data?.data?.block);
+            return data?.data?.block;
         }
     } catch (error) {
         console.log(error);

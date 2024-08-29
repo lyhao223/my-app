@@ -77,38 +77,46 @@ const InfoHotel = ({
         {status === "loading" ? (
           <Skeleton width={100} height={100} />
         ) : (
-          <div className="rounded-lg shadow-lg w-44 h-16">
-            <div className="mx-2 my-2 flex flex-row items-start justify-end space-x-5">
-              <div className="flex flex-col items-start justify-start text-sm font-bold">
-                <span>{reviewScoresWord && reviewScoresWord}</span>
-                <span>{reviewScoresCount && reviewScoresCount} reviews</span>
-              </div>
-              <div className="py-3 rounded-lg w-12 h-12 bg-blue-500 ">
-                <span className="text-white mx-2 font-bold">
-                  {reviewScoresEnd && reviewScoresEnd}
-                </span>
+          reviewScoresWord &&
+          reviewScoresCount && (
+            <div className="rounded-lg shadow-lg w-44 h-16">
+              <div className="mx-2 my-2 flex flex-row items-start justify-end space-x-5">
+                {reviewScoresWord && reviewScoresCount && (
+                  <div className="flex flex-col items-start justify-start text-sm font-bold">
+                    <span>{reviewScoresWord}</span>
+                    <span>{reviewScoresCount} reviews</span>
+                  </div>
+                )}
+                {reviewScoresEnd && (
+                  <div className="py-3 rounded-lg w-12 h-12 bg-blue-500 ">
+                    <span className="text-white mx-2 font-bold">
+                      {reviewScoresEnd}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
-          </div>
+          )
         )}
         {status === "loading" ? (
           <Skeleton width={100} height={100} />
         ) : (
-          <div className="rounded-lg shadow-lg w-44 h-16">
-            <div className="mx-2 my-2 flex flex-row items-start justify-end space-x-5">
-              <div className="flex flex-col items-start justify-start text-sm font-bold">
-                <span>Host score</span>
-                <span>
-                  {hotelHostScoreCount && hotelHostScoreCount} reviews
-                </span>
-              </div>
-              <div className="py-3 rounded-lg w-12 h-12 bg-blue-500 ">
-                <span className="text-white mx-2 font-bold">
-                  {hotelHostScores && hotelHostScores.toFixed(2)}
-                </span>
+          hotelHostScores &&
+          hotelHostScores && (
+            <div className="rounded-lg shadow-lg w-44 h-16">
+              <div className="mx-2 my-2 flex flex-row items-start justify-end space-x-5">
+                <div className="flex flex-col items-start justify-start text-sm font-bold">
+                  <span>Host score</span>
+                  <span>{hotelHostScoreCount} reviews</span>
+                </div>
+                <div className="py-3 rounded-lg w-12 h-12 bg-blue-500 ">
+                  <span className="text-white mx-2 font-bold">
+                    {hotelHostScores.toFixed(2)}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          )
         )}
       </div>
     </div>

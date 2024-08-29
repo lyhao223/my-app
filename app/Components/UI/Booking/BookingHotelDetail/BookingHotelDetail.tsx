@@ -32,6 +32,7 @@ import {
 } from "@/app/services/redux/slice/roomListSlice";
 import RecommendationRoom from "../RecommendationRoom/RecommendationRoom";
 import HotelFacilities from "../HotelFacilities/HotelFacilities";
+import { useRouter } from "next/navigation";
 interface IDetailBookingHotelProps {
   id: any;
   checkinDate?: string | any;
@@ -43,8 +44,6 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const checkoutDate = useAppSelector(
     (state) => state.searchHotel.checkoutDate
   );
-  // const checkinDate = "2024-08-30";
-  // const checkoutDate = "2024-09-10";
   const adult = useAppSelector((state) => state.searchHotel.adult);
   const children = useAppSelector((state) => state.searchHotel.children);
   const room = useAppSelector((state) => state.searchHotel.room);
@@ -52,6 +51,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const hotel: any = useAppSelector((state) => state.detailHotelSlice.hotel);
   const status = useAppSelector((state) => state.detailHotelSlice.status);
   const roomList: any = useAppSelector((state) => state.roomListSlice.roomList);
+  const route = useRouter();
   const blockHotel: any = useAppSelector(
     (state) => state.roomListSlice.blockHotel
   );
@@ -73,79 +73,88 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
 
   let hotelFacilitiesArray =
     hotelFacilities && hotelFacilities.split(",").map(Number);
+
+  const findPriceBreakDown = (roomID: any) => {
+    for (const blockItem of blockHotel) {
+      if (blockItem.room_id === roomID) {
+        return blockItem?.product_price_breakdown;
+      }
+    }
+    return null;
+  };
   useEffect(() => {
-    if (id) {
+    if (id && checkinDate && checkoutDate) {
       dispatch(
         fetchDetailHotel({
           hotelID: id,
-          checkinDate: "2024-08-30",
-          checkoutDate: "2024-09-10",
-          adult: 4,
-          children: 2,
-          room: 2,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          adult: adult,
+          children: children,
+          room: room,
         })
       );
+      dispatch(
+        fetchRoomList({
+          hotelID: id,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          adult: adult,
+          children: children,
+          room: room,
+        })
+      );
+      dispatch(
+        getBlockIDRoomRecommendation({
+          hotelID: id,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          adult: adult,
+          children: children,
+          room: room,
+        })
+      );
+      dispatch(
+        getAllFacilities({
+          hotelID: id,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          adult: adult,
+          children: children,
+          room: room,
+        })
+      );
+      dispatch(
+        getHotelFacilities({
+          hotelID: id,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          adult: adult,
+          children: children,
+          room: room,
+        })
+      );
+      dispatch(
+        blockHotelRoom({
+          hotelID: id,
+          checkinDate: checkinDate,
+          checkoutDate: checkoutDate,
+          adult: adult,
+          children: children,
+          room: room,
+        })
+      );
+    } else {
+      return route.push("/search/booking");
     }
+
     if (id) {
       dispatch(getPhotoHotel(id));
       dispatch(fetchReviewScores(id));
       dispatch(fetchDescriptionHotel(id));
-      dispatch(
-        fetchRoomList({
-          hotelID: id,
-          checkinDate: "2024-08-30",
-          checkoutDate: "2024-09-10",
-          adult: 4,
-          children: 2,
-          room: 2,
-        })
-      );
+    } else {
+      return route.push("/search/booking");
     }
-
-    dispatch(
-      getBlockIDRoomRecommendation({
-        hotelID: id,
-        checkinDate: "2024-08-30",
-        checkoutDate: "2024-09-10",
-        adult: 4,
-        children: 2,
-        room: 2,
-      })
-    );
-    if (id) {
-      dispatch(
-        getAllFacilities({
-          hotelID: id,
-          checkinDate: "2024-08-30",
-          checkoutDate: "2024-09-10",
-          adult: 4,
-          children: 2,
-          room: 2,
-        })
-      );
-    }
-
-    dispatch(
-      getHotelFacilities({
-        hotelID: id,
-        checkinDate: "2024-08-30",
-        checkoutDate: "2024-09-10",
-        adult: 4,
-        children: 2,
-        room: 2,
-      })
-    );
-
-    dispatch(
-      blockHotelRoom({
-        hotelID: id,
-        checkinDate: "2024-08-30",
-        checkoutDate: "2024-09-10",
-        adult: 4,
-        children: 2,
-        room: 2,
-      })
-    );
   }, [id, checkinDate, checkoutDate, dispatch, adult, children, room]);
 
   return (
@@ -200,44 +209,88 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           hotel?.composite_price_breakdown?.gross_amount_hotel_currency
             ?.amount_rounded
         }
+        status={status}
       />
 
       {/* facilities */}
       <HotelFacilities
         hotelFacilitiesArray={hotelFacilitiesArray}
         allFaclities={allFaclities}
+        status={status}
       />
 
       {/*room list */}
-      <div className="mt-12 mx-8 px-4">
-        <div className="h-auto rounded-lg shadow-xl bg-slate-200 p-10">
-          <div className="flex flex-col items-start justify-start space-y-3">
-            <span className="text-2xl font-bold"> Another room lists:</span>
-            <div className="flex flex-col items-start justify-start space-y-5">
-              {roomList?.map((room: any, index: number) => (
-                <div className="flex flex-col items-start justify-start space-y-2">
-                  <div className="flex flex-col items-start justify-start space-y-5 border-r-2 border-r-red-500">
-                    <span key={index} className="text-lg">
-                      Name: {room?.room_name}
-                    </span>
-                    <span className="w-96">
-                      Description room: {room?.description}
-                    </span>
-                    {room?.bed_configurations[0]?.bed_types?.map(
-                      (bed: any, index: number) => (
-                        <div
-                          key={index}
-                          className="flex flex-col items-start justify-start">
-                          <span>
-                            Room {index + 1}: {bed?.name_with_count}
-                          </span>
-                          <span>Description: {bed?.description}</span>
-                        </div>
-                      )
-                    )}
+      <div className="mx-10 my-24">
+        <div className="h-auto rounded-lg shadow-xl bg-slate-200 p-6">
+          <span className="text-2xl font-bold"> Another room lists:</span>
+          <div className="my-12 flex flex-row items-center justify-center">
+            <div className="flex flex-col items-center justify-center space-y-16">
+              {roomList?.map((room: any, index: number) => {
+                const priceDown = findPriceBreakDown(room?.room_id);
+
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-row items-start justify-between border-b-2 border-b-red-500 ">
+                    <div className="flex flex-col items-start justify-start space-y-2 ">
+                      <span
+                        key={index}
+                        className="text-xl font-bold antialiased">
+                        Name: {room?.room_name}
+                      </span>
+                      <span className="text-wrap tracking-tight text-xs w-[30rem]">
+                        Description room: {room?.description}
+                      </span>
+                      {room?.bed_configurations[0]?.bed_types?.map(
+                        (bed: any, index: number) => (
+                          <div
+                            key={index}
+                            className="flex flex-col items-start justify-start space-y-1 text-lg">
+                            <span>
+                              Room {index + 1}: {bed?.name_with_count}
+                            </span>
+                            <span>Description: {bed?.description}</span>
+                          </div>
+                        )
+                      )}
+                      <span className="italic text-red-600">
+                        {room?.only_x_left_message}
+                      </span>
+                    </div>
+
+                    <div className="mx-14 my-8 rounded-lg w-96 h-auto bg-blue-300">
+                      <div className="flex flex-col items-start justify-start space-y-2 p-4">
+                        <span className="text-sm font-bold">
+                          Info booking:{" "}
+                          {Math.round(
+                            priceDown?.gross_amount?.value /
+                              priceDown?.gross_amount_per_night.value
+                          )}{" "}
+                          - Adults: {adult} - Children: {children} - Room: {2}
+                        </span>
+                        <span className="line-through text-xs italic">
+                          {priceDown?.strikethrough_amount?.amount_rounded}
+                        </span>
+                        <span className="text-xl font-bold text-red-500">
+                          {priceDown?.gross_amount?.amount_rounded}
+                        </span>
+                        <span className="text-xs italic tracking-wide">
+                          Taxes and fees included
+                        </span>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          onClick={() => {
+                            console.log("click");
+                          }}
+                          className="w-full">
+                          Book now
+                        </Button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
