@@ -4,14 +4,14 @@ interface IRoomList {
   roomList: any;
   findPriceBreakDown: any;
   adult: any;
-  children: any;
+  child: any;
   roomChoose: any;
 }
 const RoomList = ({
   roomList,
   findPriceBreakDown,
   adult,
-  children,
+  child,
   roomChoose,
 }: IRoomList) => {
   return (
@@ -61,7 +61,7 @@ const RoomList = ({
                           priceDown?.gross_amount?.value /
                             priceDown?.gross_amount_per_night.value
                         )}{" "}
-                        Nights - Adults: {adult} - Children: {children} - Room:
+                        Nights - Adults: {adult} - Children: {child} - Room:
                         {roomChoose}
                         {roomChoose}
                       </span>

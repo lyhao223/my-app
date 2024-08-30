@@ -243,7 +243,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       <RoomList
         roomList={roomList}
         adult={adult}
-        children={children}
+        child={children}
         roomChoose={roomChoose}
         findPriceBreakDown={findPriceBreakDown}
       />
