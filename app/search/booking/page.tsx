@@ -4,14 +4,13 @@ import BookingSearch from "@/app/Components/UI/Booking/BookingSearch/BookingSear
 import { store } from "@/app/services/redux/store";
 import React, { Suspense } from "react";
 import { Provider } from "react-redux";
-import Loading from "./loading";
 
 const Page = () => {
   return (
     <Provider store={store}>
       <div className="mb-14">
         <BookingIndex />
-        <Suspense fallback={<Loading />}>
+        <Suspense>
           <BookingSearch />
         </Suspense>
       </div>

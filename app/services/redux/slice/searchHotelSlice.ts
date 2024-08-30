@@ -10,9 +10,9 @@ interface HotelState {
     hotelID: string | null;
     checkinDate: string | null;
     checkoutDate: string | null;
-    adult: number | null;
-    children: number | null;
-    room: number | null;
+    adult: number | null | string;
+    children: number | null | string;
+    room: number | null | string;
 }
 
 const initialState: HotelState = {
@@ -40,7 +40,7 @@ export const fetchAutoCompleteLocation = createAsyncThunk('stays/auto-complete',
             // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
         // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
                 // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
-        'x-rapidapi-key': 'a46c365bebmsh8cbcc56908ea19dp174aa4jsn761cd2901fc0',
+        'x-rapidapi-key': '934339b836mshe8891fa7f06de75p1425c1jsn09682e6e9f50',
             'x-rapidapi-host': 'booking-com18.p.rapidapi.com',
         },
     };
@@ -70,7 +70,7 @@ export const fetchHotelSearch = createAsyncThunk(
                 // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
         // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
                 // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
-        'x-rapidapi-key': 'a46c365bebmsh8cbcc56908ea19dp174aa4jsn761cd2901fc0',
+        'x-rapidapi-key': '934339b836mshe8891fa7f06de75p1425c1jsn09682e6e9f50',
                 'x-rapidapi-host': 'booking-com18.p.rapidapi.com',
             },
         };

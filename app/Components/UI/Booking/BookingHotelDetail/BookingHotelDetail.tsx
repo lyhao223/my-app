@@ -3,25 +3,17 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "@/app/services/redux/hooks/hooks";
-import { TiTickOutline } from "react-icons/ti";
 import {
   fetchDetailHotel,
-  fetchRoomsRecommendation,
   getAllFacilities,
   getHotelFacilities,
 } from "@/app/services/redux/slice/detailHotelSlice";
 import { getPhotoHotel } from "@/app/services/redux/slice/fetchPhotoHotel";
-import { responsive } from "@/app/utils/carousel/ResponsiveCarousel";
-import { responsiveComment } from "@/app/utils/carousel/ResponsiveCommet";
-import CardPhotoHotel from "@/app/utils/Reuseable/CardPhotoHotel";
-import React, { useEffect, useRef } from "react";
-import Carousel from "react-multi-carousel";
+import React, { useEffect, useRef, useState } from "react";
 import "react-multi-carousel/lib/styles.css";
-import { FaLocationDot } from "react-icons/fa6";
-import { BsHighlights } from "react-icons/bs";
 import { fetchReviewScores } from "@/app/services/redux/slice/reviewScoresSlice";
 import { fetchDescriptionHotel } from "@/app/services/redux/slice/descriptionHotelSlice";
-import { Button, Skeleton } from "@mui/material";
+import { Button } from "@mui/material";
 import InfoHotel from "../InfoHotel/InfoHotel";
 import CarouselBooking from "../CarouselBooking/CarouselBooking";
 import BookingDescription from "../BookingDescription/BookingDescription";
@@ -33,20 +25,20 @@ import {
 import RecommendationRoom from "../RecommendationRoom/RecommendationRoom";
 import HotelFacilities from "../HotelFacilities/HotelFacilities";
 import { useRouter } from "next/navigation";
+import RoomList from "../RoomList/RoomList";
 interface IDetailBookingHotelProps {
   id: any;
   checkinDate?: string | any;
   checkoutDate?: string | any;
 }
 const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
+  const [loading, setLoading] = useState(true);
   const dispatch = useAppDispatch();
-  const checkinDate = useAppSelector((state) => state.searchHotel.checkinDate);
-  const checkoutDate = useAppSelector(
-    (state) => state.searchHotel.checkoutDate
-  );
-  const adult = useAppSelector((state) => state.searchHotel.adult);
-  const children = useAppSelector((state) => state.searchHotel.children);
-  const room = useAppSelector((state) => state.searchHotel.room);
+  let checkinDate = useAppSelector((state) => state.searchHotel.checkinDate);
+  let checkoutDate = useAppSelector((state) => state.searchHotel.checkoutDate);
+  let adult: any = useAppSelector((state) => state.searchHotel.adult);
+  let children: any = useAppSelector((state) => state.searchHotel.children);
+  let roomChoose: any = useAppSelector((state) => state.searchHotel.room);
   const photo = useAppSelector((state) => state.photoHotelSlice.photo);
   const hotel: any = useAppSelector((state) => state.detailHotelSlice.hotel);
   const status = useAppSelector((state) => state.detailHotelSlice.status);
@@ -83,6 +75,39 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
     return null;
   };
   useEffect(() => {
+    // Save values to localStorage when they are available
+    if (id && checkinDate && checkoutDate && adult && children && roomChoose) {
+      localStorage.setItem("hotelId", id);
+      localStorage.setItem("checkinDate", checkinDate);
+      localStorage.setItem("checkoutDate", checkoutDate);
+      localStorage.setItem("adult", adult);
+      localStorage.setItem("children", children);
+      localStorage.setItem("roomChoose", roomChoose);
+      setLoading(false);
+    } else {
+      // Retrieve values from localStorage on component mount
+      const storedId = localStorage.getItem("hotelId");
+      const storedCheckinDate = localStorage.getItem("checkinDate");
+      const storedCheckoutDate = localStorage.getItem("checkoutDate");
+      const storedAdult = localStorage.getItem("adult");
+      const storedChildren = localStorage.getItem("children");
+      const storedRoomChoose = localStorage.getItem("roomChoose");
+
+      if (storedId && storedCheckinDate && storedCheckoutDate) {
+        id = storedId;
+        checkinDate = storedCheckinDate;
+        checkoutDate = storedCheckoutDate;
+        adult = storedAdult;
+        children = storedChildren;
+        roomChoose = storedRoomChoose;
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+    }
+  }, [id, checkinDate, checkoutDate, adult, children, roomChoose]);
+
+  useEffect(() => {
     if (id && checkinDate && checkoutDate) {
       dispatch(
         fetchDetailHotel({
@@ -91,7 +116,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           checkoutDate: checkoutDate,
           adult: adult,
           children: children,
-          room: room,
+          room: roomChoose,
         })
       );
       dispatch(
@@ -101,7 +126,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           checkoutDate: checkoutDate,
           adult: adult,
           children: children,
-          room: room,
+          room: roomChoose,
         })
       );
       dispatch(
@@ -111,7 +136,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           checkoutDate: checkoutDate,
           adult: adult,
           children: children,
-          room: room,
+          room: roomChoose,
         })
       );
       dispatch(
@@ -121,7 +146,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           checkoutDate: checkoutDate,
           adult: adult,
           children: children,
-          room: room,
+          room: roomChoose,
         })
       );
       dispatch(
@@ -131,7 +156,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           checkoutDate: checkoutDate,
           adult: adult,
           children: children,
-          room: room,
+          room: roomChoose,
         })
       );
       dispatch(
@@ -141,7 +166,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           checkoutDate: checkoutDate,
           adult: adult,
           children: children,
-          room: room,
+          room: roomChoose,
         })
       );
     } else {
@@ -155,7 +180,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
     } else {
       return route.push("/search/booking");
     }
-  }, [id, checkinDate, checkoutDate, dispatch, adult, children, room]);
+  }, [id, checkinDate, checkoutDate, dispatch, adult, children, roomChoose]);
 
   return (
     <>
@@ -210,6 +235,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
             ?.amount_rounded
         }
         status={status}
+        id={id}
       />
 
       {/* facilities */}
@@ -220,10 +246,10 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       />
 
       {/*room list */}
-      <div className="mx-10 my-24">
+      {/* <div className="mx-10 my-24">
         <div className="h-auto rounded-lg shadow-xl bg-slate-200 p-6">
           <span className="text-2xl font-bold"> Another room lists:</span>
-          <div className="my-12 flex flex-row items-center justify-center">
+          <div className="my-12 flex flex-col 2xl:flex-row xl:flex-row items-center justify-center">
             <div className="flex flex-col items-center justify-center space-y-16">
               {roomList?.map((room: any, index: number) => {
                 const priceDown = findPriceBreakDown(room?.room_id);
@@ -231,34 +257,34 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
                 return (
                   <div
                     key={index}
-                    className="flex flex-row items-start justify-between border-b-2 border-b-red-500 ">
-                    <div className="flex flex-col items-start justify-start space-y-2 ">
+                    className="flex flex-col items-center justify-center 2xl:flex-row xl:flex-row 2xl:items-start 2xl:justify-between xl:items-start xl:justify-between border-b-2 2xl:border-b-red-500 xl:border-b-red-500 border-none ">
+                    <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start space-x-0 space-y-2 ">
                       <span
                         key={index}
-                        className="text-xl font-bold antialiased">
+                        className="text-xl font-bold antialiased text-wrap">
                         Name: {room?.room_name}
                       </span>
-                      <span className="text-wrap tracking-tight text-xs w-[30rem]">
+                      <span className="text-wrap tracking-tight text-xs 2xl:w-[30rem] xl:w-[30rem] w-80">
                         Description room: {room?.description}
                       </span>
                       {room?.bed_configurations[0]?.bed_types?.map(
                         (bed: any, index: number) => (
                           <div
                             key={index}
-                            className="flex flex-col items-start justify-start space-y-1 text-lg">
-                            <span>
+                            className="flex flex-col items-center justify-center text-sm">
+                            <p>
                               Room {index + 1}: {bed?.name_with_count}
-                            </span>
-                            <span>Description: {bed?.description}</span>
+                            </p>
+                            <p>Description: {bed?.description}</p>
                           </div>
                         )
                       )}
-                      <span className="italic text-red-600">
-                        {room?.only_x_left_message}
-                      </span>
                     </div>
+                    <span className="italic text-red-600">
+                      {room?.only_x_left_message}
+                    </span>
 
-                    <div className="mx-14 my-8 rounded-lg w-96 h-auto bg-blue-300">
+                    <div className="mx-14 my-8 rounded-lg w-80 2xl:w-96 xl:w-96 h-auto bg-blue-300">
                       <div className="flex flex-col items-start justify-start space-y-2 p-4">
                         <span className="text-sm font-bold">
                           Info booking:{" "}
@@ -266,7 +292,8 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
                             priceDown?.gross_amount?.value /
                               priceDown?.gross_amount_per_night.value
                           )}{" "}
-                          - Adults: {adult} - Children: {children} - Room: {2}
+                          - Adults: {adult} - Children: {children} - Room:{" "}
+                          {roomChoose}
                         </span>
                         <span className="line-through text-xs italic">
                           {priceDown?.strikethrough_amount?.amount_rounded}
@@ -294,7 +321,14 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <RoomList
+        roomList={roomList}
+        adult={adult}
+        children={children}
+        roomChoose={roomChoose}
+        findPriceBreakDown={findPriceBreakDown}
+      />
     </>
   );
 };
