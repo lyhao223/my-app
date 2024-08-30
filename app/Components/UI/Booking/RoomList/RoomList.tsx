@@ -60,7 +60,7 @@ const RoomList = ({
                         {Math.round(
                           priceDown?.gross_amount?.value /
                             priceDown?.gross_amount_per_night.value
-                        )}
+                        )}{" "}
                         Nights - Adults: {adult} - Children: {children} - Room:
                         {roomChoose}
                         {roomChoose}
