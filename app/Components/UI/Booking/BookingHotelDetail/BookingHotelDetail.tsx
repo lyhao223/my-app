@@ -232,6 +232,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         }
         status={status}
         id={id}
+        roomID={hotel?.room_recommendation[0]?.block_id}
       />
       {/* facilities */}
       <HotelFacilities

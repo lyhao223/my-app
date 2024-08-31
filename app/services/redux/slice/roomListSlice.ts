@@ -15,7 +15,7 @@ const initialState: RoomListState = {
 }
 
 
-export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: number | null , children?:number | null, room?:number | null}) => {
+export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: any , children?:any, room?:any}) => {
    const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
    const options = {
 	method: 'GET',
@@ -42,7 +42,7 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
     }
 })
 
-export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommendation/fetchRoomListRecommendation', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: number | null , children?:number | null, room?:number | null}) => {
+export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommendation/fetchRoomListRecommendation', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: number | null | any , children?:number | null | any, room?:number | null | any}) => {
    const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
    const options = {
 	method: 'GET',
@@ -69,7 +69,7 @@ export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommend
     }
 })
 
-export const blockHotelRoom = createAsyncThunk('blocHotel/getRoomID', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: number | null , children?:number | null, room?:number | null}) => {
+export const blockHotelRoom = createAsyncThunk('blocHotel/getRoomID', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: any , children?:any, room?:any}) => {
     const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric&currencyCode=vnd`
     const options = {
         method: 'GET',

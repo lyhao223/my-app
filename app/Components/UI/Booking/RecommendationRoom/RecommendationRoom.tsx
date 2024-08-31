@@ -14,6 +14,7 @@ interface IRecommendationRoomProps {
   grossAmountHotelRounded: any;
   status: any;
   id: any;
+  roomID: any;
 }
 const RecommendationRoom = ({
   recommendationBlockTitle,
@@ -28,6 +29,7 @@ const RecommendationRoom = ({
   grossAmountHotelRounded,
   status,
   id,
+  roomID,
 }: IRecommendationRoomProps) => {
   return (
     <>
@@ -89,7 +91,8 @@ const RecommendationRoom = ({
                   <span className="text-sm italic">
                     Taxes and fees included
                   </span>
-                  <Link href={`/search/booking/hotel/${id}/process-booking`}>
+                  <Link
+                    href={`/search/booking/hotel/${id}/process-booking-${roomID}`}>
                     <Button
                       variant="contained"
                       color="primary"
