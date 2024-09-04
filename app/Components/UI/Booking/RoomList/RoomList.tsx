@@ -63,6 +63,7 @@ const RoomList = ({
                         )}{" "}
                         Nights - Adults: {adult} - Children: {child} - Room:
                         {roomChoose}
+                        {roomChoose}
                       </span>
                       <span className="line-through text-xs italic">
                         {priceDown?.strikethrough_amount?.amount_rounded}

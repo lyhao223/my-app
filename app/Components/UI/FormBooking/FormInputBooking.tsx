@@ -10,12 +10,7 @@ import {
   getBlockIDRoomRecommendation,
 } from "@/app/services/redux/slice/roomListSlice";
 import { Button, Input, TextField } from "@mui/material";
-import React, { Fragment, useEffect } from "react";
-const storedCheckinDate = localStorage.getItem("checkinDate");
-const storedCheckoutDate = localStorage.getItem("checkoutDate");
-const storedAdult = localStorage.getItem("adult");
-const storedChildren = localStorage.getItem("children");
-const storedRoomChoose = localStorage.getItem("roomChoose");
+import React, { Fragment, useEffect, useState } from "react";
 interface IFormInputBookingProps {
   roomID?: any;
   hotelID?: any;
@@ -39,48 +34,78 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
     return null;
   };
   const roomList: any = useAppSelector((state) => state.roomListSlice.roomList);
+  const [storedCheckinDate, setStoredCheckinDate] = useState<any>();
+  const [storedCheckoutDate, setStoredCheckoutDate] = useState<any>();
+  const [storedAdult, setStoredAdult] = useState<any>();
+  const [storedChildren, setStoredChildren] = useState<any>();
+  const [storedRoomChoose, setStoredRoomChoose] = useState<any>();
 
   useEffect(() => {
-    dispatch(
-      fetchDetailHotel({
-        hotelID: hotelID,
-        checkinDate: storedCheckinDate,
-        checkoutDate: storedCheckoutDate,
-        adult: storedAdult,
-        children: storedChildren,
-        room: storedRoomChoose,
-      })
-    );
-    dispatch(fetchReviewScores(hotelID));
-    getBlockIDRoomRecommendation({
-      hotelID: hotelID,
-      checkinDate: storedCheckinDate,
-      checkoutDate: storedCheckoutDate,
-      adult: storedAdult,
-      children: storedChildren,
-      room: storedRoomChoose,
-    });
-    dispatch(
-      blockHotelRoom({
-        hotelID: hotelID,
-        checkinDate: storedCheckinDate,
-        checkoutDate: storedCheckoutDate,
-        adult: storedAdult,
-        children: storedChildren,
-        room: storedRoomChoose,
-      })
-    );
-    dispatch(
-      fetchRoomList({
-        hotelID: hotelID,
-        checkinDate: storedCheckinDate,
-        checkoutDate: storedCheckoutDate,
-        adult: storedAdult,
-        children: storedChildren,
-        room: storedRoomChoose,
-      })
-    );
+    if (typeof window !== "undefined") {
+      setStoredCheckinDate(localStorage.getItem("checkinDate"));
+      setStoredCheckoutDate(localStorage.getItem("checkoutDate"));
+      setStoredAdult(localStorage.getItem("adult"));
+      setStoredChildren(localStorage.getItem("children"));
+      setStoredRoomChoose(localStorage.getItem("roomChoose"));
+    }
   }, []);
+  useEffect(() => {
+    if (
+      storedCheckinDate &&
+      storedCheckoutDate &&
+      storedAdult &&
+      storedChildren &&
+      storedRoomChoose
+    ) {
+      dispatch(
+        fetchDetailHotel({
+          hotelID: hotelID,
+          checkinDate: storedCheckinDate,
+          checkoutDate: storedCheckoutDate,
+          adult: storedAdult,
+          children: storedChildren,
+          room: storedRoomChoose,
+        })
+      );
+      dispatch(fetchReviewScores(hotelID));
+      getBlockIDRoomRecommendation({
+        hotelID: hotelID,
+        checkinDate: storedCheckinDate,
+        checkoutDate: storedCheckoutDate,
+        adult: storedAdult,
+        children: storedChildren,
+        room: storedRoomChoose,
+      });
+      dispatch(
+        blockHotelRoom({
+          hotelID: hotelID,
+          checkinDate: storedCheckinDate,
+          checkoutDate: storedCheckoutDate,
+          adult: storedAdult,
+          children: storedChildren,
+          room: storedRoomChoose,
+        })
+      );
+      dispatch(
+        fetchRoomList({
+          hotelID: hotelID,
+          checkinDate: storedCheckinDate,
+          checkoutDate: storedCheckoutDate,
+          adult: storedAdult,
+          children: storedChildren,
+          room: storedRoomChoose,
+        })
+      );
+    } else {
+      console.log(storedCheckinDate);
+    }
+  }, [
+    storedCheckinDate,
+    storedCheckoutDate,
+    storedAdult,
+    storedChildren,
+    storedRoomChoose,
+  ]);
   return (
     <>
       <div className="flex items-start justify-center">
