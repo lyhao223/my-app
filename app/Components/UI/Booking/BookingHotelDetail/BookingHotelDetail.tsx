@@ -119,6 +119,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
           room: roomChoose,
         })
       );
+
       dispatch(
         fetchRoomList({
           hotelID: id,
@@ -232,7 +233,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         }
         status={status}
         id={id}
-        roomID={hotel?.room_recommendation[0]?.block_id}
+        roomID={
+          hotel?.room_recommendation && hotel?.room_recommendation[0]?.block_id
+        }
       />
       {/* facilities */}
       <HotelFacilities

@@ -92,7 +92,7 @@ const RecommendationRoom = ({
                     Taxes and fees included
                   </span>
                   <Link
-                    href={`/search/booking/hotel/${id}/process-booking-${roomID}`}>
+                    href={`/search/booking/hotel/${id}/process-booking/${roomID}`}>
                     <Button
                       variant="contained"
                       color="primary"

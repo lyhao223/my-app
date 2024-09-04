@@ -11,7 +11,11 @@ import {
 } from "@/app/services/redux/slice/roomListSlice";
 import { Button, Input, TextField } from "@mui/material";
 import React, { Fragment, useEffect } from "react";
-
+const storedCheckinDate = localStorage.getItem("checkinDate");
+const storedCheckoutDate = localStorage.getItem("checkoutDate");
+const storedAdult = localStorage.getItem("adult");
+const storedChildren = localStorage.getItem("children");
+const storedRoomChoose = localStorage.getItem("roomChoose");
 interface IFormInputBookingProps {
   roomID?: any;
   hotelID?: any;
@@ -36,11 +40,6 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
   };
   const roomList: any = useAppSelector((state) => state.roomListSlice.roomList);
 
-  const storedCheckinDate = localStorage.getItem("checkinDate");
-  const storedCheckoutDate = localStorage.getItem("checkoutDate");
-  const storedAdult = localStorage.getItem("adult");
-  const storedChildren = localStorage.getItem("children");
-  const storedRoomChoose = localStorage.getItem("roomChoose");
   useEffect(() => {
     dispatch(
       fetchDetailHotel({
