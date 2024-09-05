@@ -42,6 +42,10 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      console.log(
+        "Checkin Date from localStorage: ",
+        localStorage.getItem("checkinDate")
+      );
       setStoredCheckinDate(localStorage.getItem("checkinDate"));
       setStoredCheckoutDate(localStorage.getItem("checkoutDate"));
       setStoredAdult(localStorage.getItem("adult"));
@@ -58,6 +62,17 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
       storedRoomChoose
     ) {
       dispatch(
+        fetchRoomList({
+          hotelID: hotelID,
+          checkinDate: storedCheckinDate,
+          checkoutDate: storedCheckoutDate,
+          adult: storedAdult,
+          children: storedChildren,
+          room: storedRoomChoose,
+        })
+      );
+
+      dispatch(
         fetchDetailHotel({
           hotelID: hotelID,
           checkinDate: storedCheckinDate,
@@ -68,14 +83,16 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
         })
       );
       dispatch(fetchReviewScores(hotelID));
-      getBlockIDRoomRecommendation({
-        hotelID: hotelID,
-        checkinDate: storedCheckinDate,
-        checkoutDate: storedCheckoutDate,
-        adult: storedAdult,
-        children: storedChildren,
-        room: storedRoomChoose,
-      });
+      dispatch(
+        getBlockIDRoomRecommendation({
+          hotelID: hotelID,
+          checkinDate: storedCheckinDate,
+          checkoutDate: storedCheckoutDate,
+          adult: storedAdult,
+          children: storedChildren,
+          room: storedRoomChoose,
+        })
+      );
       dispatch(
         blockHotelRoom({
           hotelID: hotelID,
@@ -86,18 +103,9 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
           room: storedRoomChoose,
         })
       );
-      dispatch(
-        fetchRoomList({
-          hotelID: hotelID,
-          checkinDate: storedCheckinDate,
-          checkoutDate: storedCheckoutDate,
-          adult: storedAdult,
-          children: storedChildren,
-          room: storedRoomChoose,
-        })
-      );
-    } else {
+
       console.log(storedCheckinDate);
+    } else {
     }
   }, [
     storedCheckinDate,
@@ -154,30 +162,31 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
               {roomList.map((room: any, index: number) => {
                 const priceDown = findPriceBreakDown(room?.room_id);
                 return (
-                  <Fragment key={index}>
-                    <div className="flex flex-row items-center justify-between">
-                      <span>Price Amout:</span>
-                      <span>{priceDown?.gross_amount?.value}</span>
-                    </div>
-                    <div className="flex flex-row items-center justify-between">
-                      <span>Price With Voucher:</span>
-                      <span>500,000VND</span>
-                    </div>
-                    <div className="min-w-full h-20 bg-blue-300 rounded-lg p-2 my-3">
-                      <div className="flex flex-row items-center justify-between">
-                        <span>Total:</span>
-                        <div className="flex flex-col items-end justify-start">
-                          <span>1,500,000VND</span>
-                          <span>500,000VND</span>
-                          <span>VAT and Fee includes</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-start justify-start">
-                      <span>Info price:</span>
-                      <span>Include 8% VAT and 33,800VND</span>
-                    </div>
-                  </Fragment>
+                  // <Fragment key={index}>
+                  //   <div className="flex flex-row items-center justify-between">
+                  //     <span>Price Amout:</span>
+                  //     <span>{priceDown?.gross_amount?.value}</span>
+                  //   </div>
+                  //   <div className="flex flex-row items-center justify-between">
+                  //     <span>Price With Voucher:</span>
+                  //     <span>500,000VND</span>
+                  //   </div>
+                  //   <div className="min-w-full h-20 bg-blue-300 rounded-lg p-2 my-3">
+                  //     <div className="flex flex-row items-center justify-between">
+                  //       <span>Total:</span>
+                  //       <div className="flex flex-col items-end justify-start">
+                  //         <span>1,500,000VND</span>
+                  //         <span>500,000VND</span>
+                  //         <span>VAT and Fee includes</span>
+                  //       </div>
+                  //     </div>
+                  //   </div>
+                  //   <div className="flex flex-col items-start justify-start">
+                  //     <span>Info price:</span>
+                  //     <span>Include 8% VAT and 33,800VND</span>
+                  //   </div>
+                  // </Fragment>
+                  <p>test</p>
                 );
               })}
             </div>

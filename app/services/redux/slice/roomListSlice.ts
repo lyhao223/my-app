@@ -25,7 +25,7 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
         // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
         // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
                 // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
-        'x-rapidapi-key': '7d23c4f8d1msh0aaeedf62864e67p1f5d6fjsn1a453b82d9ba',
+        'x-rapidapi-key': '4d29d698b4msh069b0825f3c3722p155acdjsn24a074542944',
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -33,7 +33,7 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
         const res = await fetch(url, options);
         if(res.ok){
             const data = await res.json();
-            return data?.data?.room_list;
+            return data?.data;
         }else {
             throw new Error('Failed to fetch data');
         }
@@ -52,7 +52,7 @@ export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommend
         // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
         // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
                 // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
-        'x-rapidapi-key': '7d23c4f8d1msh0aaeedf62864e67p1f5d6fjsn1a453b82d9ba',
+        'x-rapidapi-key': '4d29d698b4msh069b0825f3c3722p155acdjsn24a074542944',
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -79,7 +79,7 @@ export const blockHotelRoom = createAsyncThunk('blocHotel/getRoomID', async ({ho
             // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
             // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
                     // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
-        'x-rapidapi-key': '7d23c4f8d1msh0aaeedf62864e67p1f5d6fjsn1a453b82d9ba',
+        'x-rapidapi-key': '4d29d698b4msh069b0825f3c3722p155acdjsn24a074542944',
             'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
     };

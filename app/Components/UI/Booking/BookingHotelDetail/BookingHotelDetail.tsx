@@ -69,7 +69,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
   const findPriceBreakDown = (roomID: any) => {
     for (const blockItem of blockHotel) {
       if (blockItem.room_id === roomID) {
-        return blockItem?.product_price_breakdown;
+        return blockItem.room_id;
       }
     }
     return null;

@@ -20,8 +20,8 @@ const RoomList = ({
         <span className="text-2xl font-bold"> Another room lists:</span>
         <div className="my-12 flex flex-col 2xl:flex-row xl:flex-row items-center justify-center">
           <div className="flex flex-col items-center justify-center space-y-16">
-            {roomList?.map((room: any, index: number) => {
-              const priceDown = findPriceBreakDown(room?.room_id);
+            {roomList?.block?.map((room: any, index: number) => {
+              const getRoomID = findPriceBreakDown(room?.room_id);
 
               return (
                 <div
@@ -36,7 +36,9 @@ const RoomList = ({
                     <span className="hidden 2xl:inline-block xl:inline-block lg:inline-block md:inline-block text-wrap tracking-tight text-xs 2xl:w-[30rem] xl:w-[30rem] lg:w-[42rem] md:w-[28rem] w-80">
                       Description room: {room?.description}
                     </span>
-                    {room?.bed_configurations[0]?.bed_types?.map(
+                    {roomList?.rooms[
+                      getRoomID
+                    ]?.bed_configurations[0]?.bed_types?.map(
                       (bed: any, index: number) => (
                         <div
                           key={index}
@@ -58,18 +60,25 @@ const RoomList = ({
                       <span className="text-sm font-bold">
                         Info booking:{" "}
                         {Math.round(
-                          priceDown?.gross_amount?.value /
-                            priceDown?.gross_amount_per_night.value
+                          room?.product_price_breakdown?.gross_amount?.value /
+                            room?.product_price_breakdown
+                              ?.gross_amount_per_night.value
                         )}{" "}
                         Nights - Adults: {adult} - Children: {child} - Room:
                         {roomChoose}
                         {roomChoose}
                       </span>
                       <span className="line-through text-xs italic">
-                        {priceDown?.strikethrough_amount?.amount_rounded}
+                        {
+                          room?.product_price_breakdown?.strikethrough_amount
+                            ?.amount_rounded
+                        }
                       </span>
                       <span className="text-xl font-bold text-red-500">
-                        {priceDown?.gross_amount?.amount_rounded}
+                        {
+                          room?.product_price_breakdown?.gross_amount
+                            ?.amount_rounded
+                        }
                       </span>
                       <span className="text-xs italic tracking-wide">
                         Taxes and fees included
