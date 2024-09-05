@@ -16,7 +16,7 @@ const initialState: RoomListState = {
 
 
 export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: any , children?:any, room?:any}) => {
-   const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
+   const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric&currencyCode=vnd`
    const options = {
 	method: 'GET',
 	headers: {
@@ -25,7 +25,7 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
         // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
         // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
                 // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
-        'x-rapidapi-key': '4d29d698b4msh069b0825f3c3722p155acdjsn24a074542944',
+        'x-rapidapi-key': 'f29029bc0bmshb775293de0f8d2cp1a3632jsnd5d94cab716e',
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -43,7 +43,7 @@ export const fetchRoomList = createAsyncThunk('roomList/fetchRoomList', async ({
 })
 
 export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommendation/fetchRoomListRecommendation', async ({hotelID, checkinDate, checkoutDate, adult, children, room}:{hotelID: any, checkinDate: any, checkoutDate: any, adult?: number | null | any , children?:number | 0 | any, room?:number | null | any}) => {
-   const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric`
+   const url = `https://booking-com18.p.rapidapi.com/stays/room-list?hotelId=${hotelID}&checkinDate=${checkinDate}&checkoutDate=${checkoutDate}&rooms=${room}&adults=${adult}&children=${children}&units=metric&currencyCode=vnd`
    const options = {
 	method: 'GET',
 	headers: {
@@ -52,7 +52,7 @@ export const getBlockIDRoomRecommendation =  createAsyncThunk('roomListRecommend
         // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
         // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
                 // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
-        'x-rapidapi-key': '4d29d698b4msh069b0825f3c3722p155acdjsn24a074542944',
+        'x-rapidapi-key': 'f29029bc0bmshb775293de0f8d2cp1a3632jsnd5d94cab716e',
 		'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
 };
@@ -79,7 +79,7 @@ export const blockHotelRoom = createAsyncThunk('blocHotel/getRoomID', async ({ho
             // 'x-rapidapi-key': '170546d326msh08a84815d65b01fp1cd7dajsnec89c52256ca',
             // 'x-rapidapi-key': 'ad3d6c1eecmsh0bab332e06a942ap15b50ejsnde34c9285d4f',
                     // 'x-rapidapi-key': '076d13b60dmsh3bb47f1b2b19984p12ef60jsn9a1ba3f6e983',
-        'x-rapidapi-key': '4d29d698b4msh069b0825f3c3722p155acdjsn24a074542944',
+        'x-rapidapi-key': 'f29029bc0bmshb775293de0f8d2cp1a3632jsnd5d94cab716e',
             'x-rapidapi-host': 'booking-com18.p.rapidapi.com'
 	}
     };

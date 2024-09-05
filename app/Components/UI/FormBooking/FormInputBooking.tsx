@@ -27,8 +27,8 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
   const blockHotel = useAppSelector((state) => state.roomListSlice.blockHotel);
   const findPriceBreakDown = (roomID: any) => {
     for (const blockItem of blockHotel) {
-      if (blockItem.room_id === roomID) {
-        return blockItem?.product_price_breakdown;
+      if (blockItem.block_id === roomID) {
+        return blockItem;
       }
     }
     return null;
@@ -39,7 +39,7 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
   const [storedAdult, setStoredAdult] = useState<any>();
   const [storedChildren, setStoredChildren] = useState<any>();
   const [storedRoomChoose, setStoredRoomChoose] = useState<any>();
-
+  const priceDown = findPriceBreakDown(roomID);
   useEffect(() => {
     if (typeof window !== "undefined") {
       console.log(
@@ -104,7 +104,7 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
         })
       );
 
-      console.log(storedCheckinDate);
+      console.log(roomID.split("_")[0]);
     } else {
     }
   }, [
@@ -146,7 +146,13 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
                   <span>Check out date: {storedCheckoutDate}</span>
                 </div>
                 <span>Amount nights:</span>
-                <span>4</span>
+                <span>
+                  {Math.round(
+                    priceDown?.product_price_breakdown?.gross_amount?.value /
+                      priceDown?.product_price_breakdown?.gross_amount_per_night
+                        ?.value
+                  )}
+                </span>
                 <span>You choose:</span>
                 <span>
                   {storedRoomChoose} rooms - {storedAdult} adults -{" "}
@@ -159,36 +165,80 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
 
             <div className="w-80 h-auto p-4 border-2 rounded-lg">
               <span>Detail Price:</span>
-              {roomList.map((room: any, index: number) => {
+              {roomID.split("_")[0]}
+              {/* {roomList?.block.map((room: any, index: number) => {
                 const priceDown = findPriceBreakDown(room?.room_id);
+                console.log(priceDown);
                 return (
-                  // <Fragment key={index}>
-                  //   <div className="flex flex-row items-center justify-between">
-                  //     <span>Price Amout:</span>
-                  //     <span>{priceDown?.gross_amount?.value}</span>
-                  //   </div>
-                  //   <div className="flex flex-row items-center justify-between">
-                  //     <span>Price With Voucher:</span>
-                  //     <span>500,000VND</span>
-                  //   </div>
-                  //   <div className="min-w-full h-20 bg-blue-300 rounded-lg p-2 my-3">
-                  //     <div className="flex flex-row items-center justify-between">
-                  //       <span>Total:</span>
-                  //       <div className="flex flex-col items-end justify-start">
-                  //         <span>1,500,000VND</span>
-                  //         <span>500,000VND</span>
-                  //         <span>VAT and Fee includes</span>
-                  //       </div>
-                  //     </div>
-                  //   </div>
-                  //   <div className="flex flex-col items-start justify-start">
-                  //     <span>Info price:</span>
-                  //     <span>Include 8% VAT and 33,800VND</span>
-                  //   </div>
-                  // </Fragment>
-                  <p>test</p>
+                  <Fragment key={index}>
+                    <span>{room?.room_id}</span>
+                    <div className="flex flex-row items-center justify-between">
+                      <span>Price Amout:</span>
+                      <span>{priceDown?.gross_amount?.amount_unrounded}</span>
+                    </div>
+                    <div className="flex flex-row items-center justify-between">
+                      <span>Price With Voucher:</span>
+                      <span>500,000VND</span>
+                    </div>
+                    <div className="min-w-full h-20 bg-blue-300 rounded-lg p-2 my-3">
+                      <div className="flex flex-row items-center justify-between">
+                        <span>Total:</span>
+                        <div className="flex flex-col items-end justify-start">
+                          <span>1,500,000VND</span>
+                          <span>500,000VND</span>
+                          <span>VAT and Fee includes</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-start justify-start">
+                      <span>Info price:</span>
+                      <span>Include 8% VAT and 33,800VND</span>
+                    </div>
+                  </Fragment>
                 );
-              })}
+              })} */}
+              <div className="flex flex-row items-center justify-between">
+                <span>Price Amout:</span>
+                <span>
+                  {
+                    priceDown?.product_price_breakdown
+                      ?.strikethrough_amount_per_night?.amount_unrounded
+                  }
+                </span>
+              </div>
+              <div className="flex flex-row items-center justify-between">
+                <span>Price With Voucher:</span>
+                <span className="font-bold text-red-500">
+                  {
+                    priceDown?.product_price_breakdown?.gross_amount_per_night
+                      ?.amount_unrounded
+                  }
+                </span>
+              </div>
+              <div className="min-w-full h-20 bg-blue-300 rounded-lg p-2 my-3">
+                <div className="flex flex-col items-start justify-start">
+                  <span>Total:</span>
+                  <div className="flex flex-col items-start justify-start">
+                    <span>
+                      {
+                        priceDown?.product_price_breakdown?.gross_amount
+                          ?.amount_unrounded
+                      }
+                    </span>
+                    <span>VAT and Fee includes</span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col items-start justify-start">
+                <span>Info price:</span>
+                <span>
+                  Include 8% VAT and TAX -{" "}
+                  {
+                    priceDown?.product_price_breakdown
+                      ?.included_taxes_and_charges_amount?.amount_unrounded
+                  }
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -228,10 +278,16 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
             <div className="w-full border-2 rounded-lg p-4">
               <span>Notes</span>
               <div className="my-2 flex flex-col items-start justify-start space-y-2">
-                <span>No payment</span>
-                <span>No payment</span>
-                <span>No payment</span>
-                <span>No payment</span>
+                <span>{priceDown?.no_cc_object?.title}</span>
+                <span>
+                  {
+                    priceDown?.paymentterms?.prepayment
+                      ?.extended_type_translation
+                  }
+                </span>
+                <span>
+                  {priceDown?.paymentterms?.cancellation?.type_translation}
+                </span>
               </div>
             </div>
 
