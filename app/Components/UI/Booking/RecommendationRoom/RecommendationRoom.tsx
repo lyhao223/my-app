@@ -76,7 +76,7 @@ const RecommendationRoom = ({
                 ]?.bed_configurations[0]?.bed_types.map(
                   (bed: any, index: number) =>
                     status === "loading" ? (
-                      <Skeleton width={430} height={28} />
+                      <Skeleton width={430} height={28} key={index} />
                     ) : (
                       <span className="text-lg" key={index}>
                         Room {index + 1}: {bed.count} x {bed.name} -
