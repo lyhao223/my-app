@@ -103,8 +103,6 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
           room: storedRoomChoose,
         })
       );
-
-      console.log(roomID.split("_")[0]);
     } else {
     }
   }, [

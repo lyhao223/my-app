@@ -256,6 +256,8 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         findPriceBreakDown={findPriceBreakDown}
         status={status}
         detailHotel={hotel}
+        id={id}
+        roomID={1}
       />
     </>
   );
