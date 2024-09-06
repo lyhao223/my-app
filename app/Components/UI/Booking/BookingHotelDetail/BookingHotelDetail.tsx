@@ -100,6 +100,7 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         adult = storedAdult;
         children = storedChildren;
         roomChoose = storedRoomChoose;
+
         setLoading(false);
       } else {
         setLoading(false);
@@ -236,6 +237,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         roomID={
           hotel?.room_recommendation && hotel?.room_recommendation[0]?.block_id
         }
+        adults={localStorage.getItem("adult")}
+        child={localStorage.getItem("children")}
+        roomChoose={localStorage.getItem("roomChoose")}
       />
       {/* facilities */}
       <HotelFacilities
@@ -246,10 +250,12 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
       {/*room list */}
       <RoomList
         roomList={roomList}
-        adult={adult}
-        child={children}
-        roomChoose={roomChoose}
+        adult={localStorage.getItem("adult")}
+        child={localStorage.getItem("children")}
+        roomChoose={localStorage.getItem("roomChoose")}
         findPriceBreakDown={findPriceBreakDown}
+        status={status}
+        detailHotel={hotel}
       />
     </>
   );

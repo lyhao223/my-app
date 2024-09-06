@@ -6,6 +6,8 @@ interface IRoomList {
   adult: any;
   child: any;
   roomChoose: any;
+  status: any;
+  detailHotel: any;
 }
 const RoomList = ({
   roomList,
@@ -13,6 +15,8 @@ const RoomList = ({
   adult,
   child,
   roomChoose,
+  status,
+  detailHotel,
 }: IRoomList) => {
   return (
     <div className="mx-10 my-24">
@@ -21,8 +25,6 @@ const RoomList = ({
         <div className="my-12 flex flex-col 2xl:flex-row xl:flex-row items-center justify-center">
           <div className="flex flex-col items-center justify-center space-y-16">
             {roomList?.block?.map((room: any, index: number) => {
-              const getRoomID = findPriceBreakDown(room?.room_id);
-
               return (
                 <div
                   key={index}
@@ -34,10 +36,10 @@ const RoomList = ({
                       Name: {room?.room_name}
                     </span>
                     <span className="hidden 2xl:inline-block xl:inline-block lg:inline-block md:inline-block text-wrap tracking-tight text-xs 2xl:w-[30rem] xl:w-[30rem] lg:w-[42rem] md:w-[28rem] w-80">
-                      Description room: {room?.description}
+                      Description room: {room?.name}
                     </span>
                     {roomList?.rooms[
-                      getRoomID
+                      room?.room_id
                     ]?.bed_configurations[0]?.bed_types?.map(
                       (bed: any, index: number) => (
                         <div
@@ -51,11 +53,11 @@ const RoomList = ({
                       )
                     )}
                     <span className="italic text-red-600">
-                      {room?.only_x_left_message}
+                      {detailHotel?.only_x_left?.rooms_list[room?.block_id]}
                     </span>
                   </div>
 
-                  <div className="mx-14 my-8 rounded-lg 2xl:w-96 xl:w-96 lg:w-96 md:w-auto w-60 h-auto bg-blue-300">
+                  <div className="mx-14 rounded-lg 2xl:w-96 xl:w-96 lg:w-96 md:w-auto w-60 h-auto bg-blue-300">
                     <div className="flex flex-col items-start justify-start space-y-2 p-4">
                       <span className="text-sm font-bold">
                         Info booking:{" "}
@@ -65,7 +67,6 @@ const RoomList = ({
                               ?.gross_amount_per_night.value
                         )}{" "}
                         Nights - Adults: {adult} - Children: {child} - Room:
-                        {roomChoose}
                         {roomChoose}
                       </span>
                       <span className="line-through text-xs italic">

@@ -147,11 +147,16 @@ const FormInputBooking = ({ roomID, hotelID }: IFormInputBookingProps) => {
                 </div>
                 <span>Amount nights:</span>
                 <span>
-                  {Math.round(
-                    priceDown?.product_price_breakdown?.gross_amount?.value /
-                      priceDown?.product_price_breakdown?.gross_amount_per_night
-                        ?.value
-                  )}
+                  {priceDown?.product_price_breakdown?.gross_amount?.value &&
+                  priceDown?.product_price_breakdown?.gross_amount_per_night
+                    ?.value
+                    ? Math.round(
+                        priceDown?.product_price_breakdown?.gross_amount
+                          ?.value /
+                          priceDown?.product_price_breakdown
+                            ?.gross_amount_per_night?.value
+                      )
+                    : "N/A"}
                 </span>
                 <span>You choose:</span>
                 <span>
