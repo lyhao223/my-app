@@ -53,7 +53,7 @@ const CardHotel = ({
         <div className="row-span-2 2xl:col-span-2 xl:col-span-2 lg:col-span-2 w-fit">
           <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start space-y-6">
             <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start space-y-3">
-              <span className="2xl:text-wrap xl:text-nowrap lg:text-nowrap md:text-nowrap text-wrap text-center 2xl:text-start xl:text-start lg:text-start w-full text-lg font-semibold antialiased">
+              <span className="text-wrap text-center 2xl:text-start xl:text-start lg:text-start w-full text-lg font-semibold antialiased">
                 {loading === "loading" ? <Skeleton width={200} /> : hotelName}
               </span>
               <div className="flex flex-col items-center justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start lg:items-start lg:justify-start">

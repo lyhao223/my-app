@@ -237,9 +237,9 @@ const BookingHotelDetail = ({ id }: IDetailBookingHotelProps) => {
         roomID={
           hotel?.room_recommendation && hotel?.room_recommendation[0]?.block_id
         }
-        adults={localStorage.getItem("adult")}
-        child={localStorage.getItem("children")}
-        roomChoose={localStorage.getItem("roomChoose")}
+        adults={adult}
+        child={children}
+        roomChoose={roomChoose}
       />
       {/* facilities */}
       <HotelFacilities
