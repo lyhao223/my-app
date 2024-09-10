@@ -3,7 +3,7 @@ import React from "react";
 
 const HeadingAbout = () => {
   return (
-    <div className="my-12 mx-12">
+    <div className="my-12">
       <div className="flex flex-col items-center justify-center space-y-6">
         <h1 className="font-bold text-6xl text-center tracking-wide text-wrap">
           If You Want To See The World We Will Help You
