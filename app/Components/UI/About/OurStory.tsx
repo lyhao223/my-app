@@ -2,9 +2,9 @@ import React from "react";
 
 const OurStory = () => {
   return (
-    <div className="mx-24 flex flex-col items-start justify-start space-y-4">
+    <div className="mx-2 2xl:mx-24 xl:mx-24 flex flex-col items-start justify-center 2xl:items-start 2xl:justify-start xl:items-start xl:justify-start space-y-4">
       <h1 className="text-5xl font-bold tracking-wide">Our Story</h1>
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col items-start justify-center 2xl:justify-start xl:justify-start space-y-4">
         <p>
           Founded in 2006, passage its ten led hearted removal cordial.
           Preference any astonished unreserved Mrs. Prosperous understood
