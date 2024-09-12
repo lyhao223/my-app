@@ -4,7 +4,7 @@ import FormContact from "../Components/UI/Contact/FormContact";
 
 const Page = () => {
   return (
-    <div className="mx-36 py-16 flex flex-col items-start justify-start space-y-36">
+    <div className="2xl:mx-36 xl:mx-36 mx-6 py-16 flex flex-col items-center justify-center space-y-36">
       <HeadingContact />
       <FormContact />
     </div>
