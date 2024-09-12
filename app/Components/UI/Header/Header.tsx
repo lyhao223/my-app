@@ -39,7 +39,7 @@ const Header = () => {
         <Link href={"/about"}>
           <span className="text-lg subpixel-antialiased">About</span>
         </Link>
-        <Link href={"/"}>
+        <Link href={"/contact"}>
           <span className="text-lg subpixel-antialiased">Contact</span>
         </Link>
         <Link href={"/"}>
