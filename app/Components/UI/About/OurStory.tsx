@@ -13,31 +13,16 @@ const OurStory = () => {
           direct me so.
         </p>
         <p>
-          Water timed folly right aware if oh truth. Imprudence attachment him
-          his for sympathize. Large above be to means. Dashwood does provide
-          stronger is. Warrant private blushes removed an in equally totally if.
-          Delivered dejection necessary objection do Mr prevailed. Mr feeling
-          does chiefly cordial in do. ...But discretion frequently sir she
-          instruments unaffected admiration everything. Meant balls it if up
-          doubt small purse. Required his you put the outlived answered
-          position. A pleasure exertion if believed provided to. All led out
-          world this music while asked. Paid mind even sons does he door no.
-          Attended overcame repeated it is perceived Marianne in. I think on
-          style child of. Servants moreover in sensible it ye possible.
-          Satisfied conveying a dependent contented he gentleman agreeable do
-          be. Water timed folly right aware if oh truth. Imprudence attachment
-          him his for sympathize. Large above be to means. Dashwood does provide
-          stronger is. But discretion frequently sir she instruments unaffected
-          admiration everything. Meant balls it if up doubt small purse.
-          Required his you put the outlived answered position. I think on style
-          child of. Servants moreover in sensible it ye possible. Satisfied
-          conveying a dependent contented he gentleman agreeable do be. Warrant
-          private blushes removed an in equally totally if. Delivered dejection
-          necessary objection do Mr prevailed. Required his you put the outlived
-          answered position. A pleasure exertion if believed provided to. All
-          led out world this music while asked. Paid mind even sons does he door
-          no. Attended overcame repeated it is perceived Marianne in. I think on
-          style child of. Servants moreover in sensible it ye possible.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi
+          aliquid vero ipsum placeat maiores et. Fugit consectetur error quasi.
+          Nisi in, nam asperiores blanditiis libero cum dolorum culpa.
+          Laudantium, porro. Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Recusandae nam quo eum. Non, deleniti assumenda quos possimus,
+          dolorum itaque animi quidem voluptas soluta officia laboriosam,
+          ducimus atque illo voluptate neque. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Est repellendus quasi et corporis itaque
+          modi assumenda sunt quos facere quas officiis inventore, aut, quae
+          animi quidem dolorum. Eveniet, qui magni?
         </p>
       </div>
     </div>
