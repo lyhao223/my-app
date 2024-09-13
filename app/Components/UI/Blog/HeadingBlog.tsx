@@ -41,7 +41,7 @@ const HeadingBlog = () => {
           />
           <SubBlog
             image={b4.src}
-            title="Ten unconventional tips about startups that you can't learn from books"
+            title="Ten unconventional tips about startups that you can not learn from books"
             date="Sep 01, 2022"
           />
         </div>

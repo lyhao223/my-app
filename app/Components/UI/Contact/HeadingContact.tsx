@@ -7,7 +7,7 @@ const HeadingContact = () => {
   return (
     <div className="flex flex-col items-center justify-center space-y-8">
       <h1 className="text-4xl 2xl:text-5xl xl:text-5xl font-bold tracking-wider">
-        Let's connect and get to know each other
+        Let connect and get to know each other
       </h1>
       <p className="text-xl text-center">
         Passage its ten led hearted removal cordial. Preference any astonished
