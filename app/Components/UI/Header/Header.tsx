@@ -42,7 +42,7 @@ const Header = () => {
         <Link href={"/contact"}>
           <span className="text-lg subpixel-antialiased">Contact</span>
         </Link>
-        <Link href={"/"}>
+        <Link href={"/blog"}>
           <span className="text-lg subpixel-antialiased">Blog</span>
         </Link>
       </nav>
