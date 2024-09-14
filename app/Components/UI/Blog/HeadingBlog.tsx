@@ -23,23 +23,28 @@ const HeadingBlog = () => {
             </span>
 
             <span className="text-sm font-bold">By Joan Wallace</span>
-            <Link href="" className="text-blue-600 text-lg font-semibold">
+            <Link
+              href={"blog/blogdetail/0"}
+              className="text-blue-600 text-lg font-semibold">
               Read more
             </Link>
           </div>
         </div>
         <div className="flex flex-col items-start space-y-5">
           <SubBlog
+            id="1"
             image={b2.src}
             title="Bad habits that people in the business industry need to quit"
             date="Sep 01, 2022"
           />
           <SubBlog
+            id="2"
             image={b3.src}
             title="Around the web: 20 fabulous info graphics about business"
             date="Sep 01, 2022"
           />
           <SubBlog
+            id="3"
             image={b4.src}
             title="Ten unconventional tips about startups that you can not learn from books"
             date="Sep 01, 2022"
